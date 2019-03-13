@@ -20,6 +20,7 @@
 		17B40FBC2238E5FC00C8882D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40FBB2238E5FC00C8882D /* Constants.swift */; };
 		17B40FBE2238F61700C8882D /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40FBD2238F61700C8882D /* RepoCell.swift */; };
 		17B40FC02239036A00C8882D /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40FBF2239036A00C8882D /* DescriptionView.swift */; };
+		17B40FC32239103100C8882D /* TableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40FC22239103100C8882D /* TableView+Reusable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		17B40FBB2238E5FC00C8882D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		17B40FBD2238F61700C8882D /* RepoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
 		17B40FBF2239036A00C8882D /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
+		17B40FC22239103100C8882D /* TableView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableView+Reusable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				17B40FAF2238D84200C8882D /* presenter */,
 				17B40FAE2238D83B00C8882D /* view */,
 				17B40FAD2238D81200C8882D /* model */,
+				17B40FC12239100400C8882D /* helper */,
 				17B40FB12238D8B000C8882D /* interface */,
 				17B40FBA2238E5D900C8882D /* supporting files */,
 				17B40F7F2238D60700C8882D /* AppDelegate.swift */,
@@ -189,6 +192,14 @@
 				17B40FBB2238E5FC00C8882D /* Constants.swift */,
 			);
 			path = "supporting files";
+			sourceTree = "<group>";
+		};
+		17B40FC12239100400C8882D /* helper */ = {
+			isa = PBXGroup;
+			children = (
+				17B40FC22239103100C8882D /* TableView+Reusable.swift */,
+			);
+			path = helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,6 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17B40FC32239103100C8882D /* TableView+Reusable.swift in Sources */,
 				17B40FB92238DCE500C8882D /* EndPoint.swift in Sources */,
 				17B40FBE2238F61700C8882D /* RepoCell.swift in Sources */,
 				17B40FB72238DB9000C8882D /* GenericResult.swift in Sources */,

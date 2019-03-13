@@ -9,7 +9,7 @@
 
 import UIKit
 
-class RepoCell: UITableViewCell {
+class RepoCell: UITableViewCell, ReusableView {
     //***** MARK: - Views *****
     private var avatarImageView = UIImageView()
     private var descriptionView = DescriptionView()
@@ -37,13 +37,20 @@ class RepoCell: UITableViewCell {
     
     private func setupContraints() {
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
+        descriptionView.translatesAutoresizingMaskIntoConstraints = false
         
         let avatarImageViewTop = avatarImageView.topAnchor.constraint(equalTo: topAnchor)
         let avatarImageViewBottom = avatarImageView.bottomAnchor.constraint(equalTo: bottomAnchor)
         let avataImageViewLeading = avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor)
         
+        let descriptionViewTop = descriptionView.topAnchor.constraint(equalTo: topAnchor)
+        let descriptionViewLeading = descriptionView.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor)
+        let descriptionViewTrailing = descriptionView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        let descriptionViewBottom = descriptionView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        
         NSLayoutConstraint.activate([
-            avatarImageViewTop, avatarImageViewBottom, avataImageViewLeading])
+            avatarImageViewTop, avatarImageViewBottom, avataImageViewLeading,
+            descriptionViewTop, descriptionViewLeading, descriptionViewTrailing, descriptionViewBottom])
         
     }
 }
