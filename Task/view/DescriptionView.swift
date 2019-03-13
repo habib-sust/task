@@ -68,21 +68,21 @@ class DescriptionView: UIView{
         let repoNameLabelTop = repoNameLabel.topAnchor.constraint(equalTo: topAnchor)
         let repoNameLabelLeading = repoNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor)
         let repoNameLabelTrainling = repoNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+        let repoNameLabelHeight = repoNameLabel.heightAnchor.constraint(equalToConstant: 21)
         
         let ownerNameLabelTop = ownerNameLabel.topAnchor.constraint(equalTo: repoNameLabel.bottomAnchor)
         let ownerNameLabelLeading = ownerNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor)
         let ownerNameLabelTrainling = ownerNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
-        
+        let ownerNameLabelHeight = ownerNameLabel.heightAnchor.constraint(equalToConstant: 21)
         let descriptionLabelTop = descriptionLabel.topAnchor.constraint(equalTo: ownerNameLabel.bottomAnchor)
         let descriptionLabelLeading = descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor)
         let descriptionLabelTrailing = descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         let descriptionLabelBottom = descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         
         NSLayoutConstraint.activate([
-            repoNameLabelTop, repoNameLabelLeading, repoNameLabelTrainling,
-            ownerNameLabelTop, ownerNameLabelLeading, ownerNameLabelTrainling,
+            repoNameLabelTop, repoNameLabelLeading, repoNameLabelTrainling, repoNameLabelHeight,
+            ownerNameLabelTop, ownerNameLabelLeading, ownerNameLabelTrainling, ownerNameLabelHeight,
             descriptionLabelTop, descriptionLabelLeading, descriptionLabelTrailing, descriptionLabelBottom])
-        
         
         descriptionLabel.setContentHuggingPriority(.defaultLow, for: .vertical)
     }

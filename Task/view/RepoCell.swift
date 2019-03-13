@@ -42,6 +42,7 @@ class RepoCell: UITableViewCell, ReusableView {
         let avatarImageViewTop = avatarImageView.topAnchor.constraint(equalTo: topAnchor)
         let avatarImageViewBottom = avatarImageView.bottomAnchor.constraint(equalTo: bottomAnchor)
         let avataImageViewLeading = avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor)
+        let avataImageViewWidth = avatarImageView.widthAnchor.constraint(equalToConstant: 60)
         
         let descriptionViewTop = descriptionView.topAnchor.constraint(equalTo: topAnchor)
         let descriptionViewLeading = descriptionView.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor)
@@ -49,8 +50,10 @@ class RepoCell: UITableViewCell, ReusableView {
         let descriptionViewBottom = descriptionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         
         NSLayoutConstraint.activate([
-            avatarImageViewTop, avatarImageViewBottom, avataImageViewLeading,
+            avatarImageViewTop, avatarImageViewBottom, avataImageViewLeading, avataImageViewWidth,
             descriptionViewTop, descriptionViewLeading, descriptionViewTrailing, descriptionViewBottom])
+        
+        descriptionView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         
     }
 }

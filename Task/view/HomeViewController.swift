@@ -12,8 +12,9 @@ class HomeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        tableView.register(RepoCell.self, forCellReuseIdentifier: RepoCell.reuseIdentifier)
     }
+
 
 
 }

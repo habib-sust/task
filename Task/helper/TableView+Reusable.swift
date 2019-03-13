@@ -15,3 +15,12 @@ extension ReusableView where Self: UIView {
         return String(describing: self)
     }
 }
+
+extension UITableView {
+    func dequeueReusableCell<T: UITableViewCell>(forIndexPath indexPath: IndexPath, withType type: T.Type) -> T where T: ReusableView {
+        guard let cell = dequeueReusableCell(withIdentifier: T.reuseIdentifier, for: indexPath) as? T else {
+            fatalError("Could not dequeue cell with identifier: \(T.reuseIdentifier)")
+        }
+        return cell
+    }
+}
