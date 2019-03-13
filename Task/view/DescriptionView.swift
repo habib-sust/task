@@ -60,7 +60,7 @@ class DescriptionView: UIView{
         addSubview(descriptionLabel)
     }
 
-    func setupConstraints() {
+    private func setupConstraints() {
         repoNameLabel.translatesAutoresizingMaskIntoConstraints = false
         ownerNameLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
