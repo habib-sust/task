@@ -8,3 +8,9 @@
 
 import Foundation
 
+protocol NetWorking {
+    typealias completionHandler = (Result<Data>) -> Void
+    func get(from stringURL: String, completion: @escaping completionHandler)
+}
+
+
