@@ -13,7 +13,14 @@ protocol NetWorking {
     func get(from stringURL: String, completion: @escaping completionHandler)
 }
 
-struct HTTPNetworking {
+struct HTTPNetworking: NetWorking {
+    func get(from stringURL: String, completion: @escaping completionHandler) {
+        guard let url = URL(string: stringURL) else{return}
+        let request = createRequest(from: url)
+        let task = createDataTask(from: request, completion: completion)
+        task.resume()
+    }
+    
     //******* MARK: - Private Methods *******
     private func createRequest(from url: URL) -> URLRequest{
         var request = URLRequest(url: url)
@@ -21,5 +28,19 @@ struct HTTPNetworking {
         return request
     }
     
-
+    private func createDataTask(from request: URLRequest, completion: @escaping completionHandler) -> URLSessionDataTask{
+        let task = URLSession.shared.dataTask(with: request){ (data, response, error) in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = data else{
+                completion(.failure(APIClientError.noData))
+                return
+            }
+            completion(.success(data))
+        }
+        return task
+    }
 }
