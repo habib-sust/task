@@ -18,6 +18,8 @@
 		17B40FB72238DB9000C8882D /* GenericResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40FB62238DB9000C8882D /* GenericResult.swift */; };
 		17B40FB92238DCE500C8882D /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40FB82238DCE500C8882D /* EndPoint.swift */; };
 		17B40FBC2238E5FC00C8882D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40FBB2238E5FC00C8882D /* Constants.swift */; };
+		17B40FBE2238F61700C8882D /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40FBD2238F61700C8882D /* RepoCell.swift */; };
+		17B40FC02239036A00C8882D /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40FBF2239036A00C8882D /* DescriptionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		17B40FB62238DB9000C8882D /* GenericResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResult.swift; sourceTree = "<group>"; };
 		17B40FB82238DCE500C8882D /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		17B40FBB2238E5FC00C8882D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		17B40FBD2238F61700C8882D /* RepoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
+		17B40FBF2239036A00C8882D /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				17B40F812238D60700C8882D /* HomeViewController.swift */,
+				17B40FBD2238F61700C8882D /* RepoCell.swift */,
+				17B40FBF2239036A00C8882D /* DescriptionView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -317,11 +323,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				17B40FB92238DCE500C8882D /* EndPoint.swift in Sources */,
+				17B40FBE2238F61700C8882D /* RepoCell.swift in Sources */,
 				17B40FB72238DB9000C8882D /* GenericResult.swift in Sources */,
 				17B40F822238D60700C8882D /* HomeViewController.swift in Sources */,
 				17B40F802238D60700C8882D /* AppDelegate.swift in Sources */,
 				17B40FBC2238E5FC00C8882D /* Constants.swift in Sources */,
 				17B40FB52238DB3000C8882D /* Networking.swift in Sources */,
+				17B40FC02239036A00C8882D /* DescriptionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
