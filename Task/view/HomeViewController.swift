@@ -11,7 +11,7 @@ import UIKit
 class HomeViewController: UITableViewController {
     //***** MARK: - Properties *****
     fileprivate var repositories = [Repository]()
-    private var activityIndicator: UIActivityIndicatorView!
+    fileprivate var progressHud: UIActivityIndicatorView!
     fileprivate var presenter: HomePresenter?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,18 +31,34 @@ class HomeViewController: UITableViewController {
     }
     
     private func createActivityIndicator () {
-        let activityIndicator = UIActivityIndicatorView(style: .gray)
-        activityIndicator.center = view.center
-        activityIndicator.hidesWhenStopped = true
-        view.addSubview(activityIndicator)
+        let container: UIView = UIView()
+        container.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
+        container.backgroundColor = .clear
+        
+        progressHud = UIActivityIndicatorView(style: .gray)
+        progressHud.center = view.center
+        progressHud.hidesWhenStopped = true
+        container.addSubview(progressHud)
+        view.addSubview(container)
     }
-    
     
     
     
     func updateUI() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
+        }
+    }
+    
+    func progressHudStartAnimating() {
+        DispatchQueue.main.async {
+            self.progressHud.startAnimating()
+        }
+    }
+    
+    func progressHudStopAnimating() {
+        DispatchQueue.main.async {
+            self.progressHud.stopAnimating()
         }
     }
     //***** MARK: TableView Delegate & DataSource
@@ -57,26 +73,25 @@ class HomeViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 80
     }
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-     
-    }
+    
 }
 
 //***** Mark: HomeDelegate
 extension HomeViewController: HomeDelegate {
     func startProgress() {
         print("start progress")
+        progressHudStartAnimating()
     }
     
     func hideProgress() {
         print("Hide progess")
+        progressHudStopAnimating()
     }
     
     func repositoriesSucceedWith(_ repositories: [Repository]) {
-        print("RepositoriesSucceedWith: \(repositories)")
+//        print("RepositoriesSucceedWith: \(repositories)")
         self.repositories = repositories
         updateUI()
     }
@@ -84,6 +99,4 @@ extension HomeViewController: HomeDelegate {
     func repositoriesDidFailedWith(_ message: String) {
         print("RepositoriesDidFailedWith: \(message)")
     }
-    
-    
 }

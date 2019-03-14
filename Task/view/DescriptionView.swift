@@ -47,7 +47,6 @@ class DescriptionView: UIView{
     //***** MARK: - Private Methods ******
     private func setupDescriptionStackView() {
         descriptionView = UIStackView(arrangedSubviews: [repositoryNameLabel, ownerNameLabel, descriptionLabel])
-        descriptionView.translatesAutoresizingMaskIntoConstraints = false
         descriptionView.axis = .vertical
         descriptionView.distribution = .fillProportionally
     }

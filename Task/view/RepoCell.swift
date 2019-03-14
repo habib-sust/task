@@ -28,7 +28,6 @@ class RepoCell: UITableViewCell, ReusableView {
     //MARK: - Private Methods
     private func setup() {
         avatarImageView.contentMode = .scaleAspectFit
-        
         addSubview(avatarImageView)
         addSubview(descriptionView)
     }
@@ -60,13 +59,16 @@ class RepoCell: UITableViewCell, ReusableView {
     }
     
     func updateCell(with repository: Repository){
+        if let isFork = repository.fork {
+            self.backgroundColor = isFork ? UIColor.yellow : UIColor.white
+        }
         
         if let avatarURL = repository.owner?.avatarURL {
             avatarImageView.downloaded(from: avatarURL)
         }
+        
         descriptionView.ownerName = repository.owner?.ownerName
         descriptionView.repositoryName = repository.repoName
         descriptionView.repoDescription = repository.description
-        
     }
 }
