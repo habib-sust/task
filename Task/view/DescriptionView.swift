@@ -8,9 +8,9 @@
 
 import UIKit
 class DescriptionView: UIView{
-    var reponeName: String? {
+    var repositoryName: String? {
         didSet {
-            repoNameLabel.text = reponeName
+            repositoryNameLabel.text = repositoryName
         }
     }
     
@@ -27,7 +27,7 @@ class DescriptionView: UIView{
     }
     
     //***** MARK:- Views *****
-    private var repoNameLabel = UILabel()
+    private var repositoryNameLabel = UILabel()
     private var ownerNameLabel = UILabel()
     private var descriptionLabel = UILabel()
     private var descriptionView = UIStackView()
@@ -35,7 +35,7 @@ class DescriptionView: UIView{
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         
-        repoNameLabel = setupLabel(label: repoNameLabel, withNumberOfLines: 1)
+        repositoryNameLabel = setupLabel(label: repositoryNameLabel, withNumberOfLines: 1)
         ownerNameLabel = setupLabel(label: ownerNameLabel, withNumberOfLines: 1)
         descriptionLabel = setupLabel(label: descriptionLabel, withNumberOfLines: 0)
         setupDescriptionStackView()
@@ -46,7 +46,7 @@ class DescriptionView: UIView{
     
     //***** MARK: - Private Methods ******
     private func setupDescriptionStackView() {
-        descriptionView = UIStackView(arrangedSubviews: [repoNameLabel, ownerNameLabel, descriptionLabel])
+        descriptionView = UIStackView(arrangedSubviews: [repositoryNameLabel, ownerNameLabel, descriptionLabel])
         descriptionView.translatesAutoresizingMaskIntoConstraints = false
         descriptionView.axis = .vertical
         descriptionView.distribution = .fillProportionally
@@ -61,9 +61,9 @@ class DescriptionView: UIView{
     }
     
     private func setup() {
-        repoNameLabel.backgroundColor = .orange
-        ownerNameLabel.backgroundColor = .red
-        descriptionLabel.backgroundColor = .green
+//        repositoryNameLabel.backgroundColor = .orange
+//        ownerNameLabel.backgroundColor = .red
+//        descriptionLabel.backgroundColor = .green
         
         addSubview(descriptionView)
     }

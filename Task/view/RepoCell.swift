@@ -14,7 +14,6 @@ class RepoCell: UITableViewCell, ReusableView {
     private var avatarImageView = UIImageView()
     private var descriptionView = DescriptionView()
     
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -28,7 +27,6 @@ class RepoCell: UITableViewCell, ReusableView {
     
     //MARK: - Private Methods
     private func setup() {
-        avatarImageView.backgroundColor = .magenta
         avatarImageView.contentMode = .scaleAspectFit
         
         addSubview(avatarImageView)
@@ -59,25 +57,16 @@ class RepoCell: UITableViewCell, ReusableView {
                                width: 0,
                                height: 0,
                                enableInsets: true)
+    }
+    
+    func updateCell(with repository: Repository){
         
-//        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
-//        descriptionView.translatesAutoresizingMaskIntoConstraints = false
-        
-//        let avatarImageViewTop = avatarImageView.topAnchor.constraint(equalTo: topAnchor)
-//        let avatarImageViewBottom = avatarImageView.bottomAnchor.constraint(equalTo: bottomAnchor)
-//        let avataImageViewLeading = avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor)
-//        let avataImageViewWidth = avatarImageView.widthAnchor.constraint(equalToConstant: 60)
-//        
-//        let descriptionViewTop = descriptionView.topAnchor.constraint(equalTo: topAnchor)
-//        let descriptionViewLeading = descriptionView.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor)
-//        let descriptionViewTrailing = descriptionView.trailingAnchor.constraint(equalTo: trailingAnchor)
-//        let descriptionViewBottom = descriptionView.bottomAnchor.constraint(equalTo: bottomAnchor)
-//        
-//        NSLayoutConstraint.activate([
-//            avatarImageViewTop, avatarImageViewBottom, avataImageViewLeading, avataImageViewWidth,
-//            descriptionViewTop, descriptionViewLeading, descriptionViewTrailing, descriptionViewBottom])
-//        
-//        descriptionView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        if let avatarURL = repository.owner?.avatarURL {
+            avatarImageView.downloaded(from: avatarURL)
+        }
+        descriptionView.ownerName = repository.owner?.ownerName
+        descriptionView.repositoryName = repository.repoName
+        descriptionView.repoDescription = repository.description
         
     }
 }

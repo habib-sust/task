@@ -11,6 +11,7 @@
 		179C6324223A110F00236A9C /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179C6323223A110F00236A9C /* Owner.swift */; };
 		179C6328223A129E00236A9C /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179C6327223A129E00236A9C /* HomePresenter.swift */; };
 		179C632A223A14F000236A9C /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179C6329223A14F000236A9C /* Repository.swift */; };
+		179C632C223A277200236A9C /* UIImageView+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179C632B223A277200236A9C /* UIImageView+Download.swift */; };
 		17B40F802238D60700C8882D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40F7F2238D60700C8882D /* AppDelegate.swift */; };
 		17B40F822238D60700C8882D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40F812238D60700C8882D /* HomeViewController.swift */; };
 		17B40F852238D60700C8882D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B40F832238D60700C8882D /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 		179C6323223A110F00236A9C /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
 		179C6327223A129E00236A9C /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		179C6329223A14F000236A9C /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		179C632B223A277200236A9C /* UIImageView+Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Download.swift"; sourceTree = "<group>"; };
 		17B40F7C2238D60700C8882D /* Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Task.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17B40F7F2238D60700C8882D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17B40F812238D60700C8882D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			children = (
 				17B40FC22239103100C8882D /* TableView+Reusable.swift */,
 				179C6321223A039600236A9C /* UIView+Constraints.swift */,
+				179C632B223A277200236A9C /* UIImageView+Download.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				179C6328223A129E00236A9C /* HomePresenter.swift in Sources */,
 				179C6324223A110F00236A9C /* Owner.swift in Sources */,
 				17B40FB52238DB3000C8882D /* Networking.swift in Sources */,
+				179C632C223A277200236A9C /* UIImageView+Download.swift in Sources */,
 				17B40FC02239036A00C8882D /* DescriptionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
