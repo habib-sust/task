@@ -11,10 +11,18 @@ import UIKit
 class HomeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
-        tableView.register(RepoCell.self, forCellReuseIdentifier: RepoCell.reuseIdentifier)
     }
 
+    //***** MARK: - Private Methods
+    private func setup() {
+        tableView.register(RepoCell.self, forCellReuseIdentifier: RepoCell.reuseIdentifier)
+    }
+    
+    
+    
+    //***** MARK: TableView Delegate & DataSource
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(forIndexPath: indexPath, withType: RepoCell.self)
         return cell
@@ -28,5 +36,9 @@ class HomeViewController: UITableViewController {
         return 80
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     
+    }
 }
+
 
