@@ -12,7 +12,6 @@ struct Owner : Codable {
     let avatarURL : String?
     
     enum CodingKeys: String, CodingKey {
-        
         case ownerName = "login"
         case avatarURL = "avatar_url"
     }
