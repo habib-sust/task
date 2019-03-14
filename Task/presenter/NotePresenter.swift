@@ -44,4 +44,20 @@ class NotePresenter: NSObject, AddNote {
             delegate.noteAddDidFailedWith(error.localizedDescription)
         }
     }
+    
+    func fetchNoteWith(userId id: Int) {
+        do {
+            guard let note = try Realm()
+                .objects(Note.self)
+                .filter("userId == 1234")
+                .first
+                else{
+                    delegate.fetchNoteDidFailedWith("There is no note with this User ID: \(id)")
+                    return
+            }
+            delegate.fetchNoteSucceddWith(note)
+        }catch (let error) {
+            delegate.fetchNoteDidFailedWith(error.localizedDescription)
+        }
+    }
 }
