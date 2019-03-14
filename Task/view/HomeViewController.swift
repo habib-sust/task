@@ -11,10 +11,12 @@ import UIKit
 class HomeViewController: UITableViewController {
     //***** MARK: - Properties *****
     fileprivate var repositories = [Repository]()
+    private var activityIndicator: UIActivityIndicatorView!
     fileprivate var presenter: HomePresenter?
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        createActivityIndicator()
         getRepositoriesData()
     }
 
@@ -28,12 +30,21 @@ class HomeViewController: UITableViewController {
         presenter?.fetch(from: Constants.baseURL)
     }
     
+    private func createActivityIndicator () {
+        let activityIndicator = UIActivityIndicatorView(style: .gray)
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        view.addSubview(activityIndicator)
+    }
+    
+    
+    
+    
     func updateUI() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
-    
     //***** MARK: TableView Delegate & DataSource
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(forIndexPath: indexPath, withType: RepoCell.self)
