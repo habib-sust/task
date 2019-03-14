@@ -17,10 +17,31 @@ protocol NoteDelegate {
     
 }
 
-protocol NoteAdd {
+protocol AddNote {
     func addNoteWith(userId id: Int, note: String)
 }
 
-class NotePresenter: NSObject {
-
+class NotePresenter: NSObject, AddNote {
+    private var delegate: NoteDelegate
+    
+    init(delegate: NoteDelegate) {
+        self.delegate = delegate
+    }
+    
+    func addNoteWith(userId id: Int, note: String) {
+        do {
+            let realm = try Realm()
+            
+            let newNote = Note()
+            newNote.userId = id
+            newNote.note = note
+            
+            try realm.write {
+                realm.add(newNote)
+            }
+            delegate.noteAddSucceed()
+        }catch (let error) {
+            delegate.noteAddDidFailedWith(error.localizedDescription)
+        }
+    }
 }
