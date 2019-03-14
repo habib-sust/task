@@ -10,12 +10,12 @@ import Foundation
 
 protocol NetWorking {
     typealias completionHandler = (Result<Data>) -> Void
-    func get(from stringURL: String, completion: @escaping completionHandler)
+    func get(from endPoint: String, completion: @escaping completionHandler)
 }
 
 struct HTTPNetworking: NetWorking {
-    func get(from stringURL: String, completion: @escaping completionHandler) {
-        guard let url = URL(string: stringURL) else{return}
+    func get(from endPoint: String, completion: @escaping completionHandler) {
+        guard let url = URL(string: endPoint) else{return}
         let request = createRequest(from: url)
         let task = createDataTask(from: request, completion: completion)
         task.resume()

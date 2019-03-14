@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		179C6322223A039600236A9C /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179C6321223A039600236A9C /* UIView+Constraints.swift */; };
 		17B40F802238D60700C8882D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40F7F2238D60700C8882D /* AppDelegate.swift */; };
 		17B40F822238D60700C8882D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40F812238D60700C8882D /* HomeViewController.swift */; };
 		17B40F852238D60700C8882D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B40F832238D60700C8882D /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		179C6321223A039600236A9C /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		17B40F7C2238D60700C8882D /* Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Task.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17B40F7F2238D60700C8882D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17B40F812238D60700C8882D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				17B40FC22239103100C8882D /* TableView+Reusable.swift */,
+				179C6321223A039600236A9C /* UIView+Constraints.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				17B40F822238D60700C8882D /* HomeViewController.swift in Sources */,
 				17B40F802238D60700C8882D /* AppDelegate.swift in Sources */,
 				17B40FBC2238E5FC00C8882D /* Constants.swift in Sources */,
+				179C6322223A039600236A9C /* UIView+Constraints.swift in Sources */,
 				17B40FB52238DB3000C8882D /* Networking.swift in Sources */,
 				17B40FC02239036A00C8882D /* DescriptionView.swift in Sources */,
 			);

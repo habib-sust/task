@@ -36,24 +36,49 @@ class RepoCell: UITableViewCell, ReusableView {
     }
     
     private func setupContraints() {
-        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
-        descriptionView.translatesAutoresizingMaskIntoConstraints = false
         
-        let avatarImageViewTop = avatarImageView.topAnchor.constraint(equalTo: topAnchor)
-        let avatarImageViewBottom = avatarImageView.bottomAnchor.constraint(equalTo: bottomAnchor)
-        let avataImageViewLeading = avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor)
-        let avataImageViewWidth = avatarImageView.widthAnchor.constraint(equalToConstant: 60)
+        avatarImageView.anchor(top: topAnchor,
+                               left: leftAnchor,
+                               bottom: bottomAnchor,
+                               right: nil,
+                               paddingTop: 0,
+                               paddingLeft: 5,
+                               paddingBottom: 0,
+                               paddingRight: 0,
+                               width: 80,
+                               height: 0,
+                               enableInsets: true)
         
-        let descriptionViewTop = descriptionView.topAnchor.constraint(equalTo: topAnchor)
-        let descriptionViewLeading = descriptionView.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor)
-        let descriptionViewTrailing = descriptionView.trailingAnchor.constraint(equalTo: trailingAnchor)
-        let descriptionViewBottom = descriptionView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        descriptionView.anchor(top: topAnchor,
+                               left: avatarImageView.rightAnchor,
+                               bottom: bottomAnchor,
+                               right: rightAnchor,
+                               paddingTop: 0,
+                               paddingLeft: 8,
+                               paddingBottom: 0,
+                               paddingRight: 0,
+                               width: 0,
+                               height: 0,
+                               enableInsets: true)
         
-        NSLayoutConstraint.activate([
-            avatarImageViewTop, avatarImageViewBottom, avataImageViewLeading, avataImageViewWidth,
-            descriptionViewTop, descriptionViewLeading, descriptionViewTrailing, descriptionViewBottom])
+//        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
+//        descriptionView.translatesAutoresizingMaskIntoConstraints = false
         
-        descriptionView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+//        let avatarImageViewTop = avatarImageView.topAnchor.constraint(equalTo: topAnchor)
+//        let avatarImageViewBottom = avatarImageView.bottomAnchor.constraint(equalTo: bottomAnchor)
+//        let avataImageViewLeading = avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor)
+//        let avataImageViewWidth = avatarImageView.widthAnchor.constraint(equalToConstant: 60)
+//        
+//        let descriptionViewTop = descriptionView.topAnchor.constraint(equalTo: topAnchor)
+//        let descriptionViewLeading = descriptionView.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor)
+//        let descriptionViewTrailing = descriptionView.trailingAnchor.constraint(equalTo: trailingAnchor)
+//        let descriptionViewBottom = descriptionView.bottomAnchor.constraint(equalTo: bottomAnchor)
+//        
+//        NSLayoutConstraint.activate([
+//            avatarImageViewTop, avatarImageViewBottom, avataImageViewLeading, avataImageViewWidth,
+//            descriptionViewTop, descriptionViewLeading, descriptionViewTrailing, descriptionViewBottom])
+//        
+//        descriptionView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         
     }
 }

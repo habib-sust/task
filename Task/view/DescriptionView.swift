@@ -74,6 +74,7 @@ class DescriptionView: UIView{
         let ownerNameLabelLeading = ownerNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor)
         let ownerNameLabelTrainling = ownerNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         let ownerNameLabelHeight = ownerNameLabel.heightAnchor.constraint(equalToConstant: 21)
+        
         let descriptionLabelTop = descriptionLabel.topAnchor.constraint(equalTo: ownerNameLabel.bottomAnchor)
         let descriptionLabelLeading = descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor)
         let descriptionLabelTrailing = descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
