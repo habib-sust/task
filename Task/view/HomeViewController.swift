@@ -42,6 +42,10 @@ class HomeViewController: UITableViewController {
         view.addSubview(container)
     }
     
+    private func gotToNoteViewController() {
+        let controller = NoteViewController()
+        self.present(controller, animated: true, completion: nil)
+    }
     
     
     func updateUI() {
@@ -76,6 +80,9 @@ class HomeViewController: UITableViewController {
         return 80
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        gotToNoteViewController()
+    }
 }
 
 //***** Mark: HomeDelegate
