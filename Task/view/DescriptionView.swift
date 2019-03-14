@@ -30,19 +30,29 @@ class DescriptionView: UIView{
     private var repoNameLabel = UILabel()
     private var ownerNameLabel = UILabel()
     private var descriptionLabel = UILabel()
+    private var descriptionView = UIStackView()
     
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         
-        repoNameLabel = createLabel(label: repoNameLabel, withNumberOfLines: 1)
-        ownerNameLabel = createLabel(label: ownerNameLabel, withNumberOfLines: 1)
-        descriptionLabel = createLabel(label: descriptionLabel, withNumberOfLines: 0)
+        repoNameLabel = setupLabel(label: repoNameLabel, withNumberOfLines: 1)
+        ownerNameLabel = setupLabel(label: ownerNameLabel, withNumberOfLines: 1)
+        descriptionLabel = setupLabel(label: descriptionLabel, withNumberOfLines: 0)
+        setupDescriptionStackView()
         setup()
         setupConstraints()
     }
     
+    
     //***** MARK: - Private Methods ******
-    private func createLabel(label: UILabel, withNumberOfLines lines: Int) -> UILabel{
+    private func setupDescriptionStackView() {
+        descriptionView = UIStackView(arrangedSubviews: [repoNameLabel, ownerNameLabel, descriptionLabel])
+        descriptionView.translatesAutoresizingMaskIntoConstraints = false
+        descriptionView.axis = .vertical
+        descriptionView.distribution = .fillProportionally
+    }
+
+    private func setupLabel(label: UILabel, withNumberOfLines lines: Int) -> UILabel{
         label.textColor = .black
         label.font = .systemFont(ofSize: 14)
         label.textAlignment = .left
@@ -55,36 +65,12 @@ class DescriptionView: UIView{
         ownerNameLabel.backgroundColor = .red
         descriptionLabel.backgroundColor = .green
         
-        addSubview(repoNameLabel)
-        addSubview(ownerNameLabel)
-        addSubview(descriptionLabel)
+        addSubview(descriptionView)
     }
 
     private func setupConstraints() {
-        repoNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        ownerNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        descriptionView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0, enableInsets: false)
         
-        let repoNameLabelTop = repoNameLabel.topAnchor.constraint(equalTo: topAnchor)
-        let repoNameLabelLeading = repoNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor)
-        let repoNameLabelTrainling = repoNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
-        let repoNameLabelHeight = repoNameLabel.heightAnchor.constraint(equalToConstant: 21)
-        
-        let ownerNameLabelTop = ownerNameLabel.topAnchor.constraint(equalTo: repoNameLabel.bottomAnchor)
-        let ownerNameLabelLeading = ownerNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor)
-        let ownerNameLabelTrainling = ownerNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
-        let ownerNameLabelHeight = ownerNameLabel.heightAnchor.constraint(equalToConstant: 21)
-        
-        let descriptionLabelTop = descriptionLabel.topAnchor.constraint(equalTo: ownerNameLabel.bottomAnchor)
-        let descriptionLabelLeading = descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor)
-        let descriptionLabelTrailing = descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
-        let descriptionLabelBottom = descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
-        
-        NSLayoutConstraint.activate([
-            repoNameLabelTop, repoNameLabelLeading, repoNameLabelTrainling, repoNameLabelHeight,
-            ownerNameLabelTop, ownerNameLabelLeading, ownerNameLabelTrainling, ownerNameLabelHeight,
-            descriptionLabelTop, descriptionLabelLeading, descriptionLabelTrailing, descriptionLabelBottom])
-        
-        descriptionLabel.setContentHuggingPriority(.defaultLow, for: .vertical)
+//        descriptionLabel.setContentHuggingPriority(.defaultLow, for: .vertical)
     }
 }

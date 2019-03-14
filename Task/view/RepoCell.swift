@@ -36,7 +36,6 @@ class RepoCell: UITableViewCell, ReusableView {
     }
     
     private func setupContraints() {
-        
         avatarImageView.anchor(top: topAnchor,
                                left: leftAnchor,
                                bottom: bottomAnchor,
