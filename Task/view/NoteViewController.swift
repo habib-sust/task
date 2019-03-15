@@ -17,6 +17,7 @@ class NoteViewController: UIViewController {
         super.viewDidLoad()
         setup()
         setupConstraints()
+        setupNavigationItem()
     }
 
     //***** MARK: - Private Methods *****
@@ -26,7 +27,11 @@ class NoteViewController: UIViewController {
         view.addSubview(noteTextView)
     }
     
-
+    private func setupNavigationItem() -> Void {
+        let addNoteButton   = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddNoteButton(sender:)))
+        let saveNoteButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(didTapSaveNoteButton(sender:)))
+        navigationItem.rightBarButtonItems = [addNoteButton, saveNoteButton]
+    }
     
     private func setupConstraints() {
         noteTextView.anchor(top: view.topAnchor,
@@ -40,6 +45,15 @@ class NoteViewController: UIViewController {
                             width: 0,
                             height: 0,
                             enableInsets: true)
+        
+    }
+    
+    //***** MARK:- IBActions *****
+    @objc private func didTapAddNoteButton(sender: Any) {
+        
+    }
+    
+    @objc private func didTapSaveNoteButton(sender: Any) {
         
     }
 }

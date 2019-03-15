@@ -69,7 +69,7 @@ class RepoCell: UITableViewCell, ReusableView {
     
     func updateCell(with repository: Repository){
         if let isFork = repository.fork {
-            self.backgroundColor = isFork ? UIColor.yellow : UIColor.white
+            self.backgroundColor = isFork ? Colors.YELLOW : UIColor.white
         }
         
         if let avatarURL = repository.owner?.avatarURL {
