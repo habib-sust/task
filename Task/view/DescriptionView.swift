@@ -48,6 +48,7 @@ class DescriptionView: UIView{
     private func setupDescriptionStackView() {
         descriptionView = UIStackView(arrangedSubviews: [repositoryNameLabel, ownerNameLabel, descriptionLabel])
         descriptionView.axis = .vertical
+        descriptionView.spacing = 2.0
         descriptionView.distribution = .fillProportionally
     }
 
@@ -60,14 +61,20 @@ class DescriptionView: UIView{
     }
     
     private func setup() {
-//        repositoryNameLabel.backgroundColor = .orange
-//        ownerNameLabel.backgroundColor = .red
-//        descriptionLabel.backgroundColor = .green
-        
         addSubview(descriptionView)
     }
 
     private func setupConstraints() {
-        descriptionView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0, enableInsets: false)
+        descriptionView.anchor(top: topAnchor,
+                               left: leftAnchor,
+                               bottom: bottomAnchor,
+                               right: rightAnchor,
+                               paddingTop: 0,
+                               paddingLeft: 0,
+                               paddingBottom: 0,
+                               paddingRight: 0,
+                               width: 0,
+                               height: 0,
+                               enableInsets: false)
     }
 }

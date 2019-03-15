@@ -14,9 +14,10 @@ extension UIView {
         var bottomInset: CGFloat = 0
         
         if #available(iOS 11, *), enableInsets {
-            let insets = self.safeAreaInsets
-            topInset = insets.top
-            bottomInset = insets.bottom
+            let insets = UIApplication.shared.keyWindow?.safeAreaInsets
+            topInset = insets?.top ?? 0
+            bottomInset = insets?.bottom ?? 0
+            print("Top Insets: \(topInset), Bottom Insets: \(bottomInset)")
         }
         
         translatesAutoresizingMaskIntoConstraints = false

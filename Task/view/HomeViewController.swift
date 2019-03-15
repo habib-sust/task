@@ -23,6 +23,8 @@ class HomeViewController: UITableViewController {
     //***** MARK: - Private Methods
     private func setup() {
         presenter = HomePresenter(delegate: self, networking: HTTPNetworking())
+        
+        tableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
         tableView.register(RepoCell.self, forCellReuseIdentifier: RepoCell.reuseIdentifier)
     }
     
@@ -44,7 +46,7 @@ class HomeViewController: UITableViewController {
     
     private func gotToNoteViewController() {
         let controller = NoteViewController()
-        self.present(controller, animated: true, completion: nil)
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     

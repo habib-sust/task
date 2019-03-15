@@ -43,7 +43,7 @@ class RepoCell: UITableViewCell, ReusableView {
                                paddingRight: 0,
                                width: 80,
                                height: 0,
-                               enableInsets: true)
+                               enableInsets: false)
         
         descriptionView.anchor(top: topAnchor,
                                left: avatarImageView.rightAnchor,
@@ -55,8 +55,17 @@ class RepoCell: UITableViewCell, ReusableView {
                                paddingRight: 0,
                                width: 0,
                                height: 0,
-                               enableInsets: true)
+                               enableInsets: false)
+
     }
+    
+    private func createCircularImage() {
+        self.avatarImageView.layer.cornerRadius = self.contentView.frame.size.height/2
+        self.avatarImageView.layer.borderWidth = 2.0
+        self.avatarImageView.layer.borderColor = UIColor.clear.cgColor
+        self.avatarImageView.layer.masksToBounds = true
+    }
+    
     
     func updateCell(with repository: Repository){
         if let isFork = repository.fork {
@@ -70,5 +79,6 @@ class RepoCell: UITableViewCell, ReusableView {
         descriptionView.ownerName = repository.owner?.ownerName
         descriptionView.repositoryName = repository.repoName
         descriptionView.repoDescription = repository.description
+        createCircularImage()
     }
 }
