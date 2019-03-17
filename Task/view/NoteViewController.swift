@@ -12,12 +12,20 @@ class NoteViewController: UIViewController {
     
     //***** MARK: - Views *****
     private var noteTextView = UITextView()
+    private var presenter: NotePresenter?
     
+    //*****MARK:- Properties *****
+    var userId: Int?
+    
+    //*****MARK:- View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        userId = 1234
         setup()
         setupConstraints()
-        setupNavigationItem()
+        addNavigationItem()
+        presenter = NotePresenter(delegate: self)
+        fetchNote()
     }
 
     //***** MARK: - Private Methods *****
@@ -25,9 +33,10 @@ class NoteViewController: UIViewController {
         noteTextView.backgroundColor = .green
         view.backgroundColor = .white
         view.addSubview(noteTextView)
+        noteTextView.font = .systemFont(ofSize: 12)
     }
     
-    private func setupNavigationItem() -> Void {
+    private func addNavigationItem() {
         let addNoteButton   = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddNoteButton(sender:)))
         let saveNoteButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(didTapSaveNoteButton(sender:)))
         navigationItem.rightBarButtonItems = [addNoteButton, saveNoteButton]
@@ -35,12 +44,12 @@ class NoteViewController: UIViewController {
     
     private func setupConstraints() {
         noteTextView.anchor(top: view.topAnchor,
-                            left: view.leftAnchor,
+                            left: view.readableContentGuide.leftAnchor,
                             bottom: view.bottomAnchor,
-                            right: view.rightAnchor,
-                            paddingTop: 0,
+                            right: view.readableContentGuide.rightAnchor,
+                            paddingTop: 8,
                             paddingLeft: 0,
-                            paddingBottom: 0,
+                            paddingBottom: 8,
                             paddingRight: 0,
                             width: 0,
                             height: 0,
@@ -48,6 +57,15 @@ class NoteViewController: UIViewController {
         
     }
     
+    private func fetchNote() {
+        if let id = userId {
+            presenter?.fetchNoteWith(userId: id)
+        }
+    }
+    
+    private func addNote(userId: Int, note: String) {
+        presenter?.addNoteWith(userId: userId, note: note)
+    }
     //***** MARK:- IBActions *****
     @objc private func didTapAddNoteButton(sender: Any) {
         
@@ -56,4 +74,25 @@ class NoteViewController: UIViewController {
     @objc private func didTapSaveNoteButton(sender: Any) {
         
     }
+}
+
+//***** MARK: - NoteDelegate *****
+extension NoteViewController: NoteDelegate {
+    func addNoteSucceed() {
+        
+    }
+    
+    func addNoteDidFailedWith(_ message: String) {
+        
+    }
+    
+    func fetchNoteSucceddWith(_ note: Note) {
+        noteTextView.text = note.note
+    }
+    
+    func fetchNoteDidFailedWith(_ message: String) {
+        print("FetchNoteDidFailed: \(message)")
+    }
+    
+    
 }

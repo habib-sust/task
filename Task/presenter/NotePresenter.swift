@@ -10,8 +10,8 @@ import UIKit
 import RealmSwift
 
 protocol NoteDelegate {
-    func noteAddSucceed()
-    func noteAddDidFailedWith(_ message: String)
+    func addNoteSucceed()
+    func addNoteDidFailedWith(_ message: String)
     func fetchNoteSucceddWith(_ note: Note)
     func fetchNoteDidFailedWith(_ message: String)
     
@@ -39,9 +39,9 @@ class NotePresenter: NSObject, AddNote {
             try realm.write {
                 realm.add(newNote)
             }
-            delegate.noteAddSucceed()
+            delegate.addNoteSucceed()
         }catch (let error) {
-            delegate.noteAddDidFailedWith(error.localizedDescription)
+            delegate.addNoteDidFailedWith(error.localizedDescription)
         }
     }
     
@@ -49,7 +49,7 @@ class NotePresenter: NSObject, AddNote {
         do {
             guard let note = try Realm()
                 .objects(Note.self)
-                .filter("userId == 1234")
+                .filter("userId == %d", id)
                 .first
                 else{
                     delegate.fetchNoteDidFailedWith("There is no note with this User ID: \(id)")

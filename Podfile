@@ -7,7 +7,6 @@ target 'Task' do
 
   # Pods for Task
    pod 'RealmSwift'
-
   target 'TaskTests' do
     inherit! :search_paths
     # Pods for testing
