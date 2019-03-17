@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         window = UIWindow()
         window?.makeKeyAndVisible()
-        let navigationController = UINavigationController(rootViewController: NoteViewController())
+        let navigationController = UINavigationController(rootViewController: HomeViewController())
         window?.rootViewController = navigationController
         return true
     }

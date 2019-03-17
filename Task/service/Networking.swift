@@ -16,7 +16,8 @@ protocol NetWorking {
 struct HTTPNetworking: NetWorking {
     func get(from endPoint: String, completion: @escaping completionHandler) {
         guard let url = URL(string: endPoint) else{return}
-        let request = createRequest(from: url)
+        var request = createRequest(from: url)
+        request.cachePolicy = .useProtocolCachePolicy
         let task = createDataTask(from: request, completion: completion)
         task.resume()
     }
@@ -38,6 +39,11 @@ struct HTTPNetworking: NetWorking {
             guard let data = data else{
                 completion(.failure(APIClientError.noData))
                 return
+            }
+            if let response = response {
+                let cacheData = CachedURLResponse(response: response, data: data)
+                URLCache.shared.storeCachedResponse(cacheData, for: request)
+                
             }
             completion(.success(data))
         }

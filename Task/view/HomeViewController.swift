@@ -8,28 +8,64 @@
 
 import UIKit
 
-class HomeViewController: UITableViewController {
+class HomeViewController: UIViewController {
     //***** MARK: - Properties *****
     fileprivate var repositories = [Repository]()
     fileprivate var progressHud: UIActivityIndicatorView!
+    fileprivate var tableView = UITableView()
     fileprivate var presenter: HomePresenter?
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        setupConstraints()
         createActivityIndicator()
         getRepositoriesData()
     }
 
     //***** MARK: - Private Methods
     private func setup() {
+        view.backgroundColor = .white
         presenter = HomePresenter(delegate: self, networking: HTTPNetworking())
         
-        tableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+//        tableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
         tableView.register(RepoCell.self, forCellReuseIdentifier: RepoCell.reuseIdentifier)
+        tableView.delegate = self
+        tableView.dataSource = self
+        view.addSubview(tableView)
     }
     
+    private func setupConstraints() {
+        tableView.anchor(top: view.topAnchor,
+                         left: view.leftAnchor,
+                         bottom: view.bottomAnchor,
+                         right: view.rightAnchor,
+                         paddingTop: 10,
+                         paddingLeft: 0,
+                         paddingBottom: 8,
+                         paddingRight: 0,
+                         width: 0,
+                         height: 0,
+                         enableInsets: true)
+
+    }
     private func getRepositoriesData() {
-        presenter?.fetch(from: Constants.baseURL)
+        let request = URLRequest(url: URL(string: Constants.baseURL)!)
+        
+        if let data = URLCache.shared.cachedResponse(for: request)?.data {
+            do{
+                let repos = try JSONDecoder().decode([Repository].self, from: data)
+                repositories = repos
+                updateUI()
+                print("Load From Caching")
+            }catch(let error) {
+                print("Error in Caching Data: \(error.localizedDescription)")
+            }
+        } else {
+            presenter?.fetch(from: Constants.baseURL)
+        }
+        
+
+        
     }
     
     private func createActivityIndicator () {
@@ -67,24 +103,6 @@ class HomeViewController: UITableViewController {
             self.progressHud.stopAnimating()
         }
     }
-    //***** MARK: TableView Delegate & DataSource
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(forIndexPath: indexPath, withType: RepoCell.self)
-        cell.updateCell(with: repositories[indexPath.row])
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return repositories.count
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        gotToNoteViewController()
-    }
 }
 
 //***** Mark: HomeDelegate
@@ -108,4 +126,28 @@ extension HomeViewController: HomeDelegate {
     func repositoriesDidFailedWith(_ message: String) {
         print("RepositoriesDidFailedWith: \(message)")
     }
+}
+
+
+//MARK: - TableView Delegate & DataSource
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    //***** MARK: TableView Delegate & DataSource
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(forIndexPath: indexPath, withType: RepoCell.self)
+        cell.updateCell(with: repositories[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return repositories.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        gotToNoteViewController()
+    }
+
 }
