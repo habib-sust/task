@@ -17,7 +17,7 @@ extension UIView {
             let insets = UIApplication.shared.keyWindow?.safeAreaInsets
             topInset = insets?.top ?? 0
             bottomInset = insets?.bottom ?? 0
-            print("Top Insets: \(topInset), Bottom Insets: \(bottomInset)")
+//            print("Top Insets: \(topInset), Bottom Insets: \(bottomInset)")
         }
         
         translatesAutoresizingMaskIntoConstraints = false

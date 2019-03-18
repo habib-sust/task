@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//import RealmSwift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         let navigationController = UINavigationController(rootViewController: HomeViewController())
         window?.rootViewController = navigationController
+        
+//        print(Realm.Configuration.defaultConfiguration.fileURL!)
         return true
     }
 

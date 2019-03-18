@@ -20,26 +20,24 @@ class NoteViewController: UIViewController {
     //*****MARK:- View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        userId = 1234
         setup()
         setupConstraints()
-        addNavigationItem()
         presenter = NotePresenter(delegate: self)
         fetchNote()
     }
 
     //***** MARK: - Private Methods *****
     private func setup() {
-        noteTextView.backgroundColor = .green
         view.backgroundColor = .white
         view.addSubview(noteTextView)
-        noteTextView.font = .systemFont(ofSize: 12)
+        noteTextView.font = UIFont(name: "Avenir", size: 14)
+        noteTextView.isEditable = false
     }
     
     private func addNavigationItem() {
-        let addNoteButton   = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddNoteButton(sender:)))
+        noteTextView.isEditable = true
         let saveNoteButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(didTapSaveNoteButton(sender:)))
-        navigationItem.rightBarButtonItems = [addNoteButton, saveNoteButton]
+        navigationItem.rightBarButtonItems = [saveNoteButton]
     }
     
     private func setupConstraints() {
@@ -63,27 +61,30 @@ class NoteViewController: UIViewController {
         }
     }
     
-    private func addNote(userId: Int, note: String) {
-        presenter?.addNoteWith(userId: userId, note: note)
+    private func addNote(with note: String) {
+        if let id = userId{
+            presenter?.addNoteWith(userId: id, note: note)
+        }
     }
-    //***** MARK:- IBActions *****
-    @objc private func didTapAddNoteButton(sender: Any) {
-        
-    }
-    
+    //***** MARK:- IBActions *****    
     @objc private func didTapSaveNoteButton(sender: Any) {
-        
+        if noteTextView.text.isEmpty {
+            
+        }else{
+            addNote(with: noteTextView.text)
+        }
     }
 }
 
 //***** MARK: - NoteDelegate *****
 extension NoteViewController: NoteDelegate {
     func addNoteSucceed() {
-        
+        print("Note Added")
+        self.navigationController?.popViewController(animated: true)
     }
     
     func addNoteDidFailedWith(_ message: String) {
-        
+        print("AddNoteDidFailedWith: \(message)")
     }
     
     func fetchNoteSucceddWith(_ note: Note) {
@@ -92,6 +93,7 @@ extension NoteViewController: NoteDelegate {
     
     func fetchNoteDidFailedWith(_ message: String) {
         print("FetchNoteDidFailed: \(message)")
+        addNavigationItem()
     }
     
     

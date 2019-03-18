@@ -112,13 +112,13 @@ extension HomeViewController: HomeDelegate {
     }
     
     func repositoriesSucceedWith(_ repositories: [Repository]) {
-//        print("RepositoriesSucceedWith: \(repositories)")
         self.repositories = repositories
         updateUI()
     }
     
     func repositoriesDidFailedWith(_ message: String) {
         print("RepositoriesDidFailedWith: \(message)")
+        presenter?.fetchFromCache(with: Constants.baseURL)
     }
 }
 
@@ -142,6 +142,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let userId = repositories[indexPath.row].id
+        print("User ID: \(userId!)")
         gotToNoteViewControllerWith(userId: userId)
     }
 

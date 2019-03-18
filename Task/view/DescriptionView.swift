@@ -34,12 +34,9 @@ class DescriptionView: UIView{
     
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
-        
-        repositoryNameLabel = setupLabel(label: repositoryNameLabel, withNumberOfLines: 1)
-        ownerNameLabel = setupLabel(label: ownerNameLabel, withNumberOfLines: 1)
-        descriptionLabel = setupLabel(label: descriptionLabel, withNumberOfLines: 0)
         setupDescriptionStackView()
         setup()
+        setupLabels()
         setupConstraints()
     }
     
@@ -52,12 +49,16 @@ class DescriptionView: UIView{
         descriptionView.distribution = .fillProportionally
     }
 
-    private func setupLabel(label: UILabel, withNumberOfLines lines: Int) -> UILabel{
-        label.textColor = .black
-        label.font = .systemFont(ofSize: 14)
-        label.textAlignment = .left
-        label.numberOfLines = lines
-        return label
+    private func setupLabels(){
+        repositoryNameLabel.font = UIFont(name: "Avenir-Bold", size: 14)
+        repositoryNameLabel.textAlignment = .left
+        
+        ownerNameLabel.font = UIFont(name: "Avenir-Medium", size: 13)
+        ownerNameLabel.textAlignment = .left
+        
+        descriptionLabel.font = UIFont(name: "Avenir", size: 12)
+        descriptionLabel.minimumScaleFactor = 0.5
+        descriptionLabel.numberOfLines = 0
     }
     
     private func setup() {
@@ -69,9 +70,9 @@ class DescriptionView: UIView{
                                left: leftAnchor,
                                bottom: bottomAnchor,
                                right: rightAnchor,
-                               paddingTop: 0,
+                               paddingTop: 4,
                                paddingLeft: 0,
-                               paddingBottom: 0,
+                               paddingBottom: 4,
                                paddingRight: 0,
                                width: 0,
                                height: 0,
