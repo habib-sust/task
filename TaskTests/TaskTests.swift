@@ -29,10 +29,11 @@ class TaskTests: XCTestCase {
     override func setUp() {
         container.autoregister(Owner.self,
                                argument: String.self,
-                               initializer:  Owner.init(name: ))
+                               initializer: Owner.init(name: ))
         
         container.autoregister(Repository.self,
-                               argument: Owner.self, initializer: Repository.init(owner: ))
+                               argument: Owner.self,
+                               initializer: Repository.init(owner: ))
     }
 
     override func tearDown() {
@@ -47,7 +48,6 @@ class TaskTests: XCTestCase {
     func testRepositoryModel() {
         let owner = container ~> (Owner.self, argument: "name")
         let repository = container ~> (Repository.self, argument: owner)
-        
         XCTAssertEqual(repository.owner?.ownerName, "name")
     }
 
