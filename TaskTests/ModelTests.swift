@@ -11,7 +11,7 @@ import Swinject
 import SwinjectAutoregistration
 @testable import Task
 
-class TaskTests: XCTestCase {
+class ModelTests: XCTestCase {
     let container = Container()
     override func setUp() {
         container.register(Owner.self){_ in
