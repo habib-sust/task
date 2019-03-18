@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class RepoCell: UITableViewCell, ReusableView {
     //***** MARK: - Views *****
@@ -73,7 +74,8 @@ class RepoCell: UITableViewCell, ReusableView {
         }
         
         if let avatarURL = repository.owner?.avatarURL {
-            avatarImageView.downloaded(from: avatarURL)
+            let url = URL(string: avatarURL)
+            avatarImageView.kf.setImage(with: url)
         }
         
         descriptionView.ownerName = repository.owner?.ownerName
