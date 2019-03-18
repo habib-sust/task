@@ -10,7 +10,8 @@
 #endif
 #endif
 
+#import "SwinjectAutoregistration.h"
 
-FOUNDATION_EXPORT double Pods_TaskUITestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_TaskUITestsVersionString[];
+FOUNDATION_EXPORT double SwinjectAutoregistrationVersionNumber;
+FOUNDATION_EXPORT const unsigned char SwinjectAutoregistrationVersionString[];
 

@@ -12,11 +12,9 @@ target 'Task' do
   target 'TaskTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'Swinject'
+    pod 'SwinjectAutoregistration'
   end
 
-  target 'TaskUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
 
 end

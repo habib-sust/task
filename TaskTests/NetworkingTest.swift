@@ -1,15 +1,15 @@
 //
-//  TaskTests.swift
+//  NetworkingTest.swift
 //  TaskTests
 //
-//  Created by Habib on 13/3/19.
+//  Created by Habib on 18/3/19.
 //  Copyright © 2019 Habib. All rights reserved.
 //
 
 import XCTest
-@testable import Task
 
-class TaskTests: XCTestCase {
+class NetworkingTest: XCTestCase {
+
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
