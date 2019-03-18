@@ -7,27 +7,48 @@
 //
 
 import XCTest
+import Swinject
+import SwinjectAutoregistration
+
+
 @testable import Task
 
+extension Owner {
+    init(name: String) {
+        self.init(name: name)
+    }
+}
+
+extension Repository {
+    init(owner: Owner) {
+        self.init(owner: owner)
+    }
+}
 class TaskTests: XCTestCase {
+    let container = Container()
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        container.autoregister(Owner.self,
+                               argument: String.self,
+                               initializer:  Owner.init(name: ))
+        
+        container.autoregister(Repository.self,
+                               argument: Owner.self, initializer: Repository.init(owner: ))
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        container.removeAll()
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testOwnerModel() {
+        let owner = container ~> (Owner.self, argument: "name")
+        XCTAssertEqual(owner.ownerName, "name")
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testRepositoryModel() {
+        let owner = container ~> (Owner.self, argument: "name")
+        let repository = container ~> (Repository.self, argument: owner)
+        
+        XCTAssertEqual(repository.owner?.ownerName, "name")
     }
 
 }
