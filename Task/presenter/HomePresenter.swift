@@ -13,10 +13,13 @@ protocol HomeDelegate {
     func hideProgress()
     func repositoriesSucceedWith(_ repositories: [Repository])
     func repositoriesDidFailedWith(_ message: String)
+    func fetchRepositoriesFromCacheSucceedWith(_ repositories: [Repository])
+    func fetchRepositoriesFromCacheDidFailedWith(_ message: String)
 }
 
 protocol RepositoryFetcher {
     func fetch(from endPoint: String)
+    func fetchFromCache(with endPoint: String)
 }
 
 struct HomePresenter: RepositoryFetcher {
@@ -46,4 +49,32 @@ struct HomePresenter: RepositoryFetcher {
             }
         }
     }
+    
+    func fetchFromCache(with endPoint: String) {
+        guard let url = URL(string: endPoint) else{return}
+        let request = URLRequest(url: url)
+        
+        fetchCaccheRepositoriesWith(request: request, completion: {result in
+            switch result {
+            case .success(let repos):
+               self.delegate.fetchRepositoriesFromCacheSucceedWith(repos)
+            case .failure(let error):
+                self.delegate.fetchRepositoriesFromCacheDidFailedWith(error.localizedDescription)
+            }
+        })
+    }
+    
+    private func fetchCaccheRepositoriesWith(request: URLRequest, completion: @escaping (Result<[Repository]>)-> Void){
+        if let data = URLCache.shared.cachedResponse(for: request)?.data {
+            do{
+                let repos = try JSONDecoder().decode([Repository].self, from: data)
+                completion(.success(repos))
+                print("Load From Caching")
+            }catch(let error) {
+                print("Error in Caching Data: \(error.localizedDescription)")
+                completion(.failure(error))
+            }
+        }
+    }
+    
 }

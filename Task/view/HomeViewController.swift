@@ -49,23 +49,7 @@ class HomeViewController: UIViewController {
 
     }
     private func getRepositoriesData() {
-        let request = URLRequest(url: URL(string: Constants.baseURL)!)
-        
-        if let data = URLCache.shared.cachedResponse(for: request)?.data {
-            do{
-                let repos = try JSONDecoder().decode([Repository].self, from: data)
-                repositories = repos
-                updateUI()
-                print("Load From Caching")
-            }catch(let error) {
-                print("Error in Caching Data: \(error.localizedDescription)")
-            }
-        } else {
-            presenter?.fetch(from: Constants.baseURL)
-        }
-        
-
-        
+        presenter?.fetch(from: Constants.baseURL)
     }
     
     private func createActivityIndicator () {

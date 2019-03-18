@@ -60,4 +60,6 @@ class NotePresenter: NSObject, AddNote {
             delegate.fetchNoteDidFailedWith(error.localizedDescription)
         }
     }
+    
+    
 }
