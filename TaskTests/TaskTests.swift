@@ -9,31 +9,22 @@
 import XCTest
 import Swinject
 import SwinjectAutoregistration
-
-
 @testable import Task
 
-extension Owner {
-    init(name: String) {
-        self.init(name: name)
-    }
-}
-
-extension Repository {
-    init(owner: Owner) {
-        self.init(owner: owner)
-    }
-}
 class TaskTests: XCTestCase {
     let container = Container()
     override func setUp() {
-        container.autoregister(Owner.self,
-                               argument: String.self,
-                               initializer: Owner.init(name: ))
+        container.register(Owner.self){_ in
+            let data = try! JSONSerialization.data(withJSONObject: MockOwner.data, options: JSONSerialization.WritingOptions.prettyPrinted)
+            let owner = try! JSONDecoder().decode(Owner.self, from: data)
+            return owner
+        }
         
-        container.autoregister(Repository.self,
-                               argument: Owner.self,
-                               initializer: Repository.init(owner: ))
+        container.register(Repository.self){_ in
+            let data = try! JSONSerialization.data(withJSONObject: MockRepository.data, options: JSONSerialization.WritingOptions.prettyPrinted)
+            let repository = try! JSONDecoder().decode(Repository.self, from: data)
+            return repository
+        }
     }
 
     override func tearDown() {
@@ -41,14 +32,15 @@ class TaskTests: XCTestCase {
     }
 
     func testOwnerModel() {
-        let owner = container ~> (Owner.self, argument: "name")
-        XCTAssertEqual(owner.ownerName, "name")
+        let owner = container ~> (Owner.self)
+        XCTAssertEqual(owner.ownerName, "facebook")
+        XCTAssertEqual(owner.avatarURL, "avatar url")
     }
     
     func testRepositoryModel() {
-        let owner = container ~> (Owner.self, argument: "name")
-        let repository = container ~> (Repository.self, argument: owner)
-        XCTAssertEqual(repository.owner?.ownerName, "name")
+        let repository = container ~> (Repository.self)
+        XCTAssertEqual(repository.id, 1)
+        XCTAssertEqual(repository.description, "description")
     }
 
 }
