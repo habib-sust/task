@@ -60,7 +60,7 @@ class RepoCell: UITableViewCell, ReusableView {
     }
     
     private func createCircularImage() {
-        self.avatarImageView.layer.cornerRadius = self.avatarImageView.bounds.size.height/2
+        self.avatarImageView.layer.cornerRadius = self.bounds.size.height/2
         self.avatarImageView.layer.borderWidth = 2.0
         self.avatarImageView.layer.borderColor = UIColor.clear.cgColor
         self.avatarImageView.layer.masksToBounds = true

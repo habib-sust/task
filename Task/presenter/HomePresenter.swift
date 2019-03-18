@@ -53,12 +53,14 @@ struct HomePresenter: RepositoryFetcher {
     func fetchFromCache(with endPoint: String) {
         guard let url = URL(string: endPoint) else{return}
         let request = URLRequest(url: url)
-        
+        delegate.startProgress()
         fetchCaccheRepositoriesWith(request: request, completion: {result in
             switch result {
             case .success(let repos):
-               self.delegate.fetchRepositoriesFromCacheSucceedWith(repos)
+                self.delegate.startProgress()
+                self.delegate.fetchRepositoriesFromCacheSucceedWith(repos)
             case .failure(let error):
+                self.delegate.startProgress()
                 self.delegate.fetchRepositoriesFromCacheDidFailedWith(error.localizedDescription)
             }
         })
@@ -71,7 +73,6 @@ struct HomePresenter: RepositoryFetcher {
                 completion(.success(repos))
                 print("Load From Caching")
             }catch(let error) {
-                print("Error in Caching Data: \(error.localizedDescription)")
                 completion(.failure(error))
             }
         }

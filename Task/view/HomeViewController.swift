@@ -64,8 +64,9 @@ class HomeViewController: UIViewController {
         view.addSubview(container)
     }
     
-    private func gotToNoteViewController() {
+    private func gotToNoteViewControllerWith(userId: Int?) {
         let controller = NoteViewController()
+        controller.userId = userId
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
@@ -91,6 +92,15 @@ class HomeViewController: UIViewController {
 
 //***** Mark: HomeDelegate
 extension HomeViewController: HomeDelegate {
+    func fetchRepositoriesFromCacheSucceedWith(_ repositories: [Repository]) {
+        self.repositories = repositories
+        updateUI()
+    }
+    
+    func fetchRepositoriesFromCacheDidFailedWith(_ message: String) {
+        print("FetchRepositoriesFromCacheDidFailedWith: \(message)")
+    }
+    
     func startProgress() {
         print("start progress")
         progressHudStartAnimating()
@@ -131,7 +141,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        gotToNoteViewController()
+        let userId = repositories[indexPath.row].id
+        gotToNoteViewControllerWith(userId: userId)
     }
 
 }
