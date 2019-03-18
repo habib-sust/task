@@ -10,26 +10,24 @@ import XCTest
 import Swinject
 @testable import Task
 class NetworkingTests: XCTestCase {
-
+    let container = Container()
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        container.register(NetWorking.self) { _ in
+            let data = try! JSONSerialization.data(withJSONObject: MockRepository.data, options: JSONSerialization.WritingOptions.prettyPrinted)
+            let networking = MockNetworking(data: data, error: nil)
+            return networking
+        }
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        container.removeAll()
     }
 
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
 
 }
 
@@ -46,7 +44,7 @@ struct MockNetworking: NetWorking {
             return
         }
         
-        if let repos = repos {
+        if let data = data {
             completion(.success(data))
         }
     }

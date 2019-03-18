@@ -14,6 +14,7 @@ protocol NetWorking {
 }
 
 struct HTTPNetworking: NetWorking {
+    
     func get(from endPoint: String, completion: @escaping completionHandler) {
         guard let url = URL(string: endPoint) else{return}
         var request = createRequest(from: url)
