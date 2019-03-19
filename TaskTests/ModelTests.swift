@@ -20,6 +20,12 @@ class ModelTests: XCTestCase {
             return owner
         }
         
+        container.register(Owner.self){_ in
+            let data = try! JSONSerialization.data(withJSONObject: MockOwner.data, options: JSONSerialization.WritingOptions.prettyPrinted)
+            let owner = try! JSONDecoder().decode(Owner.self, from: data)
+            return owner
+        }
+        
         container.register(Repository.self){_ in
             let data = try! JSONSerialization.data(withJSONObject: MockRepository.data, options: JSONSerialization.WritingOptions.prettyPrinted)
             let repository = try! JSONDecoder().decode(Repository.self, from: data)

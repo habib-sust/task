@@ -21,7 +21,11 @@ protocol AddNote {
     func addNoteWith(userId id: Int, note: String)
 }
 
-class NotePresenter: NSObject, AddNote {
+protocol FetchNote {
+    func fetchNoteWith(userId id: Int)
+}
+
+class NotePresenter: NSObject, AddNote, FetchNote {
     private var delegate: NoteDelegate
     
     init(delegate: NoteDelegate) {
@@ -60,6 +64,4 @@ class NotePresenter: NSObject, AddNote {
             delegate.fetchNoteDidFailedWith(error.localizedDescription)
         }
     }
-    
-    
 }

@@ -66,6 +66,7 @@ class NoteViewController: UIViewController {
             presenter?.addNoteWith(userId: id, note: note)
         }
     }
+    
     //***** MARK:- IBActions *****    
     @objc private func didTapSaveNoteButton(sender: Any) {
         if noteTextView.text.isEmpty {

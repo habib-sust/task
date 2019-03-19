@@ -9,6 +9,7 @@
 import XCTest
 import Swinject
 @testable import Task
+
 class NetworkingTests: XCTestCase {
     let container = Container()
     
@@ -24,11 +25,22 @@ class NetworkingTests: XCTestCase {
         container.removeAll()
     }
 
-    func testExample() {
-
+    func testNetworkingWithData() {
+        let networking = container.resolve(NetWorking.self)
+        let expectation = XCTestExpectation(description: "get mockrepository data")
+        
+        networking?.get(from: Constants.baseURL, completion: { result in
+            switch result {
+            case .success(let data):
+                XCTAssertNotNil(data)
+                expectation.fulfill()
+            default :
+                XCTFail()
+            }
+        })
+        
+        wait(for: [expectation], timeout: 1.0)
     }
-
-
 }
 
 struct MockNetworking: NetWorking {
@@ -38,6 +50,7 @@ struct MockNetworking: NetWorking {
         self.data = data
         self.error = error
     }
+    
     func get(from endPoint: String, completion: @escaping completionHandler) {
         if let error = error {
             completion(.failure(error))
