@@ -27,6 +27,7 @@
 		17D76CEF223A4E0D00D41AA0 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D76CEE223A4E0D00D41AA0 /* NoteViewController.swift */; };
 		17D76CF1223A5C7B00D41AA0 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D76CF0223A5C7B00D41AA0 /* Note.swift */; };
 		17D76CF3223A5D8B00D41AA0 /* NotePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D76CF2223A5D8B00D41AA0 /* NotePresenter.swift */; };
+		17FB633E2240AD190052A280 /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB633D2240AD190052A280 /* HomePresenterTests.swift */; };
 		5435FCF43DAA408141CE94A8 /* Pods_TaskTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A226C1634BCC745E8AC37682 /* Pods_TaskTests.framework */; };
 		7B90F7DD224002A4008AFBF7 /* NetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90F7DC224002A4008AFBF7 /* NetworkingTests.swift */; };
 		7BE188D5223FD8C50017E946 /* MockRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE188D4223FD8C50017E946 /* MockRepositories.swift */; };
@@ -69,6 +70,7 @@
 		17D76CEE223A4E0D00D41AA0 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		17D76CF0223A5C7B00D41AA0 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		17D76CF2223A5D8B00D41AA0 /* NotePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePresenter.swift; sourceTree = "<group>"; };
+		17FB633D2240AD190052A280 /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
 		3322CF69D2CF7A117CC68618 /* Pods-Task.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task.debug.xcconfig"; path = "Target Support Files/Pods-Task/Pods-Task.debug.xcconfig"; sourceTree = "<group>"; };
 		39C7DD423FD02D2C71DA9329 /* Pods-TaskUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskUITests.debug.xcconfig"; path = "Target Support Files/Pods-TaskUITests/Pods-TaskUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		45F92195504804409DE234B5 /* Pods_Task.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Task.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +146,7 @@
 				7BE188D3223FD87F0017E946 /* MockData */,
 				17B40F942238D60800C8882D /* ModelTests.swift */,
 				7B90F7DC224002A4008AFBF7 /* NetworkingTests.swift */,
+				17FB633D2240AD190052A280 /* HomePresenterTests.swift */,
 				17B40F962238D60800C8882D /* Info.plist */,
 			);
 			path = TaskTests;
@@ -474,6 +477,7 @@
 				17B40F952238D60800C8882D /* ModelTests.swift in Sources */,
 				7B90F7DD224002A4008AFBF7 /* NetworkingTests.swift in Sources */,
 				7BE188D5223FD8C50017E946 /* MockRepositories.swift in Sources */,
+				17FB633E2240AD190052A280 /* HomePresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

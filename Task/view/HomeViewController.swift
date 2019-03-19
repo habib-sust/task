@@ -10,10 +10,10 @@ import UIKit
 
 class HomeViewController: UIViewController {
     //***** MARK: - Properties *****
-    fileprivate var repositories = [Repository]()
-    fileprivate var progressHud: UIActivityIndicatorView!
-    fileprivate var tableView = UITableView()
-    fileprivate var presenter: HomePresenter?
+    private var repositories = [Repository]()
+    private var progressHud: UIActivityIndicatorView!
+    private var tableView = UITableView()
+    private var presenter: HomePresenter?
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
