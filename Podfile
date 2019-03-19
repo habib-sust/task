@@ -14,6 +14,8 @@ target 'Task' do
     # Pods for testing
     pod 'Swinject'
     pod 'SwinjectAutoregistration'
+    pod 'Quick'
+    pod 'Nimble'
   end
 
 

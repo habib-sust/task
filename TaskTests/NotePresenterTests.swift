@@ -6,6 +6,8 @@
 //
 
 import XCTest
+
+
 @testable import Task
 
 class NotePresenterTests: XCTestCase {
@@ -67,7 +69,6 @@ class MockNoteViewControllerFetchNote: NoteDelegate {
     }
     
     func addNoteSucceed() {}
-    
     func addNoteDidFailedWith(_ message: String) {}
     
     func fetchNoteSucceddWith(_ note: Note) {
