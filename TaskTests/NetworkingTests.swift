@@ -34,7 +34,7 @@ class NetworkingTests: XCTestCase {
         networking?.get(from: Constants.baseURL, completion: { result in
             switch result {
             case .success(let data):
-                XCTAssertNotNil(data)
+                expect(data).notTo(beNil())
                 expectation.fulfill()
             default :
                 XCTFail()
