@@ -11,7 +11,7 @@ import Foundation
 
 struct MockRepository {
     static var data: [String: Any?] {
-        let JSONData: [String: Any?] = [
+        let jsonData: [String: Any?] = [
                 "id": 1,
                 "name": "codemod",
                 "description": "description",
@@ -21,10 +21,27 @@ struct MockRepository {
                     "avatar_url": "avatar url"
                 ]
             ]
-        return JSONData
+        return jsonData
     }
 }
 
+struct MockRepositories {
+    static var data: [[String: Any?]?] {
+        let jsonData: [[String: Any?]?] = [
+            [
+                "id": 1,
+                "name": "codemod",
+                "description": "description",
+                "fork": false,
+                "owner": [
+                    "login": "facebook",
+                    "avatar_url": "avatar url"
+                ]
+            ]
+        ]
+        return jsonData
+    }
+}
 struct MockOwner {
     static var data: [String: Any?] {
         let JSONData: [String: Any?] = [

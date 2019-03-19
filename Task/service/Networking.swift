@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol NetWorking {
+protocol Networking {
     typealias completionHandler = (Result<Data>) -> Void
     func get(from endPoint: String, completion: @escaping completionHandler)
 }
 
-struct HTTPNetworking: NetWorking {
+struct HTTPNetworking: Networking {
     
     func get(from endPoint: String, completion: @escaping completionHandler) {
         guard let url = URL(string: endPoint) else{return}

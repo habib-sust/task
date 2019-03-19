@@ -25,7 +25,7 @@ protocol FetchNote {
     func fetchNoteWith(userId id: Int)
 }
 
-class NotePresenter: NSObject, AddNote, FetchNote {
+struct NotePresenter: AddNote, FetchNote {
     private var delegate: NoteDelegate
     
     init(delegate: NoteDelegate) {

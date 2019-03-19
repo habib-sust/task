@@ -14,7 +14,7 @@ class NetworkingTests: XCTestCase {
     let container = Container()
     
     override func setUp() {
-        container.register(NetWorking.self) { _ in
+        container.register(Networking.self) { _ in
             let data = try! JSONSerialization.data(withJSONObject: MockRepository.data, options: JSONSerialization.WritingOptions.prettyPrinted)
             let networking = MockNetworking(data: data, error: nil)
             return networking
@@ -25,8 +25,8 @@ class NetworkingTests: XCTestCase {
         container.removeAll()
     }
 
-    func testNetworkingWithData() {
-        let networking = container.resolve(NetWorking.self)
+    func testNetworkingWithMockData() {
+        let networking = container.resolve(Networking.self)
         let expectation = XCTestExpectation(description: "get mockrepository data")
         
         networking?.get(from: Constants.baseURL, completion: { result in
@@ -43,7 +43,7 @@ class NetworkingTests: XCTestCase {
     }
 }
 
-struct MockNetworking: NetWorking {
+struct MockNetworking: Networking {
     var data: Data?
     var error: Error?
     init(data: Data?, error: Error?) {
@@ -61,6 +61,4 @@ struct MockNetworking: NetWorking {
             completion(.success(data))
         }
     }
-    
-    
 }

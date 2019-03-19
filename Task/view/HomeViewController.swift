@@ -49,7 +49,7 @@ class HomeViewController: UIViewController {
 
     }
     private func getRepositoriesData() {
-        presenter?.fetch(from: Constants.baseURL)
+        presenter?.fetchRepositories(from: Constants.baseURL)
     }
     
     private func createActivityIndicator () {
@@ -118,7 +118,7 @@ extension HomeViewController: HomeDelegate {
     
     func repositoriesDidFailedWith(_ message: String) {
         print("RepositoriesDidFailedWith: \(message)")
-        presenter?.fetchFromCache(with: Constants.baseURL)
+        presenter?.fetchRepositoriesFromCache(with: Constants.baseURL)
     }
 }
 

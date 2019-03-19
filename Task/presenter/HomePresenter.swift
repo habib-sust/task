@@ -18,19 +18,19 @@ protocol HomeDelegate {
 }
 
 protocol RepositoryFetcher {
-    func fetch(from endPoint: String)
-    func fetchFromCache(with endPoint: String)
+    func fetchRepositories(from endPoint: String)
+    func fetchRepositoriesFromCache(with endPoint: String)
 }
 
 struct HomePresenter: RepositoryFetcher {
     private var delegate: HomeDelegate
-    private var networking: NetWorking
-    init(delegate: HomeDelegate, networking: NetWorking) {
+    private var networking: Networking
+    init(delegate: HomeDelegate, networking: Networking) {
         self.delegate = delegate
         self.networking = networking
     }
     
-    func fetch(from endPoint: String) {
+    func fetchRepositories(from endPoint: String) {
         delegate.startProgress()
         networking.get(from: endPoint){ result in
             switch result {
@@ -50,7 +50,7 @@ struct HomePresenter: RepositoryFetcher {
         }
     }
     
-    func fetchFromCache(with endPoint: String) {
+    func fetchRepositoriesFromCache(with endPoint: String) {
         guard let url = URL(string: endPoint) else{return}
         let request = URLRequest(url: url)
         delegate.startProgress()
