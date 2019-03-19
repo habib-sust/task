@@ -57,10 +57,10 @@ struct HomePresenter: RepositoryFetcher {
         fetchCaccheRepositoriesWith(request: request, completion: {result in
             switch result {
             case .success(let repos):
-                self.delegate.startProgress()
+                self.delegate.hideProgress()
                 self.delegate.fetchRepositoriesFromCacheSucceedWith(repos)
             case .failure(let error):
-                self.delegate.startProgress()
+                self.delegate.hideProgress()
                 self.delegate.fetchRepositoriesFromCacheDidFailedWith(error.localizedDescription)
             }
         })

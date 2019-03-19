@@ -9,10 +9,13 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    //***** MARK: - Properties *****
-    private var repositories = [Repository]()
+    //***** MARK: - Views *****
     private var progressHud: UIActivityIndicatorView!
     private var tableView = UITableView()
+    
+    //***** MARK: - Properties *****
+    private let cellHeight: CGFloat = 80
+    private var repositories = [Repository]()
     private var presenter: HomePresenter?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +30,7 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .white
         presenter = HomePresenter(delegate: self, networking: HTTPNetworking())
         
-//        tableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right:0)
         tableView.register(RepoCell.self, forCellReuseIdentifier: RepoCell.reuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
@@ -137,7 +140,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return cellHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -32,6 +32,10 @@ class DescriptionView: UIView{
     private var descriptionLabel = UILabel()
     private var descriptionView = UIStackView()
     
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: UIView.noIntrinsicMetric, height: 21)
+    }
+    
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         setupDescriptionStackView()
@@ -45,7 +49,7 @@ class DescriptionView: UIView{
     private func setupDescriptionStackView() {
         descriptionView = UIStackView(arrangedSubviews: [repositoryNameLabel, ownerNameLabel, descriptionLabel])
         descriptionView.axis = .vertical
-        descriptionView.spacing = 2.0
+        descriptionView.spacing = 4
         descriptionView.distribution = .fillProportionally
     }
 
@@ -77,5 +81,9 @@ class DescriptionView: UIView{
                                width: 0,
                                height: 0,
                                enableInsets: false)
+        
+        descriptionLabel.setContentCompressionResistancePriority(
+            UILayoutPriority.defaultLow,
+            for: .vertical)
     }
 }

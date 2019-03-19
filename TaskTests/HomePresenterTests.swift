@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Nimble
 import Swinject
 import SwinjectAutoregistration
 @testable import Task
@@ -22,9 +23,11 @@ class HomePresenterTests: XCTestCase {
     func testFetchRepositoriesDidCalledWithError() {
         let expectation = XCTestExpectation(description: "should call delegate method repositoriesDidFailedWith")
         let homePresenter = HomePresenter(delegate: MockHomeViewController(expectation: expectation), networking: MockNetworking(data: nil, error: APIClientError.noData))
-        homePresenter.fetchRepositories(from: "endpoint")
         
-        wait(for: [expectation], timeout: 1)
+        waitUntil{done in
+            homePresenter.fetchRepositories(from: "endpoint")
+            done()
+        }
     }
     
     func testFetchRepositoriesDidCalledWithUnformatedData() {

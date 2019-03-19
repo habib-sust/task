@@ -31,6 +31,7 @@ class NetworkingTests: XCTestCase {
         let networking = container.resolve(Networking.self)
         let expectation = XCTestExpectation(description: "get mockrepository data")
         
+        
         networking?.get(from: Constants.baseURL, completion: { result in
             switch result {
             case .success(let data):
@@ -40,7 +41,6 @@ class NetworkingTests: XCTestCase {
                 XCTFail()
             }
         })
-        
         wait(for: [expectation], timeout: 1.0)
     }
 }
