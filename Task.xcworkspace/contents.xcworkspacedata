@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/habib/iOS/Task/TaskTests/NotePresenterTests.swift">
+   </FileRef>
+   <FileRef
       location = "group:Task.xcodeproj">
    </FileRef>
    <FileRef
