@@ -66,11 +66,15 @@ class NoteViewController: UIViewController {
             presenter?.addNoteWith(userId: id, note: note)
         }
     }
-    
+    private func showAlert() {
+        let alert = UIAlertController(title: "Note", message: "Note can't be blank", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     //***** MARK:- IBActions *****    
     @objc private func didTapSaveNoteButton(sender: Any) {
         if noteTextView.text.isEmpty {
-            
+            showAlert()
         }else{
             addNote(with: noteTextView.text)
         }
