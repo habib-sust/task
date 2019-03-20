@@ -128,7 +128,6 @@ extension HomeViewController: HomeView {
 
 //MARK: - TableView Delegate & DataSource
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
-    //***** MARK: TableView Delegate & DataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(forIndexPath: indexPath, withType: RepoCell.self)
         cell.updateCell(with: repositories[indexPath.row])
@@ -145,7 +144,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let userId = repositories[indexPath.row].id
-        print("User ID: \(userId!)")
         gotToNoteViewControllerWith(userId: userId)
     }
 

@@ -51,7 +51,7 @@ class NotePresenterTests: XCTestCase {
     
 }
 
-class MockNoteViewController: NoteDelegate {
+class MockNoteViewController: NoteView {
     var addNoteSucced = false
     var fetchNoteSucceedWith = false
     var fetchNoteDidFailedWith = false
