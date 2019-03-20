@@ -29,7 +29,7 @@ class NetworkingTests: XCTestCase {
 
     func testNetworkingWithMockData() {
         let networking = container.resolve(Networking.self)
-        let expectation = XCTestExpectation(description: "get mockrepository data")
+        let expectation = XCTestExpectation(description: "should get mockrepository data")
         
         
         networking?.get(from: Constants.baseURL, completion: { result in

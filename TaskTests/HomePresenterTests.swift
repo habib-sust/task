@@ -12,83 +12,92 @@ import Swinject
 import SwinjectAutoregistration
 @testable import Task
 class HomePresenterTests: XCTestCase {
+    let container = Container()
+    
     override func setUp() {
         super.setUp()
+        container.register(MockHomeViewController.self) {_ in
+            return MockHomeViewController()
+        }
+        
+        container.register(MockHomeViewControllerWithFormatedData.self) {_ in
+            MockHomeViewControllerWithFormatedData()
+        }
+        
+        container.register(MockNetworking.self){ _ in
+            let data = try! JSONSerialization.data(withJSONObject: MockRepository.data, options: .prettyPrinted)
+            let networking = MockNetworking(data: data, error: nil)
+            
+            return networking
+        }
     }
 
     override func tearDown() {
         super.tearDown()
+        container.removeAll()
     }
     
     func testFetchRepositoriesDidCalledWithError() {
-        let expectation = XCTestExpectation(description: "should call delegate method repositoriesDidFailedWith")
-        let homePresenter = HomePresenter(delegate: MockHomeViewController(expectation: expectation), networking: MockNetworking(data: nil, error: APIClientError.noData))
+        let delegate = container ~> (MockHomeViewController.self)
+        let homePresenter = HomePresenter(delegate: delegate, networking: MockNetworking(data: nil, error: APIClientError.noData))
+        homePresenter.fetchRepositories(from: "endpoint")
         
-        waitUntil{done in
-            homePresenter.fetchRepositories(from: "endpoint")
-            done()
-        }
+        expect(delegate.testFetchRepositoriesDidCalledWithError)
+            .toEventually(beTrue(), description: "should call delegate method repositoriesDidFailedWith")
     }
     
     func testFetchRepositoriesDidCalledWithUnformatedData() {
-        let expectation = XCTestExpectation(description: "should call delegate method repositoriesDidFailedWith")
-        let data = try! JSONSerialization.data(withJSONObject: MockRepository.data, options: .prettyPrinted)
-        let presenter = HomePresenter(delegate: MockHomeViewController(expectation: expectation), networking: MockNetworking(data: data, error: nil))
+        let delegate = container ~> (MockHomeViewControllerWithFormatedData.self)
+        let networking = container ~> (MockNetworking.self)
+        let presenter = HomePresenter(delegate: delegate, networking: networking)
         presenter.fetchRepositories(from: "endpoint")
         
-        wait(for: [expectation], timeout: 1)
+        expect(delegate.testFetchRepositoriesDidCalledWithUnformatedData)
+            .toEventually( beTrue(), description: "should call delegate method repositoriesDidFailedWith")
     }
     
     func testFetchRepositoriesDidCalledWithFormatData() {
-        let expectation = XCTestExpectation(description: "should call delegate method repositoriesSucceedWith")
+        let delegate = container ~> (MockHomeViewController.self)
         let data = try! JSONSerialization.data(withJSONObject: MockRepositories.data, options: .prettyPrinted)
-        let presenter = HomePresenter(delegate: MockViewControllerWithFormatedData(expectation: expectation), networking: MockNetworking(data: data, error: nil))
+        let networking = MockNetworking(data: data, error: nil)
+        let presenter = HomePresenter(delegate: delegate, networking: networking)
         presenter.fetchRepositories(from: "endpoint")
         
-        wait(for: [expectation], timeout: 1)
+        expect(delegate.testFetchRepositoriesDidCalledWithFormatData)
+            .toEventually(beTrue(), description: "should call delegate method repositoriesSucceedWith")
     }
     
 }
 
 class MockHomeViewController: HomeDelegate {
-    var expectation: XCTestExpectation
-    
-    init(expectation: XCTestExpectation) {
-        self.expectation = expectation
-    }
+    var testFetchRepositoriesDidCalledWithError = false
+    var testFetchRepositoriesDidCalledWithFormatData = false
     func startProgress() {}
-    
     func hideProgress() {}
+    func fetchRepositoriesFromCacheSucceedWith(_ repositories: [Repository]) {}
+    func fetchRepositoriesFromCacheDidFailedWith(_ message: String) {}
     
+    func repositoriesSucceedWith(_ repositories: [Repository]) {
+        testFetchRepositoriesDidCalledWithFormatData = true
+    }
+    
+    func repositoriesDidFailedWith(_ message: String) {
+        testFetchRepositoriesDidCalledWithError = true
+    }
+}
+
+class MockHomeViewControllerWithFormatedData: HomeDelegate {
+    var testFetchRepositoriesDidCalledWithUnformatedData = false
+    func startProgress() {}
+    func hideProgress() {}
+    func fetchRepositoriesFromCacheSucceedWith(_ repositories: [Repository]) {}
+    func fetchRepositoriesFromCacheDidFailedWith(_ message: String) {}
     func repositoriesSucceedWith(_ repositories: [Repository]) {}
     
     func repositoriesDidFailedWith(_ message: String) {
-        print("Error: \(message)")
-        self.expectation.fulfill()
+        testFetchRepositoriesDidCalledWithUnformatedData = true
     }
-    
-    func fetchRepositoriesFromCacheSucceedWith(_ repositories: [Repository]) {}
-    
-    func fetchRepositoriesFromCacheDidFailedWith(_ message: String) {}
-}
 
-class MockViewControllerWithFormatedData: HomeDelegate {
-    var expectation: XCTestExpectation
-    
-    init(expectation: XCTestExpectation) {
-        self.expectation = expectation
-    }
-    
-    func startProgress() {}
-    func hideProgress() {}
-    
-    func repositoriesSucceedWith(_ repositories: [Repository]) {
-        expectation.fulfill()
-    }
-    
-    func repositoriesDidFailedWith(_ message: String) {}
-    func fetchRepositoriesFromCacheSucceedWith(_ repositories: [Repository]) {}
-    func fetchRepositoriesFromCacheDidFailedWith(_ message: String) {}
     
     
 }

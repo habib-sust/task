@@ -24,6 +24,7 @@
 		17B40FBE2238F61700C8882D /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40FBD2238F61700C8882D /* RepoCell.swift */; };
 		17B40FC02239036A00C8882D /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40FBF2239036A00C8882D /* DescriptionView.swift */; };
 		17B40FC32239103100C8882D /* TableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40FC22239103100C8882D /* TableView+Reusable.swift */; };
+		17BD7C0C2241E9A80090EC6F /* NotePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD7C0B2241E9A80090EC6F /* NotePresenterTests.swift */; };
 		17D76CEF223A4E0D00D41AA0 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D76CEE223A4E0D00D41AA0 /* NoteViewController.swift */; };
 		17D76CF1223A5C7B00D41AA0 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D76CF0223A5C7B00D41AA0 /* Note.swift */; };
 		17D76CF3223A5D8B00D41AA0 /* NotePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D76CF2223A5D8B00D41AA0 /* NotePresenter.swift */; };
@@ -67,6 +68,7 @@
 		17B40FBD2238F61700C8882D /* RepoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
 		17B40FBF2239036A00C8882D /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		17B40FC22239103100C8882D /* TableView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableView+Reusable.swift"; sourceTree = "<group>"; };
+		17BD7C0B2241E9A80090EC6F /* NotePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePresenterTests.swift; sourceTree = "<group>"; };
 		17D76CEE223A4E0D00D41AA0 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		17D76CF0223A5C7B00D41AA0 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		17D76CF2223A5D8B00D41AA0 /* NotePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePresenter.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				17B40F942238D60800C8882D /* ModelTests.swift */,
 				7B90F7DC224002A4008AFBF7 /* NetworkingTests.swift */,
 				17FB633D2240AD190052A280 /* HomePresenterTests.swift */,
+				17BD7C0B2241E9A80090EC6F /* NotePresenterTests.swift */,
 				17B40F962238D60800C8882D /* Info.plist */,
 			);
 			path = TaskTests;
@@ -481,6 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17B40F952238D60800C8882D /* ModelTests.swift in Sources */,
+				17BD7C0C2241E9A80090EC6F /* NotePresenterTests.swift in Sources */,
 				7B90F7DD224002A4008AFBF7 /* NetworkingTests.swift in Sources */,
 				7BE188D5223FD8C50017E946 /* MockRepositories.swift in Sources */,
 				17FB633E2240AD190052A280 /* HomePresenterTests.swift in Sources */,
