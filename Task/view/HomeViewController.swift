@@ -94,7 +94,7 @@ class HomeViewController: UIViewController {
 }
 
 //***** Mark: HomeDelegate
-extension HomeViewController: HomeDelegate {
+extension HomeViewController: HomeView {
     func fetchRepositoriesFromCacheSucceedWith(_ repositories: [Repository]) {
         self.repositories = repositories
         updateUI()

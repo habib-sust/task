@@ -20,12 +20,6 @@ class NotePresenterTests: XCTestCase {
         container.register(MockNoteViewController.self) {_ in
             MockNoteViewController()
         }
-        
-//        container.register(NotePresenter.self) {resolver in
-//            let delegate = resolver ~> (MockNoteViewController.self)
-//            let presenter = NotePresenter(delegate: delegate)
-//            return presenter
-//        }
     }
     
     override func tearDown() {
@@ -33,22 +27,22 @@ class NotePresenterTests: XCTestCase {
         container.removeAll()
     }
     
-    func testAddNoteWithUserIdAndNote() {
+    func testAddNoteSuccedWithUserIdAndNote() {
         let delegate = container ~> (MockNoteViewController.self)
         let presenter = NotePresenter(delegate: delegate)
-        presenter.addNoteWith(userId: 1, note: "")
+        presenter.addNoteWith(userId: 1, note: "abc")
         
         expect(delegate.addNoteSucced).toEventually(beTrue(), description: "should call delegate method addNoteSucced")
     }
     
-    func testFetchNoteWithUserId(){
+    func testFetchNoteSucceedWithUserId(){
         let delegate = container ~> (MockNoteViewController.self)
         let presenter = NotePresenter(delegate: delegate)
         presenter.fetchNoteWith(userId: 1)
-        expect(delegate.fetchNoteWithSucceed).to(beTrue(), description: "should call delegate method fetchNoteWithSucceed")
+        expect(delegate.fetchNoteSucceedWith).to(beTrue(), description: "should call delegate method fetchNoteSucceedWith")
     }
     
-    func testFetchNoteWithWrongUserId(){
+    func testFetchNoteDidFailedWithWrongUserId(){
         let delegate = container ~> (MockNoteViewController.self)
         let presenter = NotePresenter(delegate: delegate)
         presenter.fetchNoteWith(userId: 123)
@@ -59,7 +53,7 @@ class NotePresenterTests: XCTestCase {
 
 class MockNoteViewController: NoteDelegate {
     var addNoteSucced = false
-    var fetchNoteWithSucceed = false
+    var fetchNoteSucceedWith = false
     var fetchNoteDidFailedWith = false
     
     func addNoteSucceed() {
@@ -68,7 +62,7 @@ class MockNoteViewController: NoteDelegate {
     
     func addNoteDidFailedWith(_ message: String) {}
     func fetchNoteSucceddWith(_ note: Note) {
-        fetchNoteWithSucceed = true
+        fetchNoteSucceedWith = true
     }
     
     func fetchNoteDidFailedWith(_ message: String) {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol HomeDelegate {
+protocol HomeView {
     func startProgress()
     func hideProgress()
     func repositoriesSucceedWith(_ repositories: [Repository])
@@ -23,9 +23,9 @@ protocol RepositoryFetcher {
 }
 
 struct HomePresenter: RepositoryFetcher {
-    private var delegate: HomeDelegate
+    private var delegate: HomeView
     private var networking: Networking
-    init(delegate: HomeDelegate, networking: Networking) {
+    init(delegate: HomeView, networking: Networking) {
         self.delegate = delegate
         self.networking = networking
     }
@@ -51,7 +51,10 @@ struct HomePresenter: RepositoryFetcher {
     }
     
     func fetchRepositoriesFromCache(with endPoint: String) {
-        guard let url = URL(string: endPoint) else{return}
+        guard let url = URL(string: endPoint) else{
+            self.delegate.fetchRepositoriesFromCacheDidFailedWith("Can't convert to URL")
+            return
+        }
         let request = URLRequest(url: url)
         delegate.startProgress()
         fetchCaccheRepositoriesWith(request: request, completion: {result in
@@ -66,7 +69,7 @@ struct HomePresenter: RepositoryFetcher {
         })
     }
     
-    private func fetchCaccheRepositoriesWith(request: URLRequest, completion: @escaping (Result<[Repository]>)-> Void){
+    private func fetchCaccheRepositoriesWith(request: URLRequest, completion: @escaping (Result<[Repository]>)-> Void) {
         if let data = URLCache.shared.cachedResponse(for: request)?.data {
             do{
                 let repos = try JSONDecoder().decode([Repository].self, from: data)

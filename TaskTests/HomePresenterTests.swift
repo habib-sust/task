@@ -27,7 +27,6 @@ class HomePresenterTests: XCTestCase {
         container.register(MockNetworking.self){ _ in
             let data = try! JSONSerialization.data(withJSONObject: MockRepository.data, options: .prettyPrinted)
             let networking = MockNetworking(data: data, error: nil)
-            
             return networking
         }
     }
@@ -37,16 +36,16 @@ class HomePresenterTests: XCTestCase {
         container.removeAll()
     }
     
-    func testFetchRepositoriesDidCalledWithError() {
+    func testRepositoriesDidFailedWithError() {
         let delegate = container ~> (MockHomeViewController.self)
-        let homePresenter = HomePresenter(delegate: delegate, networking: MockNetworking(data: nil, error: APIClientError.noData))
-        homePresenter.fetchRepositories(from: "endpoint")
+        let presenter = HomePresenter(delegate: delegate, networking: MockNetworking(data: nil, error: APIClientError.noData))
+        presenter.fetchRepositories(from: "endpoint")
         
         expect(delegate.testFetchRepositoriesDidCalledWithError)
             .toEventually(beTrue(), description: "should call delegate method repositoriesDidFailedWith")
     }
     
-    func testFetchRepositoriesDidCalledWithUnformatedData() {
+    func testRepositoriesDidFailedWithUnformatedData() {
         let delegate = container ~> (MockHomeViewControllerWithFormatedData.self)
         let networking = container ~> (MockNetworking.self)
         let presenter = HomePresenter(delegate: delegate, networking: networking)
@@ -56,7 +55,7 @@ class HomePresenterTests: XCTestCase {
             .toEventually( beTrue(), description: "should call delegate method repositoriesDidFailedWith")
     }
     
-    func testFetchRepositoriesDidCalledWithFormatData() {
+    func testRepositoriesSucceedWithFormatData() {
         let delegate = container ~> (MockHomeViewController.self)
         let data = try! JSONSerialization.data(withJSONObject: MockRepositories.data, options: .prettyPrinted)
         let networking = MockNetworking(data: data, error: nil)
@@ -67,15 +66,81 @@ class HomePresenterTests: XCTestCase {
             .toEventually(beTrue(), description: "should call delegate method repositoriesSucceedWith")
     }
     
+    func testStartProgressDidCalled() {
+        let delegate = container ~> (MockHomeViewController.self)
+        let presenter = HomePresenter(delegate: delegate, networking: MockNetworking(data: nil, error: APIClientError.noData))
+        presenter.fetchRepositories(from: "endpoint")
+        
+        expect(delegate.testStartProgressDidCalled)
+            .toEventually(beTrue(), description: "should call delegate method startProgress")
+        
+    }
+    
+    func testHidePregressDidCalledWithError() {
+        let delegate = container ~> (MockHomeViewController.self)
+        let presenter = HomePresenter(delegate: delegate, networking: MockNetworking(data: nil, error: APIClientError.noData))
+        presenter.fetchRepositories(from: "endpoint")
+        
+        expect(delegate.testHidePregressDidCalled)
+            .toEventually(beTrue(), description: "should call delegate method hideProgress")
+    }
+    
+    func testHideProgressWithFormatData() {
+        let delegate = container ~> (MockHomeViewControllerWithFormatedData.self)
+        let data = try! JSONSerialization.data(withJSONObject: MockRepositories.data, options: .prettyPrinted)
+        let networking = MockNetworking(data: data, error: nil)
+        let presenter = HomePresenter(delegate: delegate, networking: networking)
+        presenter.fetchRepositories(from: "endpoint")
+        
+        expect(delegate.testHideProgressWithFormatData)
+            .toEventually(beTrue(), description: "should call delegate method hideProgress")
+    }
+    
+    func testFetchRepositoriesFromCacheDidFailedWithEmptyURL() {
+        let delegate = container ~> (MockHomeViewController.self)
+        let networking = container ~> (MockNetworking.self)
+        let presenter = HomePresenter(delegate: delegate, networking: networking)
+        presenter.fetchRepositoriesFromCache(with: "")
+        
+        expect(delegate.testFetchRepositoriesFromCacheDidFailedWith)
+            .toEventually(beTrue(), description: "should call delegate method fetchRepositoriesfromCacheDidFailedWith")
+    }
+    
+    func testFetchRepositoriesFromCacheSucceedWithValidURL() {
+        let delegate = container ~> (MockHomeViewController.self)
+        let networking = container ~> (MockNetworking.self)
+        let presenter = HomePresenter(delegate: delegate, networking: networking)
+        presenter.fetchRepositoriesFromCache(with: Constants.baseURL)
+        
+        expect(delegate.testFetchRepositoriesFromCacheSucceedWithDidCalled)
+            .toEventually(beTrue(), description: "should call delegate method fetchRepositoriesfromCacheWithSucceed")
+        
+    }
 }
 
-class MockHomeViewController: HomeDelegate {
+class MockHomeViewController: HomeView {
     var testFetchRepositoriesDidCalledWithError = false
     var testFetchRepositoriesDidCalledWithFormatData = false
-    func startProgress() {}
-    func hideProgress() {}
-    func fetchRepositoriesFromCacheSucceedWith(_ repositories: [Repository]) {}
-    func fetchRepositoriesFromCacheDidFailedWith(_ message: String) {}
+    var testStartProgressDidCalled = false
+    var testHidePregressDidCalled = false
+    var testFetchRepositoriesFromCacheSucceedWithDidCalled = false
+    var testFetchRepositoriesFromCacheDidFailedWith = false
+    
+    func startProgress() {
+        testStartProgressDidCalled = true
+    }
+    
+    func hideProgress() {
+        testHidePregressDidCalled = true
+    }
+    
+    func fetchRepositoriesFromCacheSucceedWith(_ repositories: [Repository]) {
+        testFetchRepositoriesFromCacheSucceedWithDidCalled = true
+    }
+    
+    func fetchRepositoriesFromCacheDidFailedWith(_ message: String) {
+        testFetchRepositoriesFromCacheDidFailedWith = true
+    }
     
     func repositoriesSucceedWith(_ repositories: [Repository]) {
         testFetchRepositoriesDidCalledWithFormatData = true
@@ -86,10 +151,14 @@ class MockHomeViewController: HomeDelegate {
     }
 }
 
-class MockHomeViewControllerWithFormatedData: HomeDelegate {
+class MockHomeViewControllerWithFormatedData: HomeView {
     var testFetchRepositoriesDidCalledWithUnformatedData = false
+    var testHideProgressWithFormatData = false
+    
     func startProgress() {}
-    func hideProgress() {}
+    func hideProgress() {
+        testHideProgressWithFormatData = true
+    }
     func fetchRepositoriesFromCacheSucceedWith(_ repositories: [Repository]) {}
     func fetchRepositoriesFromCacheDidFailedWith(_ message: String) {}
     func repositoriesSucceedWith(_ repositories: [Repository]) {}
