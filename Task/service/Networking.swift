@@ -17,8 +17,7 @@ struct HTTPNetworking: Networking {
     
     func get(from endPoint: String, completion: @escaping completionHandler) {
         guard let url = URL(string: endPoint) else{return}
-        var request = createRequest(from: url)
-        request.cachePolicy = .useProtocolCachePolicy
+        let request = createRequest(from: url)
         let task = createDataTask(from: request, completion: completion)
         task.resume()
     }

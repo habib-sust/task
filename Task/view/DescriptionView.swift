@@ -27,9 +27,25 @@ class DescriptionView: UIView{
     }
     
     //***** MARK:- Views *****
-    private var repositoryNameLabel = UILabel()
-    private var ownerNameLabel = UILabel()
-    private var descriptionLabel = UILabel()
+    private var repositoryNameLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "Avenir-Bold", size: 14)
+        label.textAlignment = .left
+        return label
+    }()
+    private var ownerNameLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "Avenir-Medium", size: 13)
+        label.textAlignment = .left
+        return label
+    }()
+    private var descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "Avenir", size: 12)
+        label.minimumScaleFactor = 0.5
+        label.numberOfLines = 0
+        return label
+    }()
     private var descriptionView = UIStackView()
     
     override var intrinsicContentSize: CGSize {
@@ -40,7 +56,6 @@ class DescriptionView: UIView{
         super.willMove(toSuperview: newSuperview)
         setupDescriptionStackView()
         setup()
-        setupLabels()
         setupConstraints()
     }
     
@@ -51,18 +66,6 @@ class DescriptionView: UIView{
         descriptionView.axis = .vertical
         descriptionView.spacing = 4
         descriptionView.distribution = .fillProportionally
-    }
-
-    private func setupLabels(){
-        repositoryNameLabel.font = UIFont(name: "Avenir-Bold", size: 14)
-        repositoryNameLabel.textAlignment = .left
-        
-        ownerNameLabel.font = UIFont(name: "Avenir-Medium", size: 13)
-        ownerNameLabel.textAlignment = .left
-        
-        descriptionLabel.font = UIFont(name: "Avenir", size: 12)
-        descriptionLabel.minimumScaleFactor = 0.5
-        descriptionLabel.numberOfLines = 0
     }
     
     private func setup() {
@@ -82,8 +85,5 @@ class DescriptionView: UIView{
                                height: 0,
                                enableInsets: false)
         
-        descriptionLabel.setContentCompressionResistancePriority(
-            UILayoutPriority.defaultLow,
-            for: .vertical)
     }
 }

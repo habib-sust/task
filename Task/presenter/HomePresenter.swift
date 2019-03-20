@@ -25,6 +25,7 @@ protocol RepositoryFetcher {
 struct HomePresenter: RepositoryFetcher {
     private var delegate: HomeView
     private var networking: Networking
+    
     init(delegate: HomeView, networking: Networking) {
         self.delegate = delegate
         self.networking = networking
@@ -74,11 +75,9 @@ struct HomePresenter: RepositoryFetcher {
             do{
                 let repos = try JSONDecoder().decode([Repository].self, from: data)
                 completion(.success(repos))
-                print("Load From Caching")
             }catch(let error) {
                 completion(.failure(error))
             }
         }
     }
-    
 }

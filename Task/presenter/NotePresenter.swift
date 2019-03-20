@@ -14,7 +14,6 @@ protocol NoteView {
     func addNoteDidFailedWith(_ message: String)
     func fetchNoteSucceddWith(_ note: Note)
     func fetchNoteDidFailedWith(_ message: String)
-    
 }
 
 protocol AddNote {

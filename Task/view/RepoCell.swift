@@ -30,6 +30,7 @@ class RepoCell: UITableViewCell, ReusableView {
         avatarImageView.contentMode = .scaleAspectFit
         addSubview(avatarImageView)
         addSubview(descriptionView)
+        
     }
     
     private func setupContraints() {
@@ -60,16 +61,16 @@ class RepoCell: UITableViewCell, ReusableView {
     }
     
     private func createCircularImage() {
-        self.avatarImageView.layer.cornerRadius = self.bounds.size.height/2
-        self.avatarImageView.layer.borderWidth = 2.0
-        self.avatarImageView.layer.borderColor = UIColor.clear.cgColor
-        self.avatarImageView.layer.masksToBounds = true
+        avatarImageView.layer.cornerRadius = bounds.size.height/2
+        avatarImageView.layer.borderWidth = 2.0
+        avatarImageView.layer.borderColor = UIColor.clear.cgColor
+        avatarImageView.layer.masksToBounds = true
     }
     
     
-    func updateCell(with repository: Repository){
+    func configureCell(with repository: Repository){
         if let isFork = repository.fork {
-            self.backgroundColor = isFork ? Colors.YELLOW : UIColor.white
+            backgroundColor = isFork ? Colors.YELLOW : UIColor.white
         }
         
         if let avatarURL = repository.owner?.avatarURL {

@@ -7,30 +7,36 @@
 //
 
 import UIKit
-
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
     //***** MARK: - Views *****
-    private var progressHud: UIActivityIndicatorView!
+    private var progressHud: UIActivityIndicatorView = {
+        let progressHud = UIActivityIndicatorView(style: .gray)
+        progressHud.hidesWhenStopped = true
+        return progressHud
+    }()
     private var tableView = UITableView()
     
     //***** MARK: - Properties *****
-    private let cellHeight: CGFloat = 80
+    private let viewMatrix = HomeViewMatrix()
     private var repositories = [Repository]()
     private var presenter: HomePresenter?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        presenter = HomePresenter(delegate: self, networking: HTTPNetworking())
+        setupBackground()
+        setupTableView()
         setupConstraints()
-        createActivityIndicator()
+        setupProgressHud()
         getRepositoriesData()
     }
 
     //***** MARK: - Private Methods
-    private func setup() {
+    private func setupBackground() {
         view.backgroundColor = .white
-        presenter = HomePresenter(delegate: self, networking: HTTPNetworking())
-        
-        tableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right:0)
+    }
+    
+    private func setupTableView() {
         tableView.register(RepoCell.self, forCellReuseIdentifier: RepoCell.reuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
@@ -42,35 +48,29 @@ class HomeViewController: UIViewController {
                          left: view.leftAnchor,
                          bottom: view.bottomAnchor,
                          right: view.rightAnchor,
-                         paddingTop: 10,
+                         paddingTop: viewMatrix.tableViewPaddingTop,
                          paddingLeft: 0,
-                         paddingBottom: 8,
+                         paddingBottom: viewMatrix.tableViewPaddingBottom,
                          paddingRight: 0,
                          width: 0,
                          height: 0,
                          enableInsets: true)
 
     }
+    
     private func getRepositoriesData() {
         presenter?.fetchRepositories(from: Constants.baseURL)
     }
     
-    private func createActivityIndicator () {
-        let container: UIView = UIView()
-        container.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
-        container.backgroundColor = .clear
-        
-        progressHud = UIActivityIndicatorView(style: .gray)
+    private func setupProgressHud () {
         progressHud.center = view.center
-        progressHud.hidesWhenStopped = true
-        container.addSubview(progressHud)
-        view.addSubview(container)
+        view.addSubview(progressHud)
     }
     
     private func gotToNoteViewControllerWith(userId: Int?) {
         let controller = NoteViewController()
         controller.userId = userId
-        self.navigationController?.pushViewController(controller, animated: true)
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     
@@ -101,16 +101,14 @@ extension HomeViewController: HomeView {
     }
     
     func fetchRepositoriesFromCacheDidFailedWith(_ message: String) {
-        print("FetchRepositoriesFromCacheDidFailedWith: \(message)")
+        
     }
     
     func startProgress() {
-        print("start progress")
         progressHudStartAnimating()
     }
     
     func hideProgress() {
-        print("Hide progess")
         progressHudStopAnimating()
     }
     
@@ -120,7 +118,6 @@ extension HomeViewController: HomeView {
     }
     
     func repositoriesDidFailedWith(_ message: String) {
-        print("RepositoriesDidFailedWith: \(message)")
         presenter?.fetchRepositoriesFromCache(with: Constants.baseURL)
     }
 }
@@ -130,7 +127,7 @@ extension HomeViewController: HomeView {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(forIndexPath: indexPath, withType: RepoCell.self)
-        cell.updateCell(with: repositories[indexPath.row])
+        cell.configureCell(with: repositories[indexPath.row])
         return cell
     }
     
@@ -139,7 +136,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return cellHeight
+        return viewMatrix.cellHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -147,4 +144,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         gotToNoteViewControllerWith(userId: userId)
     }
 
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView()
+        return footerView
+    }
+}
+
+
+struct HomeViewMatrix {
+    let cellHeight: CGFloat = 80
+    let tableViewPaddingTop: CGFloat = 10
+    let tableViewPaddingBottom: CGFloat = 10
 }
