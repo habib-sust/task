@@ -16,14 +16,16 @@ class NotePresenterTests: XCTestCase {
     let container = Container()
     override func setUp() {
         super.setUp()
+        
         container.register(MockNoteViewController.self) {_ in
             MockNoteViewController()
         }
-        container.register(NotePresenter.self) {resolver in
-            let delegate = resolver ~> (MockNoteViewController.self)
-            let presenter = NotePresenter(delegate: delegate)
-            return presenter
-        }
+        
+//        container.register(NotePresenter.self) {resolver in
+//            let delegate = resolver ~> (MockNoteViewController.self)
+//            let presenter = NotePresenter(delegate: delegate)
+//            return presenter
+//        }
     }
     
     override func tearDown() {

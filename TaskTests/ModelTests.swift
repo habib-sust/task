@@ -7,19 +7,15 @@
 //
 
 import XCTest
+import Nimble
 import Swinject
 import SwinjectAutoregistration
 @testable import Task
 
 class ModelTests: XCTestCase {
     let container = Container()
+    
     override func setUp() {
-        container.register(Owner.self){_ in
-            let data = try! JSONSerialization.data(withJSONObject: MockOwner.data, options: JSONSerialization.WritingOptions.prettyPrinted)
-            let owner = try! JSONDecoder().decode(Owner.self, from: data)
-            return owner
-        }
-        
         container.register(Owner.self){_ in
             let data = try! JSONSerialization.data(withJSONObject: MockOwner.data, options: JSONSerialization.WritingOptions.prettyPrinted)
             let owner = try! JSONDecoder().decode(Owner.self, from: data)
@@ -39,14 +35,14 @@ class ModelTests: XCTestCase {
 
     func testOwnerModel() {
         let owner = container ~> (Owner.self)
-        XCTAssertEqual(owner.ownerName, "facebook")
-        XCTAssertEqual(owner.avatarURL, "avatar url")
+        expect(owner.ownerName).to(equal("facebook"))
+        expect(owner.avatarURL).to(equal("avatar url"))
     }
     
     func testRepositoryModel() {
         let repository = container ~> (Repository.self)
-        XCTAssertEqual(repository.id, 1)
-        XCTAssertEqual(repository.description, "description")
+        expect(repository.id).to(equal(1))
+        expect(repository.description).to(equal("description"))
     }
 
 }
