@@ -24,6 +24,7 @@
 		17B40FC02239036A00C8882D /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40FBF2239036A00C8882D /* DescriptionView.swift */; };
 		17B40FC32239103100C8882D /* TableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40FC22239103100C8882D /* TableView+Reusable.swift */; };
 		17BD7C0C2241E9A80090EC6F /* NotePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD7C0B2241E9A80090EC6F /* NotePresenterTests.swift */; };
+		17BD7C0E2242569A0090EC6F /* UIColorExtesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD7C0D2242569A0090EC6F /* UIColorExtesion.swift */; };
 		17D76CEF223A4E0D00D41AA0 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D76CEE223A4E0D00D41AA0 /* NoteViewController.swift */; };
 		17D76CF1223A5C7B00D41AA0 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D76CF0223A5C7B00D41AA0 /* Note.swift */; };
 		17D76CF3223A5D8B00D41AA0 /* NotePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D76CF2223A5D8B00D41AA0 /* NotePresenter.swift */; };
@@ -67,6 +68,7 @@
 		17B40FBF2239036A00C8882D /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		17B40FC22239103100C8882D /* TableView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableView+Reusable.swift"; sourceTree = "<group>"; };
 		17BD7C0B2241E9A80090EC6F /* NotePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePresenterTests.swift; sourceTree = "<group>"; };
+		17BD7C0D2242569A0090EC6F /* UIColorExtesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtesion.swift; sourceTree = "<group>"; };
 		17D76CEE223A4E0D00D41AA0 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		17D76CF0223A5C7B00D41AA0 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		17D76CF2223A5D8B00D41AA0 /* NotePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePresenter.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 			children = (
 				17B40FC22239103100C8882D /* TableView+Reusable.swift */,
 				179C6321223A039600236A9C /* UIView+Constraints.swift */,
+				17BD7C0D2242569A0090EC6F /* UIColorExtesion.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				17D76CF3223A5D8B00D41AA0 /* NotePresenter.swift in Sources */,
 				179C6324223A110F00236A9C /* Owner.swift in Sources */,
 				17D76CF1223A5C7B00D41AA0 /* Note.swift in Sources */,
+				17BD7C0E2242569A0090EC6F /* UIColorExtesion.swift in Sources */,
 				17B40FB52238DB3000C8882D /* Networking.swift in Sources */,
 				17D76CEF223A4E0D00D41AA0 /* NoteViewController.swift in Sources */,
 				17B40FC02239036A00C8882D /* DescriptionView.swift in Sources */,
