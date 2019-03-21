@@ -8,8 +8,7 @@
 
 import UIKit
 final class HomeViewController: UIViewController {
-
-   private struct ViewMatrix {
+   private struct ViewMetrics {
         static let cellHeight: CGFloat = 80
         static let tableViewPaddingTop: CGFloat = 10
         static let tableViewPaddingBottom: CGFloat = 10
@@ -55,9 +54,9 @@ final class HomeViewController: UIViewController {
                          left: view.leftAnchor,
                          bottom: view.bottomAnchor,
                          right: view.rightAnchor,
-                         paddingTop: ViewMatrix.tableViewPaddingTop,
+                         paddingTop: ViewMetrics.tableViewPaddingTop,
                          paddingLeft: 0,
-                         paddingBottom: ViewMatrix.tableViewPaddingBottom,
+                         paddingBottom: ViewMetrics.tableViewPaddingBottom,
                          paddingRight: 0,
                          width: 0,
                          height: 0,
@@ -80,20 +79,25 @@ final class HomeViewController: UIViewController {
         navigationController?.pushViewController(controller, animated: true)
     }
     
+    private func showAlert(with message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
     
-    func updateUI() {
+    private func updateUI() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
     
-    func progressHudStartAnimating() {
+    private func progressHudStartAnimating() {
         DispatchQueue.main.async {
             self.progressHud.startAnimating()
         }
     }
     
-    func progressHudStopAnimating() {
+    private func progressHudStopAnimating() {
         DispatchQueue.main.async {
             self.progressHud.stopAnimating()
         }
@@ -108,7 +112,7 @@ extension HomeViewController: HomeViewable {
     }
     
     func fetchRepositoriesFromCacheDidFailedWith(_ message: String) {
-        
+        showAlert(with: message)
     }
     
     func startProgress() {
@@ -143,7 +147,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return ViewMatrix.cellHeight
+        return ViewMetrics.cellHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

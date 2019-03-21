@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol HomeViewable {
+protocol HomeViewable: AnyObject {
     func startProgress()
     func hideProgress()
     func repositoriesSucceedWith(_ repositories: [Repository])
@@ -18,12 +18,12 @@ protocol HomeViewable {
 }
 
 protocol RepositoryFetchable {
-    func fetchRepositories(from endPoint: String)
-    func fetchRepositoriesFromCache(with endPoint: String)
+    func fetchRepositories(from stringURL: String)
+    func fetchRepositoriesFromCache(with stringURL: String)
 }
 
 struct HomePresenter: RepositoryFetchable {
-    private var delegate: HomeViewable
+    private weak var delegate: HomeViewable?
     private var networking: Networking
     
     init(delegate: HomeViewable, networking: Networking) {
@@ -31,41 +31,41 @@ struct HomePresenter: RepositoryFetchable {
         self.networking = networking
     }
     
-    func fetchRepositories(from endPoint: String) {
-        delegate.startProgress()
-        networking.get(from: endPoint){ result in
+    func fetchRepositories(from stringURL: String) {
+        delegate?.startProgress()
+        networking.get(from: stringURL){ [weak delegate] result in
             switch result {
             case .onFailure(let error):
-                self.delegate.hideProgress()
-                self.delegate.repositoriesDidFailedWith(error.localizedDescription)
+                delegate?.hideProgress()
+                delegate?.repositoriesDidFailedWith(error.localizedDescription)
             case .onSuccess(let data):
                 do{
                     let repositories = try JSONDecoder().decode([Repository].self, from: data)
-                    self.delegate.hideProgress()
-                    self.delegate.repositoriesSucceedWith(repositories)
+                    delegate?.hideProgress()
+                    delegate?.repositoriesSucceedWith(repositories)
                 }catch(let error) {
-                    self.delegate.hideProgress()
-                    self.delegate.repositoriesDidFailedWith(error.localizedDescription)
+                    delegate?.hideProgress()
+                    delegate?.repositoriesDidFailedWith(error.localizedDescription)
                 }
             }
         }
     }
     
-    func fetchRepositoriesFromCache(with endPoint: String) {
-        guard let url = URL(string: endPoint) else{
-            self.delegate.fetchRepositoriesFromCacheDidFailedWith("Can't convert to URL")
+    func fetchRepositoriesFromCache(with stringURL: String) {
+        guard let url = URL(string: stringURL) else{
+            delegate?.fetchRepositoriesFromCacheDidFailedWith("Can't convert to URL")
             return
         }
         let request = URLRequest(url: url)
-        delegate.startProgress()
-        fetchCaccheRepositoriesWith(request: request, completion: {result in
+        delegate?.startProgress()
+        fetchCaccheRepositoriesWith(request: request, completion: { [weak delegate] result in
             switch result {
             case .onSuccess(let repos):
-                self.delegate.hideProgress()
-                self.delegate.fetchRepositoriesFromCacheSucceedWith(repos)
+                delegate?.hideProgress()
+                delegate?.fetchRepositoriesFromCacheSucceedWith(repos)
             case .onFailure(let error):
-                self.delegate.hideProgress()
-                self.delegate.fetchRepositoriesFromCacheDidFailedWith(error.localizedDescription)
+                delegate?.hideProgress()
+                delegate?.fetchRepositoriesFromCacheDidFailedWith(error.localizedDescription)
             }
         })
     }

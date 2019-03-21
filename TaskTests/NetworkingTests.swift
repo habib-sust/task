@@ -7,7 +7,6 @@
 //
 
 import XCTest
-import Quick
 import Nimble
 import Swinject
 @testable import Task
@@ -53,7 +52,7 @@ struct MockNetworking: Networking {
         self.error = error
     }
     
-    func get(from endPoint: String, onCompletion: @escaping completionHandler) {
+    func get(from stringURL: String, onCompletion: @escaping completionHandler) {
         if let error = error {
             onCompletion(.onFailure(error))
             return

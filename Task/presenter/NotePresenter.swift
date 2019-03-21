@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-protocol NoteViewable {
+protocol NoteViewable: AnyObject {
     func addNoteSucceed()
     func addNoteDidFailedWith(_ message: String)
     func fetchNoteSucceddWith(_ note: Note)
@@ -25,7 +25,7 @@ protocol NoteFetchable {
 }
 
 struct NotePresenter: NoteAddable, NoteFetchable {
-    private var delegate: NoteViewable
+    private weak var delegate: NoteViewable?
     
     init(delegate: NoteViewable) {
         self.delegate = delegate
@@ -42,9 +42,9 @@ struct NotePresenter: NoteAddable, NoteFetchable {
             try realm.write {
                 realm.add(newNote)
             }
-            delegate.addNoteSucceed()
+            delegate?.addNoteSucceed()
         }catch (let error) {
-            delegate.addNoteDidFailedWith(error.localizedDescription)
+            delegate?.addNoteDidFailedWith(error.localizedDescription)
         }
     }
     
@@ -55,12 +55,12 @@ struct NotePresenter: NoteAddable, NoteFetchable {
                 .filter("userId == %d", id)
                 .first
                 else{
-                    delegate.fetchNoteDidFailedWith("There is no note with this User ID: \(id)")
+                    delegate?.fetchNoteDidFailedWith("There is no note with this User ID: \(id)")
                     return
             }
-            delegate.fetchNoteSucceddWith(note)
+            delegate?.fetchNoteSucceddWith(note)
         }catch (let error) {
-            delegate.fetchNoteDidFailedWith(error.localizedDescription)
+            delegate?.fetchNoteDidFailedWith(error.localizedDescription)
         }
     }
 }

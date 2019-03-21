@@ -39,6 +39,7 @@ class NotePresenterTests: XCTestCase {
         let delegate = container ~> (MockNoteViewController.self)
         let presenter = NotePresenter(delegate: delegate)
         presenter.fetchNoteWith(userId: 1)
+        
         expect(delegate.fetchNoteSucceedWith).to(beTrue(), description: "should call delegate method fetchNoteSucceedWith")
     }
     
@@ -46,6 +47,7 @@ class NotePresenterTests: XCTestCase {
         let delegate = container ~> (MockNoteViewController.self)
         let presenter = NotePresenter(delegate: delegate)
         presenter.fetchNoteWith(userId: 123)
+        
         expect(delegate.fetchNoteDidFailedWith).to(beTrue(), description: "should call delegate method fetchNoteDidFailedWith")
     }
     

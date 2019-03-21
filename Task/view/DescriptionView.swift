@@ -8,7 +8,7 @@
 
 import UIKit
 class DescriptionView: UIView{
-    private struct ViewMatrix {
+    private struct ViewMetrics {
         static  let stackViewPaddingTop: CGFloat = 4
         static let stackViewPaddingBottom: CGFloat = 4
         static let stackViewSpacing: CGFloat = 4
@@ -39,20 +39,20 @@ class DescriptionView: UIView{
     //***** MARK:- Views *****
     private var repositoryNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Avenir-Bold", size: ViewMatrix.reposirotyLabelFontSize)
+        label.font = UIFont(name: "Avenir-Bold", size: ViewMetrics.reposirotyLabelFontSize)
         label.textAlignment = .left
         return label
     }()
     private var ownerNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Avenir-Medium", size: ViewMatrix.ownerLabelFontSize)
+        label.font = UIFont(name: "Avenir-Medium", size: ViewMetrics.ownerLabelFontSize)
         label.textAlignment = .left
         return label
     }()
     private var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Avenir", size: ViewMatrix.descriptionLabelFontSize)
-        label.minimumScaleFactor = ViewMatrix.descriptionLabelMinimumScaleFactor
+        label.font = UIFont(name: "Avenir", size: ViewMetrics.descriptionLabelFontSize)
+        label.minimumScaleFactor = ViewMetrics.descriptionLabelMinimumScaleFactor
         label.numberOfLines = 0
         return label
     }()
@@ -71,7 +71,7 @@ class DescriptionView: UIView{
     private func setupDescriptionStackView() {
         descriptionView = UIStackView(arrangedSubviews: [repositoryNameLabel, ownerNameLabel, descriptionLabel])
         descriptionView.axis = .vertical
-        descriptionView.spacing = ViewMatrix.stackViewSpacing
+        descriptionView.spacing = ViewMetrics.stackViewSpacing
         descriptionView.distribution = .fillProportionally
     }
     
@@ -84,9 +84,9 @@ class DescriptionView: UIView{
                                left: leftAnchor,
                                bottom: bottomAnchor,
                                right: rightAnchor,
-                               paddingTop: ViewMatrix.stackViewPaddingTop,
+                               paddingTop: ViewMetrics.stackViewPaddingTop,
                                paddingLeft: 0,
-                               paddingBottom: ViewMatrix.stackViewPaddingBottom,
+                               paddingBottom: ViewMetrics.stackViewPaddingBottom,
                                paddingRight: 0,
                                width: 0,
                                height: 0,
