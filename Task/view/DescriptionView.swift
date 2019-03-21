@@ -8,6 +8,8 @@
 
 import UIKit
 class DescriptionView: UIView{
+    let viewMatrix = DescriptionViewMatrix()
+    
     var repositoryName: String? {
         didSet {
             repositoryNameLabel.text = repositoryName
@@ -46,11 +48,8 @@ class DescriptionView: UIView{
         label.numberOfLines = 0
         return label
     }()
-    private var descriptionView = UIStackView()
     
-    override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIView.noIntrinsicMetric, height: 21)
-    }
+    private var descriptionView = UIStackView()
     
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
@@ -64,7 +63,7 @@ class DescriptionView: UIView{
     private func setupDescriptionStackView() {
         descriptionView = UIStackView(arrangedSubviews: [repositoryNameLabel, ownerNameLabel, descriptionLabel])
         descriptionView.axis = .vertical
-        descriptionView.spacing = 4
+        descriptionView.spacing = viewMatrix.stackViewSpacing
         descriptionView.distribution = .fillProportionally
     }
     
@@ -77,13 +76,19 @@ class DescriptionView: UIView{
                                left: leftAnchor,
                                bottom: bottomAnchor,
                                right: rightAnchor,
-                               paddingTop: 4,
+                               paddingTop: viewMatrix.stackViewPaddingTop,
                                paddingLeft: 0,
-                               paddingBottom: 4,
+                               paddingBottom: viewMatrix.stackViewPaddingBottom,
                                paddingRight: 0,
                                width: 0,
                                height: 0,
                                enableInsets: false)
         
     }
+}
+
+struct DescriptionViewMatrix {
+    let stackViewPaddingTop: CGFloat = 4
+    let stackViewPaddingBottom: CGFloat = 4
+    let stackViewSpacing: CGFloat = 4
 }

@@ -39,7 +39,5 @@ extension UIView {
         if width != 0 {
             widthAnchor.constraint(equalToConstant: width).isActive = true
         }
-        
     }
-    
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ReusableView: class {}
+protocol ReusableView: AnyObject {}
 
 extension ReusableView where Self: UIView {
     static var reuseIdentifier: String {
