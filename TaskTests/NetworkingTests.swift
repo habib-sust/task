@@ -32,9 +32,9 @@ class NetworkingTests: XCTestCase {
         let expectation = XCTestExpectation(description: "should get mockrepository data")
         
         
-        networking?.get(from: Constants.baseURL, completion: { result in
+        networking?.get(from: Constants.baseURL, onCompletion: { result in
             switch result {
-            case .success(let data):
+            case .onSuccess(let data):
                 expect(data).notTo(beNil())
                 expectation.fulfill()
             default :
@@ -53,14 +53,14 @@ struct MockNetworking: Networking {
         self.error = error
     }
     
-    func get(from endPoint: String, completion: @escaping completionHandler) {
+    func get(from endPoint: String, onCompletion: @escaping completionHandler) {
         if let error = error {
-            completion(.failure(error))
+            onCompletion(.onFailure(error))
             return
         }
         
         if let data = data {
-            completion(.success(data))
+            onCompletion(.onSuccess(data))
         }
     }
 }

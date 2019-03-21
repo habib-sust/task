@@ -118,7 +118,7 @@ class HomePresenterTests: XCTestCase {
     }
 }
 
-class MockHomeViewController: HomeView {
+class MockHomeViewController: HomeViewable {
     var testFetchRepositoriesDidCalledWithError = false
     var testFetchRepositoriesDidCalledWithFormatData = false
     var testStartProgressDidCalled = false
@@ -151,7 +151,7 @@ class MockHomeViewController: HomeView {
     }
 }
 
-class MockHomeViewControllerWithFormatedData: HomeView {
+class MockHomeViewControllerWithFormatedData: HomeViewable {
     var testFetchRepositoriesDidCalledWithUnformatedData = false
     var testHideProgressWithFormatData = false
     
@@ -166,7 +166,5 @@ class MockHomeViewControllerWithFormatedData: HomeView {
     func repositoriesDidFailedWith(_ message: String) {
         testFetchRepositoriesDidCalledWithUnformatedData = true
     }
-
-    
     
 }

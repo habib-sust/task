@@ -9,8 +9,8 @@
 import Foundation
 
 enum Result<Value> {
-    case failure(Error)
-    case success(Value)
+    case onFailure(Error)
+    case onSuccess(Value)
 }
 
 enum APIClientError: Error {

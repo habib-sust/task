@@ -8,7 +8,7 @@
 
 import UIKit
 extension UIColor {
-    public class var  customYellow: UIColor {
+    public class var customYellow: UIColor {
         return  UIColor(red: 253/255, green: 190/255, blue: 17/255, alpha: 1)
     }
     public class var customBlue: UIColor {

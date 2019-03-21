@@ -10,15 +10,15 @@ import Foundation
 
 protocol Networking {
     typealias completionHandler = (Result<Data>) -> Void
-    func get(from endPoint: String, completion: @escaping completionHandler)
+    func get(from endPoint: String, onCompletion: @escaping completionHandler)
 }
 
 struct HTTPNetworking: Networking {
     
-    func get(from endPoint: String, completion: @escaping completionHandler) {
+    func get(from endPoint: String, onCompletion: @escaping completionHandler) {
         guard let url = URL(string: endPoint) else{return}
         let request = createRequest(from: url)
-        let task = createDataTask(from: request, completion: completion)
+        let task = createDataTask(from: request, onCompletion: onCompletion)
         task.resume()
     }
     
@@ -29,15 +29,15 @@ struct HTTPNetworking: Networking {
         return request
     }
     
-    private func createDataTask(from request: URLRequest, completion: @escaping completionHandler) -> URLSessionDataTask{
+    private func createDataTask(from request: URLRequest, onCompletion: @escaping completionHandler) -> URLSessionDataTask{
         let task = URLSession.shared.dataTask(with: request){ (data, response, error) in
             if let error = error {
-                completion(.failure(error))
+                onCompletion(.onFailure(error))
                 return
             }
             
             guard let data = data else{
-                completion(.failure(APIClientError.noData))
+                onCompletion(.onFailure(APIClientError.noData))
                 return
             }
             if let response = response {
@@ -45,7 +45,7 @@ struct HTTPNetworking: Networking {
                 URLCache.shared.storeCachedResponse(cacheData, for: request)
                 
             }
-            completion(.success(data))
+            onCompletion(.onSuccess(data))
         }
         return task
     }

@@ -9,25 +9,25 @@
 import UIKit
 import RealmSwift
 
-protocol NoteView {
+protocol NoteViewable {
     func addNoteSucceed()
     func addNoteDidFailedWith(_ message: String)
     func fetchNoteSucceddWith(_ note: Note)
     func fetchNoteDidFailedWith(_ message: String)
 }
 
-protocol AddNote {
+protocol NoteAddable {
     func addNoteWith(userId id: Int, note: String)
 }
 
-protocol FetchNote {
+protocol NoteFetchable {
     func fetchNoteWith(userId id: Int)
 }
 
-struct NotePresenter: AddNote, FetchNote {
-    private var delegate: NoteView
+struct NotePresenter: NoteAddable, NoteFetchable {
+    private var delegate: NoteViewable
     
-    init(delegate: NoteView) {
+    init(delegate: NoteViewable) {
         self.delegate = delegate
     }
     

@@ -94,7 +94,7 @@ final class NoteViewController: UIViewController {
 }
 
 //***** MARK: - NoteDelegate *****
-extension NoteViewController: NoteView {
+extension NoteViewController: NoteViewable {
     func addNoteSucceed() {
         navigationController?.popViewController(animated: true)
     }

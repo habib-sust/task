@@ -12,6 +12,10 @@ class DescriptionView: UIView{
         static  let stackViewPaddingTop: CGFloat = 4
         static let stackViewPaddingBottom: CGFloat = 4
         static let stackViewSpacing: CGFloat = 4
+        static let reposirotyLabelFontSize: CGFloat = 14
+        static let ownerLabelFontSize: CGFloat = 13
+        static let descriptionLabelFontSize: CGFloat = 12
+        static let descriptionLabelMinimumScaleFactor: CGFloat = 0.5
     }
     
     var repositoryName: String? {
@@ -35,20 +39,20 @@ class DescriptionView: UIView{
     //***** MARK:- Views *****
     private var repositoryNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Avenir-Bold", size: 14)
+        label.font = UIFont(name: "Avenir-Bold", size: ViewMatrix.reposirotyLabelFontSize)
         label.textAlignment = .left
         return label
     }()
     private var ownerNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Avenir-Medium", size: 13)
+        label.font = UIFont(name: "Avenir-Medium", size: ViewMatrix.ownerLabelFontSize)
         label.textAlignment = .left
         return label
     }()
     private var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Avenir", size: 12)
-        label.minimumScaleFactor = 0.5
+        label.font = UIFont(name: "Avenir", size: ViewMatrix.descriptionLabelFontSize)
+        label.minimumScaleFactor = ViewMatrix.descriptionLabelMinimumScaleFactor
         label.numberOfLines = 0
         return label
     }()

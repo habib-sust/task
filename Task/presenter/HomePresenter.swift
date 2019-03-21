@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol HomeView {
+protocol HomeViewable {
     func startProgress()
     func hideProgress()
     func repositoriesSucceedWith(_ repositories: [Repository])
@@ -17,16 +17,16 @@ protocol HomeView {
     func fetchRepositoriesFromCacheDidFailedWith(_ message: String)
 }
 
-protocol RepositoryFetcher {
+protocol RepositoryFetchable {
     func fetchRepositories(from endPoint: String)
     func fetchRepositoriesFromCache(with endPoint: String)
 }
 
-struct HomePresenter: RepositoryFetcher {
-    private var delegate: HomeView
+struct HomePresenter: RepositoryFetchable {
+    private var delegate: HomeViewable
     private var networking: Networking
     
-    init(delegate: HomeView, networking: Networking) {
+    init(delegate: HomeViewable, networking: Networking) {
         self.delegate = delegate
         self.networking = networking
     }
@@ -35,10 +35,10 @@ struct HomePresenter: RepositoryFetcher {
         delegate.startProgress()
         networking.get(from: endPoint){ result in
             switch result {
-            case .failure(let error):
+            case .onFailure(let error):
                 self.delegate.hideProgress()
                 self.delegate.repositoriesDidFailedWith(error.localizedDescription)
-            case .success(let data):
+            case .onSuccess(let data):
                 do{
                     let repositories = try JSONDecoder().decode([Repository].self, from: data)
                     self.delegate.hideProgress()
@@ -60,10 +60,10 @@ struct HomePresenter: RepositoryFetcher {
         delegate.startProgress()
         fetchCaccheRepositoriesWith(request: request, completion: {result in
             switch result {
-            case .success(let repos):
+            case .onSuccess(let repos):
                 self.delegate.hideProgress()
                 self.delegate.fetchRepositoriesFromCacheSucceedWith(repos)
-            case .failure(let error):
+            case .onFailure(let error):
                 self.delegate.hideProgress()
                 self.delegate.fetchRepositoriesFromCacheDidFailedWith(error.localizedDescription)
             }
@@ -74,9 +74,9 @@ struct HomePresenter: RepositoryFetcher {
         if let data = URLCache.shared.cachedResponse(for: request)?.data {
             do{
                 let repos = try JSONDecoder().decode([Repository].self, from: data)
-                completion(.success(repos))
+                completion(.onSuccess(repos))
             }catch(let error) {
-                completion(.failure(error))
+                completion(.onFailure(error))
             }
         }
     }
