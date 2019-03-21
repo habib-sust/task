@@ -11,7 +11,12 @@ import UIKit
 import Kingfisher
 
 class RepoCell: UITableViewCell, ReusableView {
-    var viewMatrix = RepoCellViewMatrix()
+    
+    private struct ViewMatrix {
+        static let avatarImageViewWidth: CGFloat = 80
+        static let avatarImageViewPaddingLeft: CGFloat = 5
+        static let descriptionViewPaddingLeft: CGFloat = 8
+    }
     
     //***** MARK: - Views *****
     private var avatarImageView = UIImageView()
@@ -41,10 +46,10 @@ class RepoCell: UITableViewCell, ReusableView {
                                bottom: bottomAnchor,
                                right: nil,
                                paddingTop: 0,
-                               paddingLeft: viewMatrix.avatarImageViewPaddingLeft,
+                               paddingLeft: ViewMatrix.avatarImageViewPaddingLeft,
                                paddingBottom: 0,
                                paddingRight: 0,
-                               width: viewMatrix.avatarImageViewWidth,
+                               width: ViewMatrix.avatarImageViewWidth,
                                height: 0,
                                enableInsets: false)
         
@@ -53,7 +58,7 @@ class RepoCell: UITableViewCell, ReusableView {
                                bottom: bottomAnchor,
                                right: rightAnchor,
                                paddingTop: 0,
-                               paddingLeft: viewMatrix.descriptionViewPaddingLeft,
+                               paddingLeft: ViewMatrix.descriptionViewPaddingLeft,
                                paddingBottom: 0,
                                paddingRight: 0,
                                width: 0,
@@ -87,8 +92,3 @@ class RepoCell: UITableViewCell, ReusableView {
     }
 }
 
-struct RepoCellViewMatrix {
-    let avatarImageViewWidth: CGFloat = 80
-    let avatarImageViewPaddingLeft: CGFloat = 5
-    let descriptionViewPaddingLeft: CGFloat = 8
-}

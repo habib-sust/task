@@ -8,7 +8,11 @@
 
 import UIKit
 class DescriptionView: UIView{
-    let viewMatrix = DescriptionViewMatrix()
+    private struct ViewMatrix {
+        static  let stackViewPaddingTop: CGFloat = 4
+        static let stackViewPaddingBottom: CGFloat = 4
+        static let stackViewSpacing: CGFloat = 4
+    }
     
     var repositoryName: String? {
         didSet {
@@ -63,7 +67,7 @@ class DescriptionView: UIView{
     private func setupDescriptionStackView() {
         descriptionView = UIStackView(arrangedSubviews: [repositoryNameLabel, ownerNameLabel, descriptionLabel])
         descriptionView.axis = .vertical
-        descriptionView.spacing = viewMatrix.stackViewSpacing
+        descriptionView.spacing = ViewMatrix.stackViewSpacing
         descriptionView.distribution = .fillProportionally
     }
     
@@ -76,9 +80,9 @@ class DescriptionView: UIView{
                                left: leftAnchor,
                                bottom: bottomAnchor,
                                right: rightAnchor,
-                               paddingTop: viewMatrix.stackViewPaddingTop,
+                               paddingTop: ViewMatrix.stackViewPaddingTop,
                                paddingLeft: 0,
-                               paddingBottom: viewMatrix.stackViewPaddingBottom,
+                               paddingBottom: ViewMatrix.stackViewPaddingBottom,
                                paddingRight: 0,
                                width: 0,
                                height: 0,
@@ -87,8 +91,4 @@ class DescriptionView: UIView{
     }
 }
 
-struct DescriptionViewMatrix {
-    let stackViewPaddingTop: CGFloat = 4
-    let stackViewPaddingBottom: CGFloat = 4
-    let stackViewSpacing: CGFloat = 4
-}
+

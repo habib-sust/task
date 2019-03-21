@@ -8,6 +8,13 @@
 
 import UIKit
 final class HomeViewController: UIViewController {
+
+   private struct ViewMatrix {
+        static let cellHeight: CGFloat = 80
+        static let tableViewPaddingTop: CGFloat = 10
+        static let tableViewPaddingBottom: CGFloat = 10
+    }
+
     //***** MARK: - Views *****
     private var progressHud: UIActivityIndicatorView = {
         let progressHud = UIActivityIndicatorView(style: .gray)
@@ -17,7 +24,6 @@ final class HomeViewController: UIViewController {
     private var tableView = UITableView()
     
     //***** MARK: - Properties *****
-    private let viewMatrix = HomeViewMatrix()
     private var repositories = [Repository]()
     private var presenter: HomePresenter?
     
@@ -29,6 +35,7 @@ final class HomeViewController: UIViewController {
         setupConstraints()
         setupProgressHud()
         getRepositoriesData()
+        
     }
 
     //***** MARK: - Private Methods
@@ -48,9 +55,9 @@ final class HomeViewController: UIViewController {
                          left: view.leftAnchor,
                          bottom: view.bottomAnchor,
                          right: view.rightAnchor,
-                         paddingTop: viewMatrix.tableViewPaddingTop,
+                         paddingTop: ViewMatrix.tableViewPaddingTop,
                          paddingLeft: 0,
-                         paddingBottom: viewMatrix.tableViewPaddingBottom,
+                         paddingBottom: ViewMatrix.tableViewPaddingBottom,
                          paddingRight: 0,
                          width: 0,
                          height: 0,
@@ -136,7 +143,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return viewMatrix.cellHeight
+        return ViewMatrix.cellHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -148,11 +155,4 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let footerView = UIView()
         return footerView
     }
-}
-
-
-struct HomeViewMatrix {
-    let cellHeight: CGFloat = 80
-    let tableViewPaddingTop: CGFloat = 10
-    let tableViewPaddingBottom: CGFloat = 10
 }
