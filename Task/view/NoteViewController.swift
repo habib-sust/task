@@ -9,11 +9,13 @@
 import UIKit
 
 final class NoteViewController: UIViewController {
-    
+    private struct ViewMetrics {
+        static let noteTextViewFontSize: CGFloat = 14
+    }
     //***** MARK: - Views *****
     private var noteTextView: UITextView =  {
         let textView = UITextView()
-        textView.font = UIFont(name: "Avenir", size: 14)
+        textView.font = UIFont(name: "Avenir", size: ViewMetrics.noteTextViewFontSize)
         textView.isEditable = false
         return textView
     }()
