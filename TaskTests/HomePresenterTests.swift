@@ -20,6 +20,11 @@ class HomePresenterTests: XCTestCase {
             return MockHomeViewController()
         }
         
+        container.register(MockNetworking.self, name: "noData") {_ in
+            let networking = MockNetworking(data: nil, error: APIClientError.noData)
+            return networking
+        }
+        
         container.register(MockHomeViewControllerWithFormatedData.self) {_ in
             MockHomeViewControllerWithFormatedData()
         }
@@ -38,7 +43,8 @@ class HomePresenterTests: XCTestCase {
     
     func testRepositoriesDidFailedWithError() {
         let delegate = container ~> (MockHomeViewController.self)
-        let presenter = HomePresenter(delegate: delegate, networking: MockNetworking(data: nil, error: APIClientError.noData))
+        let networking = container ~> (MockNetworking.self, name: "noData")
+        let presenter = HomePresenter(delegate: delegate, networking: networking)
         presenter.fetchRepositories(from: "endpoint")
         
         expect(delegate.testFetchRepositoriesDidCalledWithError)
@@ -68,7 +74,8 @@ class HomePresenterTests: XCTestCase {
     
     func testStartProgressDidCalled() {
         let delegate = container ~> (MockHomeViewController.self)
-        let presenter = HomePresenter(delegate: delegate, networking: MockNetworking(data: nil, error: APIClientError.noData))
+        let networking = container ~> (MockNetworking.self, name: "noData")
+        let presenter = HomePresenter(delegate: delegate, networking: networking)
         presenter.fetchRepositories(from: "endpoint")
         
         expect(delegate.testStartProgressDidCalled)
@@ -78,7 +85,8 @@ class HomePresenterTests: XCTestCase {
     
     func testHidePregressDidCalledWithError() {
         let delegate = container ~> (MockHomeViewController.self)
-        let presenter = HomePresenter(delegate: delegate, networking: MockNetworking(data: nil, error: APIClientError.noData))
+        let netwoking = container ~> (MockNetworking.self, name: "noData")
+        let presenter = HomePresenter(delegate: delegate, networking: netwoking)
         presenter.fetchRepositories(from: "endpoint")
         
         expect(delegate.testHidePregressDidCalled)
