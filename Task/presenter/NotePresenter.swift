@@ -10,8 +10,8 @@ import UIKit
 import RealmSwift
 
 protocol NoteViewable: AnyObject {
-    func addNoteSucceed()
-    func addNoteDidFailedWith(_ message: String)
+    func addOrEditNoteSucceed()
+    func addOrEditNoteDidFailedWith(_ message: String)
     func fetchNoteSucceddWith(_ note: Note)
     func fetchNoteDidFailedWith(_ message: String)
 }
@@ -24,7 +24,11 @@ protocol NoteFetchable {
     func fetchNoteWith(userId id: Int)
 }
 
-struct NotePresenter: NoteAddable, NoteFetchable {
+protocol NoteEditable {
+    func editNoteWith(userId: Int, newNote: String)
+}
+
+struct NotePresenter: NoteAddable, NoteFetchable, NoteEditable {
     private weak var delegate: NoteViewable?
     
     init(delegate: NoteViewable) {
@@ -42,19 +46,15 @@ struct NotePresenter: NoteAddable, NoteFetchable {
             try realm.write {
                 realm.add(newNote)
             }
-            delegate?.addNoteSucceed()
+            delegate?.addOrEditNoteSucceed()
         }catch (let error) {
-            delegate?.addNoteDidFailedWith(error.localizedDescription)
+            delegate?.addOrEditNoteDidFailedWith(error.localizedDescription)
         }
     }
     
     func fetchNoteWith(userId id: Int) {
         do {
-            guard let note = try Realm()
-                .objects(Note.self)
-                .filter("userId == %d", id)
-                .first
-                else{
+            guard let note = try fetchNote(userID: id) else{
                     delegate?.fetchNoteDidFailedWith("There is no note with this User ID: \(id)")
                     return
             }
@@ -63,4 +63,32 @@ struct NotePresenter: NoteAddable, NoteFetchable {
             delegate?.fetchNoteDidFailedWith(error.localizedDescription)
         }
     }
+    
+    func editNoteWith(userId: Int, newNote: String) {
+        do {
+            guard let note = try fetchNote(userID: userId) else {
+                delegate?.addOrEditNoteDidFailedWith("There is no note with this User ID: \(userId)")
+                return
+            }
+            
+            try Realm().write {
+                note.note = newNote
+            }
+            delegate?.addOrEditNoteSucceed()
+            
+        } catch (let error) {
+            delegate?.addOrEditNoteDidFailedWith(error.localizedDescription)
+        }
+    }
+    
+
+    private func fetchNote(userID: Int) throws -> Note?{
+        let note = try Realm()
+        .objects(Note.self)
+        .filter("userId == %d", userID)
+        .first
+        
+        return note
+    }
+    
 }

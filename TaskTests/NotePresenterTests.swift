@@ -58,7 +58,7 @@ class MockNoteViewController: NoteViewable {
     var fetchNoteSucceedWith = false
     var fetchNoteDidFailedWith = false
     
-    func addNoteSucceed() {
+    func addOrEditNoteSucceed() {
         addNoteSucced = true
     }
     

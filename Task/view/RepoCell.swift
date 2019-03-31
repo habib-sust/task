@@ -32,6 +32,11 @@ class RepoCell: UITableViewCell, ReusableView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
+        createCircularImage()
+    }
+    
     //MARK: - Private Methods
     private func setup() {
         avatarImageView.contentMode = .scaleAspectFit
@@ -68,7 +73,7 @@ class RepoCell: UITableViewCell, ReusableView {
     }
     
     private func createCircularImage() {
-        avatarImageView.layer.cornerRadius = bounds.size.height/2
+        avatarImageView.layer.cornerRadius = avatarImageView.frame.size.height/2
         avatarImageView.layer.borderWidth = 2.0
         avatarImageView.layer.borderColor = UIColor.clear.cgColor
         avatarImageView.layer.masksToBounds = true
@@ -88,7 +93,6 @@ class RepoCell: UITableViewCell, ReusableView {
         descriptionView.ownerName = repository.owner?.ownerName
         descriptionView.repositoryName = repository.repoName
         descriptionView.repoDescription = repository.description
-        createCircularImage()
     }
 }
 

@@ -12,6 +12,7 @@ final class NoteViewController: UIViewController {
     private struct ViewMetrics {
         static let noteTextViewFontSize: CGFloat = 14
     }
+    
     //***** MARK: - Views *****
     private var noteTextView: UITextView =  {
         let textView = UITextView()
@@ -22,16 +23,17 @@ final class NoteViewController: UIViewController {
     
     private var presenter: NotePresenter?
     
-    //*****MARK:- Properties *****
+    //***** MARK:- Properties *****
     var userId: Int?
-    
-    //*****MARK:- View LifeCycle
+    private var isSave = true
+    //***** MARK:- View LifeCycle *****
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = NotePresenter(delegate: self)
         backgroundSetup()
         addNoteTextView()
         setupConstraints()
+        addNavigationItem()
         fetchNote()
     }
 
@@ -44,16 +46,21 @@ final class NoteViewController: UIViewController {
         view.addSubview(noteTextView)
     }
     
-    private func NoteTextViewIsEditable(isEditable: Bool) {
+    private func noteTextViewIsEditable(isEditable: Bool) {
         noteTextView.isEditable = isEditable
     }
     
     private func addNavigationItem() {
         let saveNoteButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(didTapSaveNoteButton(sender:)))
-        navigationItem.rightBarButtonItems = [saveNoteButton]
+        let editNoteButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(didTapEditNoteButton(sender:)))
+        
+        navigationItem.rightBarButtonItems = [editNoteButton,saveNoteButton]
     }
     
-
+    private func toggleNavigationBarButton(isEditButton: Bool) {
+        navigationItem.rightBarButtonItems?.first?.isEnabled = isEditButton
+        navigationItem.rightBarButtonItems?.last?.isEnabled = !isEditButton
+    }
     private func setupConstraints() {
         noteTextView.anchor(top: view.topAnchor,
                             left: view.readableContentGuide.leftAnchor,
@@ -80,40 +87,54 @@ final class NoteViewController: UIViewController {
             presenter?.addNoteWith(userId: id, note: note)
         }
     }
+    
+    private func editNote(with note: String) {
+        if let id = userId {
+            presenter?.editNoteWith(userId: id, newNote: note)
+        }
+    }
+    
     private func showAlert(with message: String) {
         let alert = UIAlertController(title: "Note", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
-    //***** MARK:- IBActions *****    
+    
+    //***** MARK:- IBActions *****    ≥
     @objc private func didTapSaveNoteButton(sender: Any) {
         if noteTextView.text.isEmpty {
             let message = "Note can't be blank"
             showAlert(with: message)
         }else{
-            addNote(with: noteTextView.text)
+            isSave ? addNote(with: noteTextView.text) : editNote(with: noteTextView.text)
         }
+    }
+    
+    @objc private func didTapEditNoteButton(sender: Any) {
+        toggleNavigationBarButton(isEditButton: false)
+        noteTextViewIsEditable(isEditable: true)
+        isSave = false
     }
 }
 
-//***** MARK: - NoteDelegate *****
+//***** MARK: - NoteViewable Delegate *****
 extension NoteViewController: NoteViewable {
-    func addNoteSucceed() {
+    func addOrEditNoteSucceed() {
         navigationController?.popViewController(animated: true)
     }
     
-    func addNoteDidFailedWith(_ message: String) {
+    func addOrEditNoteDidFailedWith(_ message: String) {
         showAlert(with: message)
     }
     
     func fetchNoteSucceddWith(_ note: Note) {
         noteTextView.text = note.note
+        toggleNavigationBarButton(isEditButton: true)
     }
     
     func fetchNoteDidFailedWith(_ message: String) {
-        NoteTextViewIsEditable(isEditable: true)
-        addNavigationItem()
+        noteTextViewIsEditable(isEditable: true)
+        toggleNavigationBarButton(isEditButton: false)
     }
-    
     
 }
