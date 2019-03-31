@@ -80,7 +80,6 @@ struct NotePresenter: NoteAddable, NoteFetchable, NoteEditable {
             delegate?.addOrEditNoteDidFailedWith(error.localizedDescription)
         }
     }
-    
 
     private func fetchNote(userID: Int) throws -> Note?{
         let note = try Realm()

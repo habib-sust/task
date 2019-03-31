@@ -26,6 +26,7 @@ final class NoteViewController: UIViewController {
     //***** MARK:- Properties *****
     var userId: Int?
     private var isSave = true
+    
     //***** MARK:- View LifeCycle *****
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +62,7 @@ final class NoteViewController: UIViewController {
         navigationItem.rightBarButtonItems?.first?.isEnabled = isEditButton
         navigationItem.rightBarButtonItems?.last?.isEnabled = !isEditButton
     }
+    
     private func setupConstraints() {
         noteTextView.anchor(top: view.topAnchor,
                             left: view.readableContentGuide.leftAnchor,
@@ -100,7 +102,7 @@ final class NoteViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    //***** MARK:- IBActions *****    ≥
+    //***** MARK:- IBActions ***** 
     @objc private func didTapSaveNoteButton(sender: Any) {
         if noteTextView.text.isEmpty {
             let message = "Note can't be blank"

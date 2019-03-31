@@ -9,16 +9,17 @@
 import XCTest
 import Nimble
 import Swinject
-import SwinjectAutoregistration
 @testable import Task
 
 class NotePresenterTests: XCTestCase {
     let container = Container()
     override func setUp() {
         super.setUp()
-        
         container.register(MockNoteViewController.self) {_ in
-            MockNoteViewController()
+           return MockNoteViewController()
+        }
+        container.register(MockNoteViewControllerForEdit.self) { _ in
+            return MockNoteViewControllerForEdit()
         }
     }
     
@@ -28,7 +29,7 @@ class NotePresenterTests: XCTestCase {
     }
     
     func testAddNoteSuccedWithUserIdAndNote() {
-        let delegate = container ~> (MockNoteViewController.self)
+        let delegate = container.resolve(MockNoteViewController.self)!
         let presenter = NotePresenter(delegate: delegate)
         presenter.addNoteWith(userId: 1, note: "abc")
         
@@ -36,7 +37,7 @@ class NotePresenterTests: XCTestCase {
     }
     
     func testFetchNoteSucceedWithUserId(){
-        let delegate = container ~> (MockNoteViewController.self)
+        let delegate = container.resolve(MockNoteViewController.self)!
         let presenter = NotePresenter(delegate: delegate)
         presenter.fetchNoteWith(userId: 1)
         
@@ -44,13 +45,29 @@ class NotePresenterTests: XCTestCase {
     }
     
     func testFetchNoteDidFailedWithWrongUserId(){
-        let delegate = container ~> (MockNoteViewController.self)
+        let delegate = container.resolve(MockNoteViewController.self)!
         let presenter = NotePresenter(delegate: delegate)
         presenter.fetchNoteWith(userId: 123)
         
         expect(delegate.fetchNoteDidFailedWith).to(beTrue(), description: "should call delegate method fetchNoteDidFailedWith")
     }
     
+    func testEditNoteWithWrongUserId() {
+        let delegate = container.resolve(MockNoteViewControllerForEdit.self)!
+        let presenter = NotePresenter(delegate: delegate)
+        presenter.editNoteWith(userId: 78, newNote: "new note")
+        
+        expect(delegate.editNoteDidFailed).to(beTrue(), description: "shoud call delegate method addOrEditNoteDidFailedWith")
+        
+    }
+    
+    func testEditNoteWithUserId() {
+        let delegate = container.resolve(MockNoteViewControllerForEdit.self)!
+        let presenter = NotePresenter(delegate: delegate)
+        presenter.editNoteWith(userId: 1, newNote: "new note")
+        
+        expect(delegate.editNoteSucced).to(beTrue(), description: "should call delegate method addOrEditNoteSucced")
+    }
 }
 
 class MockNoteViewController: NoteViewable {
@@ -58,11 +75,11 @@ class MockNoteViewController: NoteViewable {
     var fetchNoteSucceedWith = false
     var fetchNoteDidFailedWith = false
     
+    func addOrEditNoteDidFailedWith(_ message: String) {}
     func addOrEditNoteSucceed() {
         addNoteSucced = true
     }
     
-    func addNoteDidFailedWith(_ message: String) {}
     func fetchNoteSucceddWith(_ note: Note) {
         fetchNoteSucceedWith = true
     }
@@ -70,4 +87,23 @@ class MockNoteViewController: NoteViewable {
     func fetchNoteDidFailedWith(_ message: String) {
         fetchNoteDidFailedWith = true
     }
+}
+
+class MockNoteViewControllerForEdit: NoteViewable {
+    var editNoteSucced = false
+    var editNoteDidFailed = false
+    
+    func addOrEditNoteSucceed() {
+        editNoteSucced = true
+    }
+    
+    func addOrEditNoteDidFailedWith(_ message: String) {
+        editNoteDidFailed = true
+    }
+    
+    func fetchNoteSucceddWith(_ note: Note) {}
+    
+    func fetchNoteDidFailedWith(_ message: String) {}
+    
+    
 }
