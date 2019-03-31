@@ -9,7 +9,6 @@
 import XCTest
 import Nimble
 import Swinject
-import SwinjectAutoregistration
 @testable import Task
 class HomePresenterTests: XCTestCase {
     let container = Container()
@@ -20,17 +19,23 @@ class HomePresenterTests: XCTestCase {
             return MockHomeViewController()
         }
         
+        container.register(MockHomeViewControllerWithFormatedData.self) {_ in
+            MockHomeViewControllerWithFormatedData()
+        }
+        
         container.register(MockNetworking.self, name: "noData") {_ in
             let networking = MockNetworking(data: nil, error: APIClientError.noData)
             return networking
         }
         
-        container.register(MockHomeViewControllerWithFormatedData.self) {_ in
-            MockHomeViewControllerWithFormatedData()
-        }
-        
         container.register(MockNetworking.self){ _ in
             let data = try! JSONSerialization.data(withJSONObject: MockRepository.data, options: .prettyPrinted)
+            let networking = MockNetworking(data: data, error: nil)
+            return networking
+        }
+        
+        container.register(MockNetworking.self, name: "formatData") {_ in
+            let data = try! JSONSerialization.data(withJSONObject: MockRepositories.data, options: .prettyPrinted)
             let networking = MockNetworking(data: data, error: nil)
             return networking
         }
@@ -42,8 +47,8 @@ class HomePresenterTests: XCTestCase {
     }
     
     func testRepositoriesDidFailedWithError() {
-        let delegate = container ~> (MockHomeViewController.self)
-        let networking = container ~> (MockNetworking.self, name: "noData")
+        let delegate = container.resolve(MockHomeViewController.self)!
+        let networking = container.resolve(MockNetworking.self, name: "noData")!
         let presenter = HomePresenter(delegate: delegate, networking: networking)
         presenter.fetchRepositories(from: "endpoint")
         
@@ -52,8 +57,8 @@ class HomePresenterTests: XCTestCase {
     }
     
     func testRepositoriesDidFailedWithUnformatedData() {
-        let delegate = container ~> (MockHomeViewControllerWithFormatedData.self)
-        let networking = container ~> (MockNetworking.self)
+        let delegate = container.resolve(MockHomeViewControllerWithFormatedData.self)!
+        let networking = container.resolve(MockNetworking.self)!
         let presenter = HomePresenter(delegate: delegate, networking: networking)
         presenter.fetchRepositories(from: "endpoint")
         
@@ -62,9 +67,8 @@ class HomePresenterTests: XCTestCase {
     }
     
     func testRepositoriesSucceedWithFormatData() {
-        let delegate = container ~> (MockHomeViewController.self)
-        let data = try! JSONSerialization.data(withJSONObject: MockRepositories.data, options: .prettyPrinted)
-        let networking = MockNetworking(data: data, error: nil)
+        let delegate = container.resolve(MockHomeViewController.self)!
+        let networking = container.resolve(MockNetworking.self, name: "formatData")!
         let presenter = HomePresenter(delegate: delegate, networking: networking)
         presenter.fetchRepositories(from: "endpoint")
         
@@ -73,8 +77,8 @@ class HomePresenterTests: XCTestCase {
     }
     
     func testStartProgressDidCalled() {
-        let delegate = container ~> (MockHomeViewController.self)
-        let networking = container ~> (MockNetworking.self, name: "noData")
+        let delegate = container.resolve(MockHomeViewController.self)!
+        let networking = container.resolve(MockNetworking.self, name: "noData")!
         let presenter = HomePresenter(delegate: delegate, networking: networking)
         presenter.fetchRepositories(from: "endpoint")
         
@@ -84,8 +88,8 @@ class HomePresenterTests: XCTestCase {
     }
     
     func testHidePregressDidCalledWithError() {
-        let delegate = container ~> (MockHomeViewController.self)
-        let netwoking = container ~> (MockNetworking.self, name: "noData")
+        let delegate = container.resolve(MockHomeViewController.self)!
+        let netwoking = container.resolve(MockNetworking.self, name: "noData")!
         let presenter = HomePresenter(delegate: delegate, networking: netwoking)
         presenter.fetchRepositories(from: "endpoint")
         
@@ -94,9 +98,8 @@ class HomePresenterTests: XCTestCase {
     }
     
     func testHideProgressWithFormatData() {
-        let delegate = container ~> (MockHomeViewControllerWithFormatedData.self)
-        let data = try! JSONSerialization.data(withJSONObject: MockRepositories.data, options: .prettyPrinted)
-        let networking = MockNetworking(data: data, error: nil)
+        let delegate = container.resolve(MockHomeViewControllerWithFormatedData.self)!
+        let networking = container.resolve(MockNetworking.self, name: "formatData")!
         let presenter = HomePresenter(delegate: delegate, networking: networking)
         presenter.fetchRepositories(from: "endpoint")
         
@@ -105,8 +108,8 @@ class HomePresenterTests: XCTestCase {
     }
     
     func testFetchRepositoriesFromCacheDidFailedWithEmptyURL() {
-        let delegate = container ~> (MockHomeViewController.self)
-        let networking = container ~> (MockNetworking.self)
+        let delegate = container.resolve(MockHomeViewController.self)!
+        let networking = container.resolve(MockNetworking.self)!
         let presenter = HomePresenter(delegate: delegate, networking: networking)
         presenter.fetchRepositoriesFromCache(with: "")
         
@@ -115,8 +118,8 @@ class HomePresenterTests: XCTestCase {
     }
     
     func testFetchRepositoriesFromCacheSucceedWithValidURL() {
-        let delegate = container ~> (MockHomeViewController.self)
-        let networking = container ~> (MockNetworking.self)
+        let delegate = container.resolve(MockHomeViewController.self)!
+        let networking = container.resolve(MockNetworking.self)!
         let presenter = HomePresenter(delegate: delegate, networking: networking)
         presenter.fetchRepositoriesFromCache(with: Constants.baseURL)
         

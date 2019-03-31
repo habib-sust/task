@@ -61,7 +61,7 @@ class NotePresenterTests: XCTestCase {
         
     }
     
-    func testEditNoteWithUserId() {
+    func testEditNoteWithVaildUserId() {
         let delegate = container.resolve(MockNoteViewControllerForEdit.self)!
         let presenter = NotePresenter(delegate: delegate)
         presenter.editNoteWith(userId: 1, newNote: "new note")
