@@ -29,7 +29,7 @@ final class NoteViewController: UIViewController {
     //***** MARK:- Properties *****
     var userId: Int?
     private var isSave = true
-    private var currentNote = ""
+    private var savedNote = ""
     
     //***** MARK:- View LifeCycle *****
     override func viewDidLoad() {
@@ -106,15 +106,6 @@ final class NoteViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    private func didChangeCurrentNote() -> Bool{
-        if currentNote == noteTextView.text {
-            let message = "Note Didn't change"
-            showAlert(with: message)
-            return false
-        }
-        return true
-    }
-    
     private func noteIsEmpty() -> Bool{
         if noteTextView.text.isEmpty {
             let message = "Note can't be blank"
@@ -131,8 +122,11 @@ final class NoteViewController: UIViewController {
             return
         }
         
-        if didChangeCurrentNote(){
+        if presenter?.didChangeNote(saveNote: savedNote, currentNote: noteTextView.text) ?? false{
             isSave ? addNote(with: noteTextView.text) : editNote(with: noteTextView.text)
+        }else {
+            let message = "Note didn't change"
+            showAlert(with: message)
         }
     }
     
@@ -155,7 +149,7 @@ extension NoteViewController: NoteViewable {
     
     func fetchNoteSucceddWith(_ note: Note) {
         noteTextView.text = note.note
-        currentNote = note.note
+        savedNote = note.note
         toggleNavigationBarButton(isEditButton: true)
     }
     

@@ -65,8 +65,30 @@ class NotePresenterTests: XCTestCase {
         let delegate = container.resolve(MockNoteViewControllerForEdit.self)!
         let presenter = NotePresenter(delegate: delegate)
         presenter.editNoteWith(userId: 1, newNote: "new note")
-        
+    
         expect(delegate.editNoteSucced).to(beTrue(), description: "should call delegate method addOrEditNoteSucced")
+    }
+    
+    func testDidchangeCurrentNoteWithExtraSpace() {
+        let delegate = container.resolve(MockNoteViewControllerForEdit.self)!
+        let presenter = NotePresenter(delegate: delegate)
+        
+        expect(presenter.didChangeNote(saveNote: "abc ", currentNote: "abc")).to(beTrue(), description: "should return true")
+        
+    }
+    
+    func testDidChangeCurrentNoteWithDifferentValue () {
+        let delegate = container.resolve(MockNoteViewControllerForEdit.self)!
+        let presenter = NotePresenter(delegate: delegate)
+        
+        expect(presenter.didChangeNote(saveNote: "abc", currentNote: "abcd")).to(beFalse(), description: "should return false")
+    }
+    
+    func testDidChangeCurrentNoteWithSameValue() {
+        let delegate = container.resolve(MockNoteViewControllerForEdit.self)!
+        let presenter = NotePresenter(delegate: delegate)
+        
+        expect(presenter.didChangeNote(saveNote: "abc", currentNote: "abc")).to(beTrue(), description: "should return true")
     }
 }
 

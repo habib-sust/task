@@ -23,6 +23,7 @@
 		17B40FBE2238F61700C8882D /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40FBD2238F61700C8882D /* RepoCell.swift */; };
 		17B40FC02239036A00C8882D /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40FBF2239036A00C8882D /* DescriptionView.swift */; };
 		17B40FC32239103100C8882D /* TableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40FC22239103100C8882D /* TableView+Reusable.swift */; };
+		17B69CF422521E5200E47A97 /* StringTrailingTrimmedExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B69CF322521E5200E47A97 /* StringTrailingTrimmedExtension.swift */; };
 		17BD7C0C2241E9A80090EC6F /* NotePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD7C0B2241E9A80090EC6F /* NotePresenterTests.swift */; };
 		17BD7C0E2242569A0090EC6F /* UIColorExtesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD7C0D2242569A0090EC6F /* UIColorExtesion.swift */; };
 		17D76CEF223A4E0D00D41AA0 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D76CEE223A4E0D00D41AA0 /* NoteViewController.swift */; };
@@ -68,6 +69,7 @@
 		17B40FBD2238F61700C8882D /* RepoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
 		17B40FBF2239036A00C8882D /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		17B40FC22239103100C8882D /* TableView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableView+Reusable.swift"; sourceTree = "<group>"; };
+		17B69CF322521E5200E47A97 /* StringTrailingTrimmedExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTrailingTrimmedExtension.swift; sourceTree = "<group>"; };
 		17BD7C0B2241E9A80090EC6F /* NotePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePresenterTests.swift; sourceTree = "<group>"; };
 		17BD7C0D2242569A0090EC6F /* UIColorExtesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtesion.swift; sourceTree = "<group>"; };
 		17D76CEE223A4E0D00D41AA0 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				17B40FC22239103100C8882D /* TableView+Reusable.swift */,
 				179C6321223A039600236A9C /* UIViewConstraintsExtension.swift */,
 				17BD7C0D2242569A0090EC6F /* UIColorExtesion.swift */,
+				17B69CF322521E5200E47A97 /* StringTrailingTrimmedExtension.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				17B40FB52238DB3000C8882D /* Networking.swift in Sources */,
 				17D76CEF223A4E0D00D41AA0 /* NoteViewController.swift in Sources */,
 				17B40FC02239036A00C8882D /* DescriptionView.swift in Sources */,
+				17B69CF422521E5200E47A97 /* StringTrailingTrimmedExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
