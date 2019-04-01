@@ -7,13 +7,18 @@
 //
 
 import UIKit
-
 final class NoteViewController: UIViewController {
     
     //***** MARK: - Views *****
     private var noteTextView: UITextView =  {
         let textView = UITextView()
-        textView.font = .preferredFont(forTextStyle: .body)
+        if let font = UIFont(name: "Avenir", size: 17),  #available(iOS 11.0, *){
+                let fontMetrics = UIFontMetrics(forTextStyle: .body)
+                textView.font = fontMetrics.scaledFont(for: font)
+        }else {
+            textView.font = .preferredFont(forTextStyle: .body)
+        }
+        
         textView.adjustsFontForContentSizeCategory = true
         textView.isEditable = false
         return textView
@@ -24,6 +29,7 @@ final class NoteViewController: UIViewController {
     //***** MARK:- Properties *****
     var userId: Int?
     private var isSave = true
+    private var currentNote = ""
     
     //***** MARK:- View LifeCycle *****
     override func viewDidLoad() {
@@ -36,6 +42,7 @@ final class NoteViewController: UIViewController {
         fetchNote()
     }
 
+    //***** MARK: - Private Methods *****
     private func backgroundSetup() {
         view.backgroundColor = .white
     }
@@ -99,12 +106,32 @@ final class NoteViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    //***** MARK:- IBActions ***** 
-    @objc private func didTapSaveNoteButton(sender: Any) {
+    private func didChangeCurrentNote() -> Bool{
+        if currentNote == noteTextView.text {
+            let message = "Note Didn't change"
+            showAlert(with: message)
+            return false
+        }
+        return true
+    }
+    
+    private func noteIsEmpty() -> Bool{
         if noteTextView.text.isEmpty {
             let message = "Note can't be blank"
             showAlert(with: message)
-        }else{
+            return true
+        }
+        
+        return false
+    }
+    
+    //***** MARK:- IBActions ***** 
+    @objc private func didTapSaveNoteButton(sender: Any) {
+        if noteIsEmpty() {
+            return
+        }
+        
+        if didChangeCurrentNote(){
             isSave ? addNote(with: noteTextView.text) : editNote(with: noteTextView.text)
         }
     }
@@ -128,6 +155,7 @@ extension NoteViewController: NoteViewable {
     
     func fetchNoteSucceddWith(_ note: Note) {
         noteTextView.text = note.note
+        currentNote = note.note
         toggleNavigationBarButton(isEditButton: true)
     }
     
