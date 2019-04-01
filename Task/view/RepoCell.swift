@@ -13,7 +13,8 @@ import Kingfisher
 class RepoCell: UITableViewCell, ReusableView {
     
     private struct ViewMetrics {
-        static let avatarImageViewWidth: CGFloat = 80
+        static let avatarImageViewWidth: CGFloat = 50
+        static let avatarImageViewHeight: CGFloat = 50
         static let avatarImageViewPaddingLeft: CGFloat = 5
         static let descriptionViewPaddingLeft: CGFloat = 8
     }
@@ -48,14 +49,14 @@ class RepoCell: UITableViewCell, ReusableView {
     private func setupContraints() {
         avatarImageView.anchor(top: topAnchor,
                                left: leftAnchor,
-                               bottom: bottomAnchor,
+                               bottom: nil,
                                right: nil,
                                paddingTop: 0,
                                paddingLeft: ViewMetrics.avatarImageViewPaddingLeft,
                                paddingBottom: 0,
                                paddingRight: 0,
                                width: ViewMetrics.avatarImageViewWidth,
-                               height: 0,
+                               height: ViewMetrics.avatarImageViewHeight,
                                enableInsets: false)
         
         descriptionView.anchor(top: topAnchor,

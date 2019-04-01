@@ -104,6 +104,4 @@ class MockNoteViewControllerForEdit: NoteViewable {
     func fetchNoteSucceddWith(_ note: Note) {}
     
     func fetchNoteDidFailedWith(_ message: String) {}
-    
-    
 }

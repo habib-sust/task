@@ -9,7 +9,6 @@
 import UIKit
 final class HomeViewController: UIViewController {
    private struct ViewMetrics {
-        static let cellHeight: CGFloat = 80
         static let tableViewPaddingTop: CGFloat = 10
         static let tableViewPaddingBottom: CGFloat = 10
     }
@@ -36,8 +35,9 @@ final class HomeViewController: UIViewController {
         getRepositoriesData()
         
     }
-
-    //***** MARK: - Private Methods
+    
+    
+    //***** MARK: - Private Methods *****
     private func setupBackground() {
         view.backgroundColor = .white
     }
@@ -146,8 +146,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return repositories.count
     }
     
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return ViewMetrics.cellHeight
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

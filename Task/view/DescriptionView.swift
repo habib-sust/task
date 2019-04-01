@@ -9,13 +9,9 @@
 import UIKit
 class DescriptionView: UIView{
     private struct ViewMetrics {
-        static  let stackViewPaddingTop: CGFloat = 4
+        static let stackViewPaddingTop: CGFloat = 4
         static let stackViewPaddingBottom: CGFloat = 4
         static let stackViewSpacing: CGFloat = 4
-        static let reposirotyLabelFontSize: CGFloat = 14
-        static let ownerLabelFontSize: CGFloat = 13
-        static let descriptionLabelFontSize: CGFloat = 12
-        static let descriptionLabelMinimumScaleFactor: CGFloat = 0.5
     }
     
     var repositoryName: String? {
@@ -39,20 +35,22 @@ class DescriptionView: UIView{
     //***** MARK:- Views *****
     private var repositoryNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Avenir-Bold", size: ViewMetrics.reposirotyLabelFontSize)
+        label.font = .preferredFont(forTextStyle: .title1)
+        label.adjustsFontForContentSizeCategory = true
         label.textAlignment = .left
         return label
     }()
     private var ownerNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Avenir-Medium", size: ViewMetrics.ownerLabelFontSize)
+        label.font = .preferredFont(forTextStyle: .title2)
+        label.adjustsFontForContentSizeCategory = true
         label.textAlignment = .left
         return label
     }()
     private var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Avenir", size: ViewMetrics.descriptionLabelFontSize)
-        label.minimumScaleFactor = ViewMetrics.descriptionLabelMinimumScaleFactor
+        label.font = .preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = 0
         return label
     }()
@@ -94,5 +92,3 @@ class DescriptionView: UIView{
         
     }
 }
-
-

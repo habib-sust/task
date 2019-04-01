@@ -9,14 +9,12 @@
 import UIKit
 
 final class NoteViewController: UIViewController {
-    private struct ViewMetrics {
-        static let noteTextViewFontSize: CGFloat = 14
-    }
     
     //***** MARK: - Views *****
     private var noteTextView: UITextView =  {
         let textView = UITextView()
-        textView.font = UIFont(name: "Avenir", size: ViewMetrics.noteTextViewFontSize)
+        textView.font = .preferredFont(forTextStyle: .body)
+        textView.adjustsFontForContentSizeCategory = true
         textView.isEditable = false
         return textView
     }()
@@ -38,7 +36,6 @@ final class NoteViewController: UIViewController {
         fetchNote()
     }
 
-    //***** MARK: - Private Methods *****
     private func backgroundSetup() {
         view.backgroundColor = .white
     }
