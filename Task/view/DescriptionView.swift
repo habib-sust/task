@@ -38,6 +38,7 @@ class DescriptionView: UIView{
         label.font = .preferredFont(forTextStyle: .title1)
         label.adjustsFontForContentSizeCategory = true
         label.textAlignment = .left
+        label.numberOfLines = 0
         return label
     }()
     private var ownerNameLabel: UILabel = {
@@ -45,6 +46,7 @@ class DescriptionView: UIView{
         label.font = .preferredFont(forTextStyle: .title2)
         label.adjustsFontForContentSizeCategory = true
         label.textAlignment = .left
+        label.numberOfLines = 0
         return label
     }()
     private var descriptionLabel: UILabel = {
