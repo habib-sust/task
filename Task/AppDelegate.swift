@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         let navigationController = UINavigationController(rootViewController: HomeViewController())
         window?.rootViewController = navigationController
-        
+        WatchSessionManger.shared.startSession()
         return true
     }
 

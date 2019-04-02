@@ -9,7 +9,7 @@
 import WatchKit
 import WatchConnectivity
 
-typealias MessageReceived = (session: WCSession, request: [String: Any], replyHandler: (([String: Any]) -> Void)?)
+typealias MessageReceived = (session: WCSession, message: [String: Any], replyHandler: (([String: Any]) -> Void)?)
 
 //MARK: - protocol for manage all WatchOS delegations
 protocol WatchOSDelegate: AnyObject {
@@ -97,10 +97,12 @@ extension WatchSessionManger {
     
     //Receiver
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        print("didReceiveMessage")
         handleSession(session: session, didReceivedMessage: message)
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
+        print("didReceiveMessage")
         handleSession(session: session, didReceivedMessage: message, replyHandler: replyHandler)
     }
     // End Receiver

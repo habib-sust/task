@@ -11,7 +11,8 @@ import Foundation
 class HomeInterfaceController: WKInterfaceController {
 
     @IBOutlet weak var tableView: WKInterfaceTable!
-    private var presenter: HomePresenter?
+//    private var presenter: HomePresenter?
+    private var connectivityHandler = WatchSessionManger.shared
     private var repositories = [Repository]() {
         didSet {
             updateTable()
@@ -20,13 +21,14 @@ class HomeInterfaceController: WKInterfaceController {
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        presenter = HomePresenter(delegate: self, networking: HTTPNetworking())
-        getRepositoriesData()
+
+//        presenter = HomePresenter(delegate: self, networking: HTTPNetworking())
+//        getRepositoriesData()
     }
     
-    private func getRepositoriesData() {
-        presenter?.fetchRepositories(from: Constants.baseURL)
-    }
+//    private func getRepositoriesData() {
+//        presenter?.fetchRepositories(from: Constants.baseURL)
+//    }
     
     func updateTable() {
         tableView.setNumberOfRows(repositories.count, withRowType: "RepositoryRow")
@@ -40,6 +42,9 @@ class HomeInterfaceController: WKInterfaceController {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        connectivityHandler.startSession()
+        connectivityHandler.watchOSDelegate = self
+        
     }
     
     override func didDeactivate() {
@@ -49,31 +54,44 @@ class HomeInterfaceController: WKInterfaceController {
 
 }
 
-extension HomeInterfaceController: HomeViewable {
-    func startProgress() {
-        print("startProgress")
-    }
-    
-    func hideProgress() {
-        print("hideProgress")
-    }
-    
-    func repositoriesSucceedWith(_ repositories: [Repository]) {
-        print("repositoriesSucceedWith")
-        self.repositories = repositories
-    }
-    
-    func repositoriesDidFailedWith(_ message: String) {
-        print("repositoriesDidFailedWith: \(message)")
-    }
-    
-    func fetchRepositoriesFromCacheSucceedWith(_ repositories: [Repository]) {
-        
-    }
-    
-    func fetchRepositoriesFromCacheDidFailedWith(_ message: String) {
-        
+extension HomeInterfaceController: WatchOSDelegate {
+    func messageReceived(tuple: MessageReceived) {
+        print("MessageReceived: \(tuple)")
+        DispatchQueue.main.async {
+            if let repos = tuple.message["repositories"] as? [Repository] {
+                self.repositories = repos
+            }
+        }
     }
     
     
 }
+
+//extension HomeInterfaceController: HomeViewable {
+//    func startProgress() {
+//        print("startProgress")
+//    }
+//
+//    func hideProgress() {
+//        print("hideProgress")
+//    }
+//
+//    func repositoriesSucceedWith(_ repositories: [Repository]) {
+//        print("repositoriesSucceedWith")
+//        self.repositories = repositories
+//    }
+//
+//    func repositoriesDidFailedWith(_ message: String) {
+//        print("repositoriesDidFailedWith: \(message)")
+//    }
+//
+//    func fetchRepositoriesFromCacheSucceedWith(_ repositories: [Repository]) {
+//
+//    }
+//
+//    func fetchRepositoriesFromCacheDidFailedWith(_ message: String) {
+//
+//    }
+//
+//
+//}

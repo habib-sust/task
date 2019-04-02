@@ -22,8 +22,13 @@ final class HomeViewController: UIViewController {
     private var tableView = UITableView()
     
     //***** MARK: - Properties *****
-    private var repositories = [Repository]()
+    private var repositories = [Repository]() {
+        didSet {
+            updateUI()
+        }
+    }
     private var presenter: HomePresenter?
+    private let connectivityHandler = WatchSessionManger.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +41,9 @@ final class HomeViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        sendRepositoriesToWatchOS()
+    }
     
     //***** MARK: - Private Methods *****
     private func setupBackground() {
@@ -104,6 +112,18 @@ final class HomeViewController: UIViewController {
             self.progressHud.stopAnimating()
         }
     }
+    
+    private func sendRepositoriesToWatchOS() {
+        
+        print("SendRepositoriesToWatchOS called")
+        
+        let data = NSKeyedArchiver.archivedData(withRootObject: repositories)
+        let message = ["repositories": data]
+        connectivityHandler.sendMessage(message: message) { error in
+            print("Error in sending message: \(error)")
+            
+        }
+    }
 }
 
 //***** Mark: HomeDelegate
@@ -127,7 +147,7 @@ extension HomeViewController: HomeViewable {
     
     func repositoriesSucceedWith(_ repositories: [Repository]) {
         self.repositories = repositories
-        updateUI()
+        sendRepositoriesToWatchOS()
     }
     
     func repositoriesDidFailedWith(_ message: String) {
