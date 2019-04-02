@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14490.70" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14490.21"/>
+    </dependencies>
+    <scenes>
+        <!--Home Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="HomeInterfaceController" customModule="WatchDemo" customModuleProvider="target">
+                    <items>
+                        <table alignment="left" id="inX-PJ-j4z">
+                            <items>
+                                <tableRow identifier="RepositoryRow" id="utO-Qj-7I2" customClass="RepositoryRow" customModule="WatchDemo_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="haK-QC-umz">
+                                        <items>
+                                            <label alignment="center" verticalAlignment="center" text="Label" textAlignment="center" id="Gjg-cU-nS8"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="reposityNameLabel" destination="Gjg-cU-nS8" id="gpd-Oh-Fgf"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="tableView" destination="inX-PJ-j4z" id="gKk-EN-8XN"/>
+                    </connections>
+                </controller>
+            </objects>
+        </scene>
+    </scenes>
+</document>
