@@ -25,6 +25,7 @@ final class NoteViewController: UIViewController {
     }()
     
     private var presenter: NotePresenter?
+    private let connectivityHandler = WatchSessionManger.shared
     
     //***** MARK:- Properties *****
     var userId: Int?
@@ -58,8 +59,8 @@ final class NoteViewController: UIViewController {
     private func addNavigationItem() {
         let saveNoteButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(didTapSaveNoteButton(sender:)))
         let editNoteButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(didTapEditNoteButton(sender:)))
-        
-        navigationItem.rightBarButtonItems = [editNoteButton,saveNoteButton]
+        let sendNoteButton = UIBarButtonItem(title: "Send", style: .plain, target: self, action: #selector(didTapSendNoteButton(sender:)))
+        navigationItem.rightBarButtonItems = [editNoteButton, sendNoteButton, saveNoteButton]
     }
     
     private func toggleNavigationBarButton(isEditButton: Bool) {
@@ -122,7 +123,7 @@ final class NoteViewController: UIViewController {
             return
         }
         
-        if presenter?.didChangeNote(saveNote: savedNote, currentNote: noteTextView.text) ?? false{
+        if presenter?.didChangeNote(saveNote: savedNote, currentNote: noteTextView.text!) ?? false{
             isSave ? addNote(with: noteTextView.text) : editNote(with: noteTextView.text)
         }else {
             let message = "Note didn't change"
@@ -134,6 +135,13 @@ final class NoteViewController: UIViewController {
         toggleNavigationBarButton(isEditButton: false)
         noteTextViewIsEditable(isEditable: true)
         isSave = false
+    }
+    
+    @objc private func didTapSendNoteButton(sender: Any) {
+        let message = ["note": savedNote]
+        connectivityHandler.sendMessage(message: message) { error in
+            print("Error in Sending Note: \(error)")
+        }
     }
 }
 

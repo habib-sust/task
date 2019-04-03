@@ -11,9 +11,9 @@ import Foundation
 class HomeInterfaceController: WKInterfaceController {
 
     @IBOutlet weak var tableView: WKInterfaceTable!
-//    private var presenter: HomePresenter?
+    
     private var connectivityHandler = WatchSessionManger.shared
-    private var repositories = [Repository]() {
+    private var repositories = [String]() {
         didSet {
             updateTable()
         }
@@ -21,26 +21,20 @@ class HomeInterfaceController: WKInterfaceController {
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-
-//        presenter = HomePresenter(delegate: self, networking: HTTPNetworking())
-//        getRepositoriesData()
     }
     
-//    private func getRepositoriesData() {
-//        presenter?.fetchRepositories(from: Constants.baseURL)
-//    }
     
     func updateTable() {
         tableView.setNumberOfRows(repositories.count, withRowType: "RepositoryRow")
         
         for (index, repository) in repositories.enumerated() {
             if let row = tableView.rowController(at: index) as? RepositoryRow {
-                row.reposityNameLabel.setText(repository.repoName)
+                row.reposityNameLabel.setText(repository)
             }
         }
     }
+    
     override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         connectivityHandler.startSession()
         connectivityHandler.watchOSDelegate = self
@@ -48,50 +42,25 @@ class HomeInterfaceController: WKInterfaceController {
     }
     
     override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
         super.didDeactivate()
+    }
+    
+    private func goToNoteInterfaceController(with note: String) {
+        presentController(withName: "Note", context: note)
     }
 
 }
 
 extension HomeInterfaceController: WatchOSDelegate {
     func messageReceived(tuple: MessageReceived) {
-        print("MessageReceived: \(tuple)")
         DispatchQueue.main.async {
-            if let repos = tuple.message["repositories"] as? [Repository] {
+            if let repos = tuple.message["repositories"] as? [String] {
                 self.repositories = repos
+            }
+            
+            if let note = tuple.message["note"] as? String {
+                self.goToNoteInterfaceController(with: note)
             }
         }
     }
-    
-    
 }
-
-//extension HomeInterfaceController: HomeViewable {
-//    func startProgress() {
-//        print("startProgress")
-//    }
-//
-//    func hideProgress() {
-//        print("hideProgress")
-//    }
-//
-//    func repositoriesSucceedWith(_ repositories: [Repository]) {
-//        print("repositoriesSucceedWith")
-//        self.repositories = repositories
-//    }
-//
-//    func repositoriesDidFailedWith(_ message: String) {
-//        print("repositoriesDidFailedWith: \(message)")
-//    }
-//
-//    func fetchRepositoriesFromCacheSucceedWith(_ repositories: [Repository]) {
-//
-//    }
-//
-//    func fetchRepositoriesFromCacheDidFailedWith(_ message: String) {
-//
-//    }
-//
-//
-//}

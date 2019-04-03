@@ -9,10 +9,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14490.21"/>
     </dependencies>
     <scenes>
-        <!--Home Interface Controller-->
+        <!--Home-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="HomeInterfaceController" customModule="WatchDemo" customModuleProvider="target">
+                <controller identifier="Home" id="AgC-eL-Hgc" customClass="HomeInterfaceController" customModule="WatchDemo" customModuleProvider="target">
                     <items>
                         <table alignment="left" id="inX-PJ-j4z">
                             <items>
@@ -34,6 +34,20 @@
                     </connections>
                 </controller>
             </objects>
+        </scene>
+        <!--Note-->
+        <scene sceneID="6ud-hn-oc7">
+            <objects>
+                <controller identifier="Note" id="Eq4-ax-qfb" customClass="NoteInterfaceController" customModule="WatchDemo_Extension">
+                    <items>
+                        <label alignment="center" verticalAlignment="center" text="Note" numberOfLines="0" id="xgW-xr-vG8"/>
+                    </items>
+                    <connections>
+                        <outlet property="noteLabel" destination="xgW-xr-vG8" id="gpe-et-ag2"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="362" y="162"/>
         </scene>
     </scenes>
 </document>

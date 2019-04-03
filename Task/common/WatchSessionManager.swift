@@ -97,12 +97,12 @@ extension WatchSessionManger {
     
     //Receiver
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        print("didReceiveMessage")
+        print("didReceiveMessage in WatchSessionManager")
         handleSession(session: session, didReceivedMessage: message)
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
-        print("didReceiveMessage")
+        print("didReceiveMessage in WatchSessionManager")
         handleSession(session: session, didReceivedMessage: message, replyHandler: replyHandler)
     }
     // End Receiver

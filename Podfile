@@ -23,7 +23,7 @@ target 'Task' do
   end
 
   target 'WatchDemo Extension' do 
-   platform :watchos, '2.0'
+   platform :watchos, '4.0'
      sharedPods
   end
 

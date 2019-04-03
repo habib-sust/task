@@ -38,12 +38,9 @@ final class HomeViewController: UIViewController {
         setupConstraints()
         setupProgressHud()
         getRepositoriesData()
-        
+        addNavigationItem()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        sendRepositoriesToWatchOS()
-    }
     
     //***** MARK: - Private Methods *****
     private func setupBackground() {
@@ -72,6 +69,12 @@ final class HomeViewController: UIViewController {
                          height: 0,
                          enableInsets: true)
 
+    }
+    
+    private func addNavigationItem() {
+        let sendReposButton = UIBarButtonItem(title: "Send", style: .done, target: self, action: #selector(didTapSendReposButton(sender:)))
+        
+        navigationItem.rightBarButtonItem = sendReposButton
     }
     
     private func getRepositoriesData() {
@@ -114,15 +117,22 @@ final class HomeViewController: UIViewController {
     }
     
     private func sendRepositoriesToWatchOS() {
+        var repos = [String]()
+        for repo in repositories {
+            if let repoName = repo.repoName {
+                repos.append(repoName)
+            }
+        }
         
-        print("SendRepositoriesToWatchOS called")
-        
-        let data = NSKeyedArchiver.archivedData(withRootObject: repositories)
-        let message = ["repositories": data]
+        let message = ["repositories": repos]
         connectivityHandler.sendMessage(message: message) { error in
             print("Error in sending message: \(error)")
-            
         }
+    }
+    
+    //MARK: IBAction
+    @objc private func didTapSendReposButton(sender: Any) {
+        sendRepositoriesToWatchOS()
     }
 }
 
@@ -147,7 +157,6 @@ extension HomeViewController: HomeViewable {
     
     func repositoriesSucceedWith(_ repositories: [Repository]) {
         self.repositories = repositories
-        sendRepositoriesToWatchOS()
     }
     
     func repositoriesDidFailedWith(_ message: String) {

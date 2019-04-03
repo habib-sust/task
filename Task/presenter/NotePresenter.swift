@@ -93,9 +93,9 @@ struct NotePresenter: NoteAddable, NoteFetchable, NoteEditable {
     
     func didChangeNote(saveNote: String, currentNote: String) -> Bool {
         if currentNote.trailingTrimmed() == saveNote.trailingTrimmed() {
-            return true
+            return false
         }
-        return false
+        return true
     }
     
 }
