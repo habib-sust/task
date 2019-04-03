@@ -80,4 +80,16 @@ struct HomePresenter: RepositoryFetchable {
             }
         }
     }
+    
+    //MARK: WatchOS
+    func encodeRepositories(from repositories: [Repository]) -> Data? {
+        do{
+            let decoder = JSONEncoder()
+            let data = try decoder.encode(repositories)
+            return data
+        } catch (let error){
+            print("Error in Encoding Repositories: \(error.localizedDescription)")
+            return nil
+        }
+    }
 }

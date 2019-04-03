@@ -117,16 +117,11 @@ final class HomeViewController: UIViewController {
     }
     
     private func sendRepositoriesToWatchOS() {
-        var repos = [String]()
-        for repo in repositories {
-            if let repoName = repo.repoName {
-                repos.append(repoName)
+        if let data = presenter?.encodeRepositories(from: repositories) {
+            let message = ["repositories": data]
+            connectivityHandler.sendMessage(message: message) { error in
+                print("Error in sending message: \(error)")
             }
-        }
-        
-        let message = ["repositories": repos]
-        connectivityHandler.sendMessage(message: message) { error in
-            print("Error in sending message: \(error)")
         }
     }
     

@@ -11,9 +11,8 @@ import Foundation
 
 
 class NoteInterfaceController: WKInterfaceController {
-
     @IBOutlet weak var noteLabel: WKInterfaceLabel!
-    
+    private var presenter: NotePresenter?
     private let connectivityHandler = WatchSessionManger.shared
     
     var note: String? {
@@ -26,15 +25,11 @@ class NoteInterfaceController: WKInterfaceController {
         
         if let receivedNote = context as? String {
             note = receivedNote
-            print("Note Received")
-        }else {
-            print("Context: \(context)")
         }
     }
 
     override func willActivate() {
         super.willActivate()
-        connectivityHandler.startSession()
         connectivityHandler.watchOSDelegate = self
     }
 

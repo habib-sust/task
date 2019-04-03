@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FF714D706241708E215DFC1 /* Pods_WatchDemo_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2AA4AF565B004E07673A075 /* Pods_WatchDemo_Extension.framework */; };
 		1725410F22546C8A00CC8CC2 /* NoteInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1725410E22546C8A00CC8CC2 /* NoteInterfaceController.swift */; };
 		17605BAA22533A2B00C02B9D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40FB62238DB9000C8882D /* Result.swift */; };
 		17605BAB22533B4100C02B9D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40FBB2238E5FC00C8882D /* Constants.swift */; };
 		17605BAE2253572500C02B9D /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17605BAD2253572500C02B9D /* WatchSessionManager.swift */; };
 		17605BAF2253572A00C02B9D /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17605BAD2253572500C02B9D /* WatchSessionManager.swift */; };
+		176616902254BC2C004EBEA2 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D76CF0223A5C7B00D41AA0 /* Note.swift */; };
+		176616912254C740004EBEA2 /* NotePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D76CF2223A5D8B00D41AA0 /* NotePresenter.swift */; };
 		17801A712253287000B40EFB /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17801A6F2253287000B40EFB /* Interface.storyboard */; };
 		17801A732253287100B40EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17801A722253287100B40EFB /* Assets.xcassets */; };
 		17801A7A2253287100B40EFB /* WatchDemo Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 17801A792253287100B40EFB /* WatchDemo Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -155,6 +158,9 @@
 		8FE08BE8795D1950FC282657 /* Pods_TaskUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaskUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93116BAAC34CB83AB1D1B305 /* Pods-TaskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskTests.debug.xcconfig"; path = "Target Support Files/Pods-TaskTests/Pods-TaskTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A226C1634BCC745E8AC37682 /* Pods_TaskTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaskTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2AA4AF565B004E07673A075 /* Pods_WatchDemo_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WatchDemo_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5237D0C0F8951FF23F85C43 /* Pods-WatchDemo Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchDemo Extension.release.xcconfig"; path = "Target Support Files/Pods-WatchDemo Extension/Pods-WatchDemo Extension.release.xcconfig"; sourceTree = "<group>"; };
+		F016E7A20DE54FFF17B8239C /* Pods-WatchDemo Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchDemo Extension.debug.xcconfig"; path = "Target Support Files/Pods-WatchDemo Extension/Pods-WatchDemo Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		F3178E45FECC180951721F6A /* Pods-TaskTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskTests.release.xcconfig"; path = "Target Support Files/Pods-TaskTests/Pods-TaskTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,6 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FF714D706241708E215DFC1 /* Pods_WatchDemo_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +186,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5435FCF43DAA408141CE94A8 /* Pods_TaskTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		195682C1D716A7D725605386 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +362,8 @@
 				F3178E45FECC180951721F6A /* Pods-TaskTests.release.xcconfig */,
 				39C7DD423FD02D2C71DA9329 /* Pods-TaskUITests.debug.xcconfig */,
 				0D4CF627C132BBD9C8EAE132 /* Pods-TaskUITests.release.xcconfig */,
+				F016E7A20DE54FFF17B8239C /* Pods-WatchDemo Extension.debug.xcconfig */,
+				C5237D0C0F8951FF23F85C43 /* Pods-WatchDemo Extension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -359,6 +375,7 @@
 				45F92195504804409DE234B5 /* Pods_Task.framework */,
 				A226C1634BCC745E8AC37682 /* Pods_TaskTests.framework */,
 				8FE08BE8795D1950FC282657 /* Pods_TaskUITests.framework */,
+				B2AA4AF565B004E07673A075 /* Pods_WatchDemo_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -380,6 +397,7 @@
 			buildPhases = (
 				17801A6B2253287000B40EFB /* Resources */,
 				17801A8D2253287100B40EFB /* Embed App Extensions */,
+				195682C1D716A7D725605386 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -395,9 +413,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17801A8C2253287100B40EFB /* Build configuration list for PBXNativeTarget "WatchDemo Extension" */;
 			buildPhases = (
+				A854D1FABD0E36E812078E04 /* [CP] Check Pods Manifest.lock */,
 				17801A752253287100B40EFB /* Sources */,
 				17801A762253287100B40EFB /* Frameworks */,
 				17801A772253287100B40EFB /* Resources */,
+				916D39460D0B834004E4F462 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -555,6 +575,52 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		916D39460D0B834004E4F462 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WatchDemo Extension/Pods-WatchDemo Extension-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm-watchOS/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift-watchOS/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WatchDemo Extension/Pods-WatchDemo Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A854D1FABD0E36E812078E04 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WatchDemo Extension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BE025E68AC66A7ACA19590B4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -615,8 +681,8 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Task/Pods-Task-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm-iOS/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift-iOS/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -641,6 +707,7 @@
 				17801A99225330AF00B40EFB /* RepositoryRow.swift in Sources */,
 				17801A812253287100B40EFB /* ExtensionDelegate.swift in Sources */,
 				17801A7F2253287100B40EFB /* HomeInterfaceController.swift in Sources */,
+				176616912254C740004EBEA2 /* NotePresenter.swift in Sources */,
 				17801A9B2253360D00B40EFB /* Owner.swift in Sources */,
 				17605BAF2253572A00C02B9D /* WatchSessionManager.swift in Sources */,
 				17801A9A225335F100B40EFB /* HomePresenter.swift in Sources */,
@@ -649,6 +716,7 @@
 				17605BAA22533A2B00C02B9D /* Result.swift in Sources */,
 				17801A9F2253368C00B40EFB /* Networking.swift in Sources */,
 				17605BAB22533B4100C02B9D /* Constants.swift in Sources */,
+				176616902254BC2C004EBEA2 /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -778,6 +846,7 @@
 		};
 		17801A8A2253287100B40EFB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F016E7A20DE54FFF17B8239C /* Pods-WatchDemo Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
@@ -800,6 +869,7 @@
 		};
 		17801A8B2253287100B40EFB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5237D0C0F8951FF23F85C43 /* Pods-WatchDemo Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;

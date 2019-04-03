@@ -17,10 +17,13 @@
                         <table alignment="left" id="inX-PJ-j4z">
                             <items>
                                 <tableRow identifier="RepositoryRow" id="utO-Qj-7I2" customClass="RepositoryRow" customModule="WatchDemo_Extension">
-                                    <group key="rootItem" width="1" alignment="left" id="haK-QC-umz">
+                                    <group key="rootItem" width="1" height="38" alignment="left" id="haK-QC-umz">
                                         <items>
-                                            <label alignment="center" verticalAlignment="center" text="Label" textAlignment="center" id="Gjg-cU-nS8"/>
+                                            <label alignment="center" verticalAlignment="center" text="Label" textAlignment="center" id="Gjg-cU-nS8">
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </label>
                                         </items>
+                                        <color key="backgroundColor" red="0.20784313725490194" green="0.47450980392156861" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
                                     </group>
                                     <connections>
                                         <outlet property="reposityNameLabel" destination="Gjg-cU-nS8" id="gpd-Oh-Fgf"/>
