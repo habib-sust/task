@@ -11,7 +11,6 @@ import Foundation
 
 class HomeInterfaceController: WKInterfaceController {
     @IBOutlet weak var tableView: WKInterfaceTable!
-    
     private var connectivityHandler = WatchSessionManger.shared
     private var repositories = [Repository](){
         didSet {
@@ -19,19 +18,10 @@ class HomeInterfaceController: WKInterfaceController {
         }
     }
     
+    //MARK: LifeCycle
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-    }
-    
-    
-    func updateTable() {
-        tableView.setNumberOfRows(repositories.count, withRowType: "RepositoryRow")
-        for (index, repository) in repositories.enumerated() {
-            if let row = tableView.rowController(at: index) as? RepositoryRow {
-                
-                row.reposityNameLabel.setText(repository.repoName)
-            }
-        }
+        textInput()
     }
     
     override func willActivate() {
@@ -43,6 +33,18 @@ class HomeInterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
     
+    //MARK: Table
+    func updateTable() {
+        tableView.setNumberOfRows(repositories.count, withRowType: "RepositoryRow")
+        for (index, repository) in repositories.enumerated() {
+            if let row = tableView.rowController(at: index) as? RepositoryRow {
+                row.configureRow(repoName: repository.repoName)
+            }
+        }
+    }
+    
+    
+    //MARK: - Private Methods
     private func goToNoteInterfaceController(with note: String) {
         presentController(withName: "Note", context: note)
     }
@@ -55,8 +57,21 @@ class HomeInterfaceController: WKInterfaceController {
             print("Error in Decoding: \(error.localizedDescription)")
         }
     }
+    
+    private func textInput() {
+        let phrases = ["input1", "input2", "input3", "input4"]
+        presentTextInputController(withSuggestions: phrases, allowedInputMode: WKTextInputMode.plain, completion: { result in
+            guard let choice = result else {
+                return
+            }
+            let suggestion = choice[0]
+            print(suggestion)
+            
+        })
+    }
 }
 
+//MARK: - WatchOSDelegate
 extension HomeInterfaceController: WatchOSDelegate {
     func messageReceived(tuple: MessageReceived) {
         DispatchQueue.main.async {

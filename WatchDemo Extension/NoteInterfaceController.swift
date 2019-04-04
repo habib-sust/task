@@ -9,17 +9,16 @@
 import WatchKit
 import Foundation
 
-
 class NoteInterfaceController: WKInterfaceController {
     @IBOutlet weak var noteLabel: WKInterfaceLabel!
-    private var presenter: NotePresenter?
     private let connectivityHandler = WatchSessionManger.shared
-    
-    var note: String? {
+    private var userId: Int!
+    private var note: String? {
         didSet{
             setNote()
         }
     }
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
@@ -40,16 +39,13 @@ class NoteInterfaceController: WKInterfaceController {
     private func setNote() {
         noteLabel.setText(note)
     }
-
 }
 
-
+// MARK: - WatchOSDelegate
 extension NoteInterfaceController: WatchOSDelegate {
     func messageReceived(tuple: MessageReceived) {
         if let note = tuple.message["note"] as? String {
             self.note = note
         }
     }
-    
-    
 }

@@ -13,8 +13,6 @@
 		17605BAB22533B4100C02B9D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40FBB2238E5FC00C8882D /* Constants.swift */; };
 		17605BAE2253572500C02B9D /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17605BAD2253572500C02B9D /* WatchSessionManager.swift */; };
 		17605BAF2253572A00C02B9D /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17605BAD2253572500C02B9D /* WatchSessionManager.swift */; };
-		176616902254BC2C004EBEA2 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D76CF0223A5C7B00D41AA0 /* Note.swift */; };
-		176616912254C740004EBEA2 /* NotePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D76CF2223A5D8B00D41AA0 /* NotePresenter.swift */; };
 		17801A712253287000B40EFB /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17801A6F2253287000B40EFB /* Interface.storyboard */; };
 		17801A732253287100B40EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17801A722253287100B40EFB /* Assets.xcassets */; };
 		17801A7A2253287100B40EFB /* WatchDemo Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 17801A792253287100B40EFB /* WatchDemo Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -707,7 +705,6 @@
 				17801A99225330AF00B40EFB /* RepositoryRow.swift in Sources */,
 				17801A812253287100B40EFB /* ExtensionDelegate.swift in Sources */,
 				17801A7F2253287100B40EFB /* HomeInterfaceController.swift in Sources */,
-				176616912254C740004EBEA2 /* NotePresenter.swift in Sources */,
 				17801A9B2253360D00B40EFB /* Owner.swift in Sources */,
 				17605BAF2253572A00C02B9D /* WatchSessionManager.swift in Sources */,
 				17801A9A225335F100B40EFB /* HomePresenter.swift in Sources */,
@@ -716,7 +713,6 @@
 				17605BAA22533A2B00C02B9D /* Result.swift in Sources */,
 				17801A9F2253368C00B40EFB /* Networking.swift in Sources */,
 				17605BAB22533B4100C02B9D /* Constants.swift in Sources */,
-				176616902254BC2C004EBEA2 /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,9 @@
 import WatchKit
 
 class RepositoryRow: NSObject {
-    @IBOutlet weak var reposityNameLabel: WKInterfaceLabel!
+    @IBOutlet weak var repositoryNameLabel: WKInterfaceLabel!
     
+    func configureRow(repoName: String?) {
+        repositoryNameLabel.setText(repoName)
+    }
 }
