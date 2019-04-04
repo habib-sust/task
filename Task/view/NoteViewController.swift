@@ -117,12 +117,18 @@ final class NoteViewController: UIViewController {
         return false
     }
     
+    private func sendNoteInfoToWatchOS(note: String) {
+        let message = ["noteInfo": [note, userId as Any]]
+        connectivityHandler.sendMessage(message: message) { error in
+            print("Error in Sending Note: \(error)")
+        }
+    }
+    
     //***** MARK:- IBActions ***** 
     @objc private func didTapSaveNoteButton(sender: Any) {
         if noteIsEmpty() {
             return
         }
-        
         if presenter?.didChangeNote(saveNote: savedNote, currentNote: noteTextView.text!) ?? false{
             isSave ? addNote(with: noteTextView.text) : editNote(with: noteTextView.text)
         }else {
@@ -138,16 +144,14 @@ final class NoteViewController: UIViewController {
     }
     
     @objc private func didTapSendNoteButton(sender: Any) {
-        let message = ["note": savedNote]
-        connectivityHandler.sendMessage(message: message) { error in
-            print("Error in Sending Note: \(error)")
-        }
+        sendNoteInfoToWatchOS(note: savedNote)
     }
 }
 
 //***** MARK: - NoteViewable Delegate *****
 extension NoteViewController: NoteViewable {
     func addOrEditNoteSucceed() {
+        sendNoteInfoToWatchOS(note: noteTextView.text)
         navigationController?.popViewController(animated: true)
     }
     

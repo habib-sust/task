@@ -12,6 +12,7 @@ import Foundation
 class NoteInterfaceController: WKInterfaceController {
     @IBOutlet weak var noteLabel: WKInterfaceLabel!
     private let connectivityHandler = WatchSessionManger.shared
+    private var presenter: NotePresenter?
     private var userId: Int!
     private var note: String? {
         didSet{
@@ -19,11 +20,19 @@ class NoteInterfaceController: WKInterfaceController {
         }
     }
     
+    //MARK: LifeCyle
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        presenter = NotePresenter(delegate: self)
         
-        if let receivedNote = context as? String {
-            note = receivedNote
+        if let receivedUserId = context as? Int {
+            userId = receivedUserId
+            return
+        }
+        
+        if let noteInfo = context as? [Any] {
+            note = noteInfo[0] as? String
+            userId = noteInfo[1] as? Int
         }
     }
 
@@ -36,16 +45,61 @@ class NoteInterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
     
+    //MARK: Private Methods
     private func setNote() {
         noteLabel.setText(note)
+    }
+    
+    private func addNote() {
+        if let note = note {
+            presenter?.addNoteWith(userId: userId, note: note)
+        }
+    }
+    
+    private func fetchNote() {
+        presenter?.fetchNoteWith(userId: userId)
+    }
+    
+    private func editNote() {
+        if let newNote = note {
+            presenter?.editNoteWith(userId: userId, newNote: newNote)
+        }
     }
 }
 
 // MARK: - WatchOSDelegate
 extension NoteInterfaceController: WatchOSDelegate {
     func messageReceived(tuple: MessageReceived) {
-        if let note = tuple.message["note"] as? String {
-            self.note = note
+        if let noteInfo = tuple.message["noteInfo"] as? [Any] {
+            note = noteInfo[0] as? String
+            userId = noteInfo[1] as? Int
+            editNote()
+        }
+    }
+}
+
+
+//MARK: - NoteViewable Delegate
+extension NoteInterfaceController: NoteViewable {
+    func addOrEditNoteSucceed() {
+        print("addOrEditNoteSucceed")
+    }
+    
+    func addOrEditNoteDidFailedWith(_ message: String) {
+        print("addOrEditNoteDidFailedWith: \(message)")
+        
+    }
+    
+    func fetchNoteSucceddWith(_ note: Note) {
+        self.note = note.note
+    }
+    
+    func fetchNoteDidFailedWith(_ message: String) {
+        print("fetchNoteDidFailedWith: \(message)")
+        let errorMessage = "There is no note with this User ID: \(userId ?? 0)"
+        print("Error Message: \(errorMessage)")
+        if message == errorMessage {
+            addNote()
         }
     }
 }

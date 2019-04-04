@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0FF714D706241708E215DFC1 /* Pods_WatchDemo_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2AA4AF565B004E07673A075 /* Pods_WatchDemo_Extension.framework */; };
+		1703BC742255C65400E491A3 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D76CF0223A5C7B00D41AA0 /* Note.swift */; };
+		1703BC762255C68200E491A3 /* NotePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D76CF2223A5D8B00D41AA0 /* NotePresenter.swift */; };
+		1703BC772255C69700E491A3 /* StringTrailingTrimmedExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B69CF322521E5200E47A97 /* StringTrailingTrimmedExtension.swift */; };
 		1725410F22546C8A00CC8CC2 /* NoteInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1725410E22546C8A00CC8CC2 /* NoteInterfaceController.swift */; };
 		17605BAA22533A2B00C02B9D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40FB62238DB9000C8882D /* Result.swift */; };
 		17605BAB22533B4100C02B9D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40FBB2238E5FC00C8882D /* Constants.swift */; };
@@ -705,7 +708,9 @@
 				17801A99225330AF00B40EFB /* RepositoryRow.swift in Sources */,
 				17801A812253287100B40EFB /* ExtensionDelegate.swift in Sources */,
 				17801A7F2253287100B40EFB /* HomeInterfaceController.swift in Sources */,
+				1703BC762255C68200E491A3 /* NotePresenter.swift in Sources */,
 				17801A9B2253360D00B40EFB /* Owner.swift in Sources */,
+				1703BC772255C69700E491A3 /* StringTrailingTrimmedExtension.swift in Sources */,
 				17605BAF2253572A00C02B9D /* WatchSessionManager.swift in Sources */,
 				17801A9A225335F100B40EFB /* HomePresenter.swift in Sources */,
 				17801A9C2253360D00B40EFB /* Repository.swift in Sources */,
@@ -713,6 +718,7 @@
 				17605BAA22533A2B00C02B9D /* Result.swift in Sources */,
 				17801A9F2253368C00B40EFB /* Networking.swift in Sources */,
 				17605BAB22533B4100C02B9D /* Constants.swift in Sources */,
+				1703BC742255C65400E491A3 /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

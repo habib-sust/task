@@ -73,7 +73,6 @@ final class HomeViewController: UIViewController {
     
     private func addNavigationItem() {
         let sendReposButton = UIBarButtonItem(title: "Send", style: .done, target: self, action: #selector(didTapSendReposButton(sender:)))
-        
         navigationItem.rightBarButtonItem = sendReposButton
     }
     
