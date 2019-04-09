@@ -62,6 +62,7 @@ class HomeInterfaceController: WKInterfaceController {
         }
     }
     
+
     private func textInput() {
         presentTextInputController(withSuggestions: nil, allowedInputMode: WKTextInputMode.plain, completion: { result in
             guard let choice = result else {

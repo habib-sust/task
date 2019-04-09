@@ -34,6 +34,17 @@ class NoteInterfaceController: WKInterfaceController {
             note = noteInfo[0] as? String
             userId = noteInfo[1] as? Int
         }
+        
+        
+//        let firstAttributes: [NSAttributedString.Key: Any] = [.backgroundColor: UIColor.green, NSAttributedString.Key.kern: 10]
+//        let secondAttributes = [NSAttributedString.Key.backgroundColor: UIColor.red]
+//
+//        let firstString = NSMutableAttributedString(string: "Haters ", attributes: firstAttributes)
+//        let secondString = NSAttributedString(string: "gonna ", attributes: secondAttributes)
+//
+//       if firstAttributes[NSAttributedString.Key.backgroundColor] as! UIColor == secondAttributes[NSAttributedString.Key.backgroundColor] {
+//                print("COLOR TRUE")
+//       }
     }
 
     override func willActivate() {
@@ -95,8 +106,7 @@ extension NoteInterfaceController: NoteViewable {
     }
     
     func fetchNoteDidFailedWith(_ message: String) {
-        print("fetchNoteDidFailedWith: \(message)")
-        let errorMessage = "There is no note with this User ID: \(userId ?? 0)"
+        let errorMessage = "There is no note with this User ID: \(userId!)"
         print("Error Message: \(errorMessage)")
         if message == errorMessage {
             addNote()

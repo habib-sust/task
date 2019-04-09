@@ -73,7 +73,7 @@ class NotePresenterTests: XCTestCase {
         let delegate = container.resolve(MockNoteViewControllerForEdit.self)!
         let presenter = NotePresenter(delegate: delegate)
         
-        expect(presenter.didChangeNote(saveNote: "abc ", currentNote: "abc")).to(beTrue(), description: "should return true")
+        expect(presenter.didChangeNote(saveNote: "abc ", currentNote: "abc")).to(beFalse(), description: "should return false")
         
     }
     
@@ -81,14 +81,14 @@ class NotePresenterTests: XCTestCase {
         let delegate = container.resolve(MockNoteViewControllerForEdit.self)!
         let presenter = NotePresenter(delegate: delegate)
         
-        expect(presenter.didChangeNote(saveNote: "abc", currentNote: "abcd")).to(beFalse(), description: "should return false")
+        expect(presenter.didChangeNote(saveNote: "abc", currentNote: "abcd")).to(beTrue(), description: "should return true")
     }
     
     func testDidChangeCurrentNoteWithSameValue() {
         let delegate = container.resolve(MockNoteViewControllerForEdit.self)!
         let presenter = NotePresenter(delegate: delegate)
         
-        expect(presenter.didChangeNote(saveNote: "abc", currentNote: "abc")).to(beTrue(), description: "should return true")
+        expect(presenter.didChangeNote(saveNote: "abc", currentNote: "abc")).to(beFalse(), description: "should return false")
     }
 }
 

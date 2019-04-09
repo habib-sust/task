@@ -63,7 +63,7 @@ class DescriptionView: UIView{
         super.willMove(toSuperview: newSuperview)
         setupDescriptionStackView()
         setup()
-        setupConstraints()
+        setupConstraints()	
     }
     
     
