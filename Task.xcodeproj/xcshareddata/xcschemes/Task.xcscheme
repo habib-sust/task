@@ -26,7 +26,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      codeCoverageEnabled = "YES"
       onlyGenerateCoverageForSpecifiedTargets = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <CodeCoverageTargets>
@@ -46,16 +45,6 @@
                BlueprintIdentifier = "17B40F8F2238D60800C8882D"
                BuildableName = "TaskTests.xctest"
                BlueprintName = "TaskTests"
-               ReferencedContainer = "container:Task.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "176704E32259EC3F00EDB2D4"
-               BuildableName = "TaskUITests.xctest"
-               BlueprintName = "TaskUITests"
                ReferencedContainer = "container:Task.xcodeproj">
             </BuildableReference>
          </TestableReference>

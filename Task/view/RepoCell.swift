@@ -11,7 +11,6 @@ import UIKit
 import Kingfisher
 
 class RepoCell: UITableViewCell, ReusableView {
-    
     private struct ViewMetrics {
         static let avatarImageViewWidth: CGFloat = 50
         static let avatarImageViewHeight: CGFloat = 50
@@ -40,6 +39,7 @@ class RepoCell: UITableViewCell, ReusableView {
     
     //MARK: - Private Methods
     private func setup() {
+        self.accessibilityIdentifier = "RepoCell"
         avatarImageView.contentMode = .scaleAspectFit
         addSubview(avatarImageView)
         addSubview(descriptionView)

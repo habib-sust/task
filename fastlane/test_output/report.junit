@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<testsuites name='TaskUITests.xctest' tests='21' failures='1'>
+<testsuites name='TaskTests.xctest' tests='19' failures='0'>
   <testsuite name='TaskTests.HomePresenterTests' tests='8' failures='0'>
-    <testcase classname='TaskTests.HomePresenterTests' name='testFetchRepositoriesFromCacheDidFailedWithEmptyURL' time='0.023'/>
-    <testcase classname='TaskTests.HomePresenterTests' name='testFetchRepositoriesFromCacheSucceedWithValidURL' time='0.134'/>
+    <testcase classname='TaskTests.HomePresenterTests' name='testFetchRepositoriesFromCacheDidFailedWithEmptyURL' time='0.005'/>
+    <testcase classname='TaskTests.HomePresenterTests' name='testFetchRepositoriesFromCacheSucceedWithValidURL' time='0.083'/>
     <testcase classname='TaskTests.HomePresenterTests' name='testHidePregressDidCalledWithError' time='0.004'/>
     <testcase classname='TaskTests.HomePresenterTests' name='testHideProgressWithFormatData' time='0.001'/>
     <testcase classname='TaskTests.HomePresenterTests' name='testRepositoriesDidFailedWithError' time='0.001'/>
@@ -18,19 +18,13 @@
     <testcase classname='TaskTests.NetworkingTests' name='testNetworkingWithMockData' time='0.001'/>
   </testsuite>
   <testsuite name='TaskTests.NotePresenterTests' tests='8' failures='0'>
-    <testcase classname='TaskTests.NotePresenterTests' name='testAddNoteSuccedWithUserIdAndNote' time='0.176'/>
+    <testcase classname='TaskTests.NotePresenterTests' name='testAddNoteSuccedWithUserIdAndNote' time='0.042'/>
     <testcase classname='TaskTests.NotePresenterTests' name='testDidChangeCurrentNoteWithDifferentValue' time='0.001'/>
     <testcase classname='TaskTests.NotePresenterTests' name='testDidchangeCurrentNoteWithExtraSpace' time='0.001'/>
     <testcase classname='TaskTests.NotePresenterTests' name='testDidChangeCurrentNoteWithSameValue' time='0.001'/>
-    <testcase classname='TaskTests.NotePresenterTests' name='testEditNoteWithVaildUserId' time='0.064'/>
-    <testcase classname='TaskTests.NotePresenterTests' name='testEditNoteWithWrongUserId' time='0.005'/>
-    <testcase classname='TaskTests.NotePresenterTests' name='testFetchNoteDidFailedWithWrongUserId' time='0.006'/>
-    <testcase classname='TaskTests.NotePresenterTests' name='testFetchNoteSucceedWithUserId' time='0.006'/>
-  </testsuite>
-  <testsuite name='TaskUITests.TaskUITests' tests='2' failures='1'>
-    <testcase classname='TaskUITests.TaskUITests' name='testEditButton'>
-      <failure message='No matches found for Find: Descendants matching type Cell from input {('>TaskUITests.swift:33</failure>
-    </testcase>
-    <testcase classname='TaskUITests.TaskUITests' name='testSendButton' time='6.379'/>
+    <testcase classname='TaskTests.NotePresenterTests' name='testEditNoteWithVaildUserId' time='0.010'/>
+    <testcase classname='TaskTests.NotePresenterTests' name='testEditNoteWithWrongUserId' time='0.008'/>
+    <testcase classname='TaskTests.NotePresenterTests' name='testFetchNoteDidFailedWithWrongUserId' time='0.007'/>
+    <testcase classname='TaskTests.NotePresenterTests' name='testFetchNoteSucceedWithUserId' time='0.007'/>
   </testsuite>
 </testsuites>

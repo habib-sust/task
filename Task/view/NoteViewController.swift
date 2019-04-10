@@ -21,6 +21,7 @@ final class NoteViewController: UIViewController {
         
         textView.adjustsFontForContentSizeCategory = true
         textView.isEditable = false
+        textView.accessibilityIdentifier = "noteTextView"
         return textView
     }()
     
@@ -58,8 +59,11 @@ final class NoteViewController: UIViewController {
     
     private func addNavigationItem() {
         let saveNoteButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(didTapSaveNoteButton(sender:)))
+        saveNoteButton.accessibilityIdentifier = "saveNoteButton"
         let editNoteButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(didTapEditNoteButton(sender:)))
+        editNoteButton.accessibilityIdentifier = "editNoteButton"
         let sendNoteButton = UIBarButtonItem(title: "Send", style: .plain, target: self, action: #selector(didTapSendNoteButton(sender:)))
+        sendNoteButton.accessibilityIdentifier = "sendNoteButton"
         navigationItem.rightBarButtonItems = [editNoteButton, sendNoteButton, saveNoteButton]
     }
     

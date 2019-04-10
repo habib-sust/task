@@ -16,7 +16,6 @@
 		17605BAB22533B4100C02B9D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40FBB2238E5FC00C8882D /* Constants.swift */; };
 		17605BAE2253572500C02B9D /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17605BAD2253572500C02B9D /* WatchSessionManager.swift */; };
 		17605BAF2253572A00C02B9D /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17605BAD2253572500C02B9D /* WatchSessionManager.swift */; };
-		176704E72259EC3F00EDB2D4 /* TaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176704E62259EC3F00EDB2D4 /* TaskUITests.swift */; };
 		17801A712253287000B40EFB /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17801A6F2253287000B40EFB /* Interface.storyboard */; };
 		17801A732253287100B40EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17801A722253287100B40EFB /* Assets.xcassets */; };
 		17801A7A2253287100B40EFB /* WatchDemo Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 17801A792253287100B40EFB /* WatchDemo Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -60,13 +59,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		176704E92259EC3F00EDB2D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 17B40F742238D60700C8882D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 17B40F7B2238D60700C8882D;
-			remoteInfo = Task;
-		};
 		17801A7B2253287100B40EFB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 17B40F742238D60700C8882D /* Project object */;
@@ -119,9 +111,6 @@
 		0D4CF627C132BBD9C8EAE132 /* Pods-TaskUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskUITests.release.xcconfig"; path = "Target Support Files/Pods-TaskUITests/Pods-TaskUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1725410E22546C8A00CC8CC2 /* NoteInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteInterfaceController.swift; sourceTree = "<group>"; };
 		17605BAD2253572500C02B9D /* WatchSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSessionManager.swift; sourceTree = "<group>"; };
-		176704E42259EC3F00EDB2D4 /* TaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		176704E62259EC3F00EDB2D4 /* TaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskUITests.swift; sourceTree = "<group>"; };
-		176704E82259EC3F00EDB2D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17801A6D2253287000B40EFB /* WatchDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17801A702253287000B40EFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		17801A722253287100B40EFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -177,13 +166,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		176704E12259EC3F00EDB2D4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		17801A762253287100B40EFB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -226,15 +208,6 @@
 			path = common;
 			sourceTree = "<group>";
 		};
-		176704E52259EC3F00EDB2D4 /* TaskUITests */ = {
-			isa = PBXGroup;
-			children = (
-				176704E62259EC3F00EDB2D4 /* TaskUITests.swift */,
-				176704E82259EC3F00EDB2D4 /* Info.plist */,
-			);
-			path = TaskUITests;
-			sourceTree = "<group>";
-		};
 		17801A6E2253287000B40EFB /* WatchDemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,7 +236,6 @@
 			children = (
 				17B40F7E2238D60700C8882D /* Task */,
 				17B40F932238D60800C8882D /* TaskTests */,
-				176704E52259EC3F00EDB2D4 /* TaskUITests */,
 				17801A6E2253287000B40EFB /* WatchDemo */,
 				17801A7D2253287100B40EFB /* WatchDemo Extension */,
 				17B40F7D2238D60700C8882D /* Products */,
@@ -279,7 +251,6 @@
 				17B40F902238D60800C8882D /* TaskTests.xctest */,
 				17801A6D2253287000B40EFB /* WatchDemo.app */,
 				17801A792253287100B40EFB /* WatchDemo Extension.appex */,
-				176704E42259EC3F00EDB2D4 /* TaskUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -421,24 +392,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		176704E32259EC3F00EDB2D4 /* TaskUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 176704ED2259EC3F00EDB2D4 /* Build configuration list for PBXNativeTarget "TaskUITests" */;
-			buildPhases = (
-				176704E02259EC3F00EDB2D4 /* Sources */,
-				176704E12259EC3F00EDB2D4 /* Frameworks */,
-				176704E22259EC3F00EDB2D4 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				176704EA2259EC3F00EDB2D4 /* PBXTargetDependency */,
-			);
-			name = TaskUITests;
-			productName = TaskUITests;
-			productReference = 176704E42259EC3F00EDB2D4 /* TaskUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		17801A6C2253287000B40EFB /* WatchDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17801A8E2253287100B40EFB /* Build configuration list for PBXNativeTarget "WatchDemo" */;
@@ -527,10 +480,6 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Habib;
 				TargetAttributes = {
-					176704E32259EC3F00EDB2D4 = {
-						CreatedOnToolsVersion = 10.2;
-						TestTargetID = 17B40F7B2238D60700C8882D;
-					};
 					17801A6C2253287000B40EFB = {
 						CreatedOnToolsVersion = 10.2;
 					};
@@ -563,19 +512,11 @@
 				17B40F8F2238D60800C8882D /* TaskTests */,
 				17801A6C2253287000B40EFB /* WatchDemo */,
 				17801A782253287100B40EFB /* WatchDemo Extension */,
-				176704E32259EC3F00EDB2D4 /* TaskUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		176704E22259EC3F00EDB2D4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		17801A6B2253287000B40EFB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -760,14 +701,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		176704E02259EC3F00EDB2D4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				176704E72259EC3F00EDB2D4 /* TaskUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		17801A752253287100B40EFB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -830,11 +763,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		176704EA2259EC3F00EDB2D4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 17B40F7B2238D60700C8882D /* Task */;
-			targetProxy = 176704E92259EC3F00EDB2D4 /* PBXContainerItemProxy */;
-		};
 		17801A7C2253287100B40EFB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 17801A782253287100B40EFB /* WatchDemo Extension */;
@@ -880,46 +808,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		176704EB2259EC3F00EDB2D4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A472P7J2T6;
-				INFOPLIST_FILE = TaskUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.habib.Task2.TaskUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Task;
-			};
-			name = Debug;
-		};
-		176704EC2259EC3F00EDB2D4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A472P7J2T6;
-				INFOPLIST_FILE = TaskUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.habib.Task2.TaskUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Task;
-			};
-			name = Release;
-		};
 		17801A882253287100B40EFB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1207,15 +1095,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		176704ED2259EC3F00EDB2D4 /* Build configuration list for PBXNativeTarget "TaskUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				176704EB2259EC3F00EDB2D4 /* Debug */,
-				176704EC2259EC3F00EDB2D4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		17801A8C2253287100B40EFB /* Build configuration list for PBXNativeTarget "WatchDemo Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

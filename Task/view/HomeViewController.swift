@@ -48,6 +48,7 @@ final class HomeViewController: UIViewController {
     }
     
     private func setupTableView() {
+        tableView.accessibilityIdentifier = "tableView"
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.register(RepoCell.self, forCellReuseIdentifier: RepoCell.reuseIdentifier)
