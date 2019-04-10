@@ -23,28 +23,8 @@ class NoteInterfaceController: WKInterfaceController {
     //MARK: LifeCyle
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        setupFromContext(context: context)
         presenter = NotePresenter(delegate: self)
-        
-        if let receivedUserId = context as? Int {
-            userId = receivedUserId
-            return
-        }
-        
-        if let noteInfo = context as? [Any] {
-            note = noteInfo[0] as? String
-            userId = noteInfo[1] as? Int
-        }
-        
-        
-//        let firstAttributes: [NSAttributedString.Key: Any] = [.backgroundColor: UIColor.green, NSAttributedString.Key.kern: 10]
-//        let secondAttributes = [NSAttributedString.Key.backgroundColor: UIColor.red]
-//
-//        let firstString = NSMutableAttributedString(string: "Haters ", attributes: firstAttributes)
-//        let secondString = NSAttributedString(string: "gonna ", attributes: secondAttributes)
-//
-//       if firstAttributes[NSAttributedString.Key.backgroundColor] as! UIColor == secondAttributes[NSAttributedString.Key.backgroundColor] {
-//                print("COLOR TRUE")
-//       }
     }
 
     override func willActivate() {
@@ -57,6 +37,18 @@ class NoteInterfaceController: WKInterfaceController {
     }
     
     //MARK: Private Methods
+    private func setupFromContext(context: Any?) {
+        if let receivedUserId = context as? Int {
+            userId = receivedUserId
+            return
+        }
+        
+        if let noteInfo = context as? [Any] {
+            note = noteInfo[0] as? String
+            userId = noteInfo[1] as? Int
+        }
+    }
+    
     private func setNote() {
         noteLabel.setText(note)
     }

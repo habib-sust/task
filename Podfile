@@ -21,6 +21,7 @@ target 'Task' do
   target 'WatchDemo Extension' do 
    use_frameworks!
    platform :watchos, '4.0'
+   # Pods for Watch
    pod 'RealmSwift'
   end
 
