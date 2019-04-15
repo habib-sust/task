@@ -20,7 +20,7 @@ class RepoCell: UITableViewCell, ReusableView {
     
     //***** MARK: - Views *****
     private var avatarImageView = UIImageView()
-    private var descriptionView = DescriptionView()
+    private var descriptionView = DescriptionView(frame: .zero)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

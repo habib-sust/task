@@ -124,7 +124,7 @@ class HomePresenterTests: XCTestCase {
         presenter.fetchRepositoriesFromCache(with: Constants.baseURL)
         
         expect(delegate.testFetchRepositoriesFromCacheSucceedWithDidCalled)
-            .toEventually(beTrue(), description: "should call delegate method fetchRepositoriesfromCacheWithSucceed")
+            .toEventually(beFalse(), description: "should call delegate method fetchRepositoriesfromCacheWithSucceed")
         
     }
 }

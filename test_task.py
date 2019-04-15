@@ -39,6 +39,19 @@ class LoginTests(unittest.TestCase):
         sleep(2)
         self.assertEqual(noteTextView.get_attribute('value'), 'hello world')
 
+    def testSaveNoteButton(self):
+        self.testTableView()
+        saveButton = self.driver.find_element_by_accessibility_id('saveNoteButton')
+        sleep(1)
+        self.assertTrue(saveButton)
+
+    def testEditButton(self):
+        self.testTableView()
+        editButton = self.driver.find_element_by_accessibility_id('editNoteButton')
+        sleep(1)
+        self.assertTrue(editButton)
+
+
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(LoginTests)
     unittest.TextTestRunner(verbosity=2).run(suite)

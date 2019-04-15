@@ -23,15 +23,16 @@ protocol iOSDelegate: AnyObject {
 
 class WatchSessionManger: NSObject {
     static let shared = WatchSessionManger()
-    
     private override init() {}
+    
     //MARK: - delegate for each platforms
     weak var watchOSDelegate: WatchOSDelegate?
     weak var iOSDelegate: iOSDelegate?
     
+    /** if the session is supported on iOS device then return default session, otherwise return nil */
     private let session = WCSession.isSupported() ? WCSession.default : nil
     
-    //if device is availabe
+    //if device is available
     var validSession: WCSession? {
         //isPaired - user has to have paired their device watch
         //isWatchAooInstalled - user must have installed watchApp

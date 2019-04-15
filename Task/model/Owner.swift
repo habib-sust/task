@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 struct Owner : Codable {
     let ownerName : String?
     let avatarURL : String?

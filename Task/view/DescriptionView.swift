@@ -41,6 +41,7 @@ class DescriptionView: UIView{
         label.numberOfLines = 0
         return label
     }()
+    
     private var ownerNameLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .title2)
@@ -49,6 +50,7 @@ class DescriptionView: UIView{
         label.numberOfLines = 0
         return label
     }()
+    
     private var descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .body)
@@ -59,12 +61,23 @@ class DescriptionView: UIView{
     
     private var descriptionView = UIStackView()
     
-    override func willMove(toSuperview newSuperview: UIView?) {
-        super.willMove(toSuperview: newSuperview)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupDescriptionStackView()
         setup()
-        setupConstraints()	
+        setupConstraints()
+        
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    //    override func willMove(toSuperview newSuperview: UIView?) {
+//        super.willMove(toSuperview: newSuperview)
+//        setupDescriptionStackView()
+//        setup()
+//        setupConstraints()
+//    }
     
     
     //***** MARK: - Private Methods ******
