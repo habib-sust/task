@@ -1,30 +1,30 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <testsuites name='TaskTests.xctest' tests='19' failures='0'>
   <testsuite name='TaskTests.HomePresenterTests' tests='8' failures='0'>
-    <testcase classname='TaskTests.HomePresenterTests' name='testFetchRepositoriesFromCacheDidFailedWithEmptyURL' time='0.005'/>
-    <testcase classname='TaskTests.HomePresenterTests' name='testFetchRepositoriesFromCacheSucceedWithValidURL' time='0.171'/>
-    <testcase classname='TaskTests.HomePresenterTests' name='testHidePregressDidCalledWithError' time='0.004'/>
+    <testcase classname='TaskTests.HomePresenterTests' name='testFetchRepositoriesFromCacheDidFailedWithEmptyURL' time='0.044'/>
+    <testcase classname='TaskTests.HomePresenterTests' name='testFetchRepositoriesFromCacheSucceedWithValidURL' time='0.105'/>
+    <testcase classname='TaskTests.HomePresenterTests' name='testHidePregressDidCalledWithError' time='0.005'/>
     <testcase classname='TaskTests.HomePresenterTests' name='testHideProgressWithFormatData' time='0.001'/>
     <testcase classname='TaskTests.HomePresenterTests' name='testRepositoriesDidFailedWithError' time='0.001'/>
-    <testcase classname='TaskTests.HomePresenterTests' name='testRepositoriesDidFailedWithUnformatedData' time='0.004'/>
+    <testcase classname='TaskTests.HomePresenterTests' name='testRepositoriesDidFailedWithUnformatedData' time='0.003'/>
     <testcase classname='TaskTests.HomePresenterTests' name='testRepositoriesSucceedWithFormatData' time='0.001'/>
     <testcase classname='TaskTests.HomePresenterTests' name='testStartProgressDidCalled' time='0.001'/>
   </testsuite>
   <testsuite name='TaskTests.ModelTests' tests='2' failures='0'>
-    <testcase classname='TaskTests.ModelTests' name='testOwnerModel' time='0.001'/>
+    <testcase classname='TaskTests.ModelTests' name='testOwnerModel' time='0.023'/>
     <testcase classname='TaskTests.ModelTests' name='testRepositoryModel' time='0.001'/>
   </testsuite>
   <testsuite name='TaskTests.NetworkingTests' tests='1' failures='0'>
     <testcase classname='TaskTests.NetworkingTests' name='testNetworkingWithMockData' time='0.001'/>
   </testsuite>
   <testsuite name='TaskTests.NotePresenterTests' tests='8' failures='0'>
-    <testcase classname='TaskTests.NotePresenterTests' name='testAddNoteSuccedWithUserIdAndNote' time='0.051'/>
+    <testcase classname='TaskTests.NotePresenterTests' name='testAddNoteSuccedWithUserIdAndNote' time='0.144'/>
     <testcase classname='TaskTests.NotePresenterTests' name='testDidChangeCurrentNoteWithDifferentValue' time='0.001'/>
     <testcase classname='TaskTests.NotePresenterTests' name='testDidchangeCurrentNoteWithExtraSpace' time='0.001'/>
-    <testcase classname='TaskTests.NotePresenterTests' name='testDidChangeCurrentNoteWithSameValue' time='0.001'/>
-    <testcase classname='TaskTests.NotePresenterTests' name='testEditNoteWithVaildUserId' time='0.009'/>
-    <testcase classname='TaskTests.NotePresenterTests' name='testEditNoteWithWrongUserId' time='0.005'/>
-    <testcase classname='TaskTests.NotePresenterTests' name='testFetchNoteDidFailedWithWrongUserId' time='0.006'/>
-    <testcase classname='TaskTests.NotePresenterTests' name='testFetchNoteSucceedWithUserId' time='0.006'/>
+    <testcase classname='TaskTests.NotePresenterTests' name='testDidChangeCurrentNoteWithSameValue' time='0.000'/>
+    <testcase classname='TaskTests.NotePresenterTests' name='testEditNoteWithVaildUserId' time='0.094'/>
+    <testcase classname='TaskTests.NotePresenterTests' name='testEditNoteWithWrongUserId' time='0.007'/>
+    <testcase classname='TaskTests.NotePresenterTests' name='testFetchNoteDidFailedWithWrongUserId' time='0.009'/>
+    <testcase classname='TaskTests.NotePresenterTests' name='testFetchNoteSucceedWithUserId' time='0.008'/>
   </testsuite>
 </testsuites>
