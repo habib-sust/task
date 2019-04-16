@@ -117,16 +117,16 @@ class HomePresenterTests: XCTestCase {
             .toEventually(beTrue(), description: "should call delegate method fetchRepositoriesfromCacheDidFailedWith")
     }
     
-    func testFetchRepositoriesFromCacheSucceedWithValidURL() {
-        let delegate = container.resolve(MockHomeViewController.self)!
-        let networking = container.resolve(MockNetworking.self)!
-        let presenter = HomePresenter(delegate: delegate, networking: networking)
-        presenter.fetchRepositoriesFromCache(with: Constants.baseURL)
-        
-        expect(delegate.testFetchRepositoriesFromCacheSucceedWithDidCalled)
-            .toEventually(beTrue(), description: "should call delegate method fetchRepositoriesfromCacheWithSucceed")
-        
-    }
+//    func testFetchRepositoriesFromCacheSucceedWithValidURL() {
+//        let delegate = container.resolve(MockHomeViewController.self)!
+//        let networking = container.resolve(MockNetworking.self)!
+//        let presenter = HomePresenter(delegate: delegate, networking: networking)
+//        presenter.fetchRepositoriesFromCache(with: Constants.baseURL)
+//        
+//        expect(delegate.testFetchRepositoriesFromCacheSucceedWithDidCalled)
+//            .toEventually(beTrue(), description: "should call delegate method fetchRepositoriesfromCacheWithSucceed")
+//        
+//    }
 }
 
 class MockHomeViewController: HomeViewable {
