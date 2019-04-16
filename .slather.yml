@@ -1,0 +1,5 @@
+coverage_service: cobertura_xml
+xcodeproj: ./Task.xcodeproj
+xcworkspace: ./Task.xcworkspace
+scheme: Task
+output_directory: ./test-reports
