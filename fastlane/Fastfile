@@ -4,7 +4,16 @@ default_platform(:ios)
 platform :ios do
 
   lane :test do
-    run_tests(scheme: "Task")
+    run_tests(open_report: true, scheme: "Task", code_coverage: true)
   end
 
+  lane :coverage do
+    slather(
+	html: true,
+	show: true,
+	scheme: "Task",  
+	proj: "Task.xcodeproj", 
+	workspace: "Task.workspace"
+	)
+  end 
 end
