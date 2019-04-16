@@ -55,7 +55,7 @@ class NotePresenterTests: XCTestCase {
     func testEditNoteWithWrongUserId() {
         let delegate = container.resolve(MockNoteViewControllerForEdit.self)!
         let presenter = NotePresenter(delegate: delegate)
-        presenter.editNoteWith(userId: 78, newNote: "new note")
+        presenter.editNoteWith(userId: 07, newNote: "new note")
         
         expect(delegate.editNoteDidFailed).to(beTrue(), description: "shoud call delegate method addOrEditNoteDidFailedWith")
         
