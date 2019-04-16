@@ -58,6 +58,7 @@ struct MockNetworking: Networking {
             return
         }
         
+        
         if let data = data {
             onCompletion(.onSuccess(data))
         }
