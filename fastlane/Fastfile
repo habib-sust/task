@@ -13,7 +13,7 @@ platform :ios do
   lane :lint do
     swiftlint(
 	mode: :lint,
-	output_file: "./test-reports/checkstyle-reports.xml",
+	output_file: "./test-reports/checkstyle-reports.junit",
 	config_file: "fastlane/.swiftlint.yml",
 	executable: "./Pods/SwiftLint/swiftlint",
 	ignore_exit_status: true
