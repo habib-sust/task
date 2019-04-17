@@ -8,6 +8,7 @@ target 'Task' do
   # Pods for Task
    pod 'Kingfisher', '~> 5.0'
    pod 'RealmSwift'
+   pod 'SwiftLint'
 
   target 'TaskTests' do
     inherit! :search_paths
@@ -16,6 +17,7 @@ target 'Task' do
     pod 'SwinjectAutoregistration'
     pod 'Quick'
     pod 'Nimble'
+    pod 'SwiftLint'
   end
 
   target 'WatchDemo Extension' do 
@@ -23,6 +25,7 @@ target 'Task' do
    platform :watchos, '4.0'
    # Pods for Watch
    pod 'RealmSwift'
+   pod 'SwiftLint'
   end
 
  post_install do |installer|

@@ -1,11 +1,23 @@
 default_platform(:ios)
 
+  before_all do
+	sh 'mkdir ../reports || true'
+  end
 
 platform :ios do
 
   lane :test do
-    run_tests(open_report: true, scheme: "Task", code_coverage: true)
+    run_tests( scheme: "Task", code_coverage: true)
   end
+
+  lane :lint do
+    swiftlint(
+	mode: :lint,
+	output_file: "./test-reports/checkstyle-reports.xml",
+	executable: "./Pods/SwiftLint/swiftlint"
+    )
+  end
+
 
   lane :coverage do
     slather(

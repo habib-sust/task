@@ -7,6 +7,7 @@ PODS:
   - Realm/Headers (3.14.0)
   - RealmSwift (3.14.0):
     - Realm (= 3.14.0)
+  - SwiftLint (0.31.0)
   - Swinject (2.5.0)
   - SwinjectAutoregistration (2.5.1):
     - Swinject (~> 2.5)
@@ -16,6 +17,7 @@ DEPENDENCIES:
   - Nimble
   - Quick
   - RealmSwift
+  - SwiftLint
   - Swinject
   - SwinjectAutoregistration
 
@@ -26,6 +28,7 @@ SPEC REPOS:
     - Quick
     - Realm
     - RealmSwift
+    - SwiftLint
     - Swinject
     - SwinjectAutoregistration
 
@@ -35,9 +38,10 @@ SPEC CHECKSUMS:
   Quick: ce1276c7c27ba2da3cb2fd0cde053c3648b3b22d
   Realm: 221b25919bb5a010a3c597d707f8df3492dcd93a
   RealmSwift: 28f22dfa6a27b9a778cfb09471558b6afcf1022c
+  SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
   SwinjectAutoregistration: f72bf894cbd2ee4a9153e00fa5208e93fb44d283
 
-PODFILE CHECKSUM: 85d16bf390fedb843ef5d03133dcfe06b868e54a
+PODFILE CHECKSUM: 2ccf6fafb11e925e0bf9de5b4c0dabed9641e920
 
 COCOAPODS: 1.6.1
