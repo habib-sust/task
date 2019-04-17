@@ -1,87 +1,120 @@
-/Users/habib/iOS/task/task/supporting files/Constants.swift:16:1: warning: Trailing Newline Violation: Files should have a single trailing newline. (trailing_newline)
-/Users/habib/iOS/task/task/supporting files/Constants.swift:16:1: warning: Vertical Whitespace Violation: Limit vertical whitespace to a single empty line. Currently 3. (vertical_whitespace)
-/Users/habib/iOS/task/task/presenter/HomePresenter.swift:73:111: warning: Returning Whitespace Violation: Return arrow and return type should be separated by a single space or on a separate line. (return_arrow_whitespace)
-/Users/habib/iOS/task/task/presenter/HomePresenter.swift:46:17: warning: Statement Position Violation: Else and catch should be on the same line, one space after the previous declaration. (statement_position)
-/Users/habib/iOS/task/task/presenter/HomePresenter.swift:78:13: warning: Statement Position Violation: Else and catch should be on the same line, one space after the previous declaration. (statement_position)
-/Users/habib/iOS/task/task/presenter/HomePresenter.swift:46:18: warning: Control Statement Violation: `if`, `for`, `guard`, `switch`, `while`, and `catch` statements shouldn't unnecessarily wrap their conditionals or arguments in parentheses. (control_statement)
-/Users/habib/iOS/task/task/presenter/HomePresenter.swift:78:14: warning: Control Statement Violation: `if`, `for`, `guard`, `switch`, `while`, and `catch` statements shouldn't unnecessarily wrap their conditionals or arguments in parentheses. (control_statement)
-/Users/habib/iOS/task/task/presenter/HomePresenter.swift:90:11: warning: Control Statement Violation: `if`, `for`, `guard`, `switch`, `while`, and `catch` statements shouldn't unnecessarily wrap their conditionals or arguments in parentheses. (control_statement)
-/Users/habib/iOS/task/task/presenter/HomePresenter.swift:36:40: warning: Opening Brace Spacing Violation: Opening braces should be preceded by a single space and on the same line as the declaration. (opening_brace)
-/Users/habib/iOS/task/task/presenter/HomePresenter.swift:42:19: warning: Opening Brace Spacing Violation: Opening braces should be preceded by a single space and on the same line as the declaration. (opening_brace)
-/Users/habib/iOS/task/task/presenter/HomePresenter.swift:55:52: warning: Opening Brace Spacing Violation: Opening braces should be preceded by a single space and on the same line as the declaration. (opening_brace)
-/Users/habib/iOS/task/task/presenter/HomePresenter.swift:75:15: warning: Opening Brace Spacing Violation: Opening braces should be preceded by a single space and on the same line as the declaration. (opening_brace)
-/Users/habib/iOS/task/task/presenter/HomePresenter.swift:86:11: warning: Opening Brace Spacing Violation: Opening braces should be preceded by a single space and on the same line as the declaration. (opening_brace)
-/Users/habib/iOS/task/task/presenter/HomePresenter.swift:90:28: warning: Opening Brace Spacing Violation: Opening braces should be preceded by a single space and on the same line as the declaration. (opening_brace)
-/Users/habib/iOS/task/task/presenter/HomePresenter.swift:84:5: warning: Mark Violation: MARK comment should be in valid format. e.g. '// MARK: ...' or '// MARK: - ...' (mark)
-/Users/habib/iOS/task/task/common/WatchSessionManager.swift:100:68: warning: Colon Violation: Colons should be next to the identifier when specifying a type and next to the key in dictionary literals. (colon)
-/Users/habib/iOS/task/task/common/WatchSessionManager.swift:105:68: warning: Colon Violation: Colons should be next to the identifier when specifying a type and next to the key in dictionary literals. (colon)
-/Users/habib/iOS/task/task/common/WatchSessionManager.swift:105:109: warning: Colon Violation: Colons should be next to the identifier when specifying a type and next to the key in dictionary literals. (colon)
-/Users/habib/iOS/task/task/common/WatchSessionManager.swift:14:1: warning: Mark Violation: MARK comment should be in valid format. e.g. '// MARK: ...' or '// MARK: - ...' (mark)
-/Users/habib/iOS/task/task/common/WatchSessionManager.swift:19:1: warning: Mark Violation: MARK comment should be in valid format. e.g. '// MARK: ...' or '// MARK: - ...' (mark)
-/Users/habib/iOS/task/task/common/WatchSessionManager.swift:28:5: warning: Mark Violation: MARK comment should be in valid format. e.g. '// MARK: ...' or '// MARK: - ...' (mark)
-/Users/habib/iOS/task/task/common/WatchSessionManager.swift:55:1: warning: Mark Violation: MARK comment should be in valid format. e.g. '// MARK: ...' or '// MARK: - ...' (mark)
-/Users/habib/iOS/task/task/common/WatchSessionManager.swift:80:1: warning: Mark Violation: MARK comment should be in valid format. e.g. '// MARK: ...' or '// MARK: - ...' (mark)
-/Users/habib/iOS/task/task/presenter/NotePresenter.swift:102:1: warning: Trailing Newline Violation: Files should have a single trailing newline. (trailing_newline)
-/Users/habib/iOS/task/task/presenter/NotePresenter.swift:20:22: warning: Identifier Name Violation: Variable name should be between 3 and 40 characters long: 'id' (identifier_name)
-/Users/habib/iOS/task/task/presenter/NotePresenter.swift:24:24: warning: Identifier Name Violation: Variable name should be between 3 and 40 characters long: 'id' (identifier_name)
-/Users/habib/iOS/task/task/presenter/NotePresenter.swift:38:22: warning: Identifier Name Violation: Variable name should be between 3 and 40 characters long: 'id' (identifier_name)
-/Users/habib/iOS/task/task/presenter/NotePresenter.swift:55:24: warning: Identifier Name Violation: Variable name should be between 3 and 40 characters long: 'id' (identifier_name)
-/Users/habib/iOS/task/task/presenter/NotePresenter.swift:50:9: warning: Statement Position Violation: Else and catch should be on the same line, one space after the previous declaration. (statement_position)
-/Users/habib/iOS/task/task/presenter/NotePresenter.swift:62:9: warning: Statement Position Violation: Else and catch should be on the same line, one space after the previous declaration. (statement_position)
-/Users/habib/iOS/task/task/presenter/NotePresenter.swift:93:1: warning: Vertical Whitespace Violation: Limit vertical whitespace to a single empty line. Currently 2. (vertical_whitespace)
-/Users/habib/iOS/task/task/presenter/NotePresenter.swift:50:10: warning: Control Statement Violation: `if`, `for`, `guard`, `switch`, `while`, and `catch` statements shouldn't unnecessarily wrap their conditionals or arguments in parentheses. (control_statement)
-/Users/habib/iOS/task/task/presenter/NotePresenter.swift:62:10: warning: Control Statement Violation: `if`, `for`, `guard`, `switch`, `while`, and `catch` statements shouldn't unnecessarily wrap their conditionals or arguments in parentheses. (control_statement)
-/Users/habib/iOS/task/task/presenter/NotePresenter.swift:79:11: warning: Control Statement Violation: `if`, `for`, `guard`, `switch`, `while`, and `catch` statements shouldn't unnecessarily wrap their conditionals or arguments in parentheses. (control_statement)
-/Users/habib/iOS/task/task/presenter/NotePresenter.swift:57:60: warning: Opening Brace Spacing Violation: Opening braces should be preceded by a single space and on the same line as the declaration. (opening_brace)
-/Users/habib/iOS/task/task/presenter/NotePresenter.swift:84:56: warning: Opening Brace Spacing Violation: Opening braces should be preceded by a single space and on the same line as the declaration. (opening_brace)
-/Users/habib/iOS/task/task/model/Repo.swift:11:5: warning: Identifier Name Violation: Variable name should be between 3 and 40 characters long: 'id' (identifier_name)
-/Users/habib/iOS/task/task/model/Repo.swift:18:14: warning: Identifier Name Violation: Enum element name should be between 3 and 40 characters long: 'id' (identifier_name)
-/Users/habib/iOS/task/task/model/Repo.swift:10:8: warning: Colon Violation: Colons should be next to the identifier when specifying a type and next to the key in dictionary literals. (colon)
-/Users/habib/iOS/task/task/model/Repo.swift:15:9: warning: Colon Violation: Colons should be next to the identifier when specifying a type and next to the key in dictionary literals. (colon)
-/Users/habib/iOS/task/task/model/Repository.swift:11:5: warning: Identifier Name Violation: Variable name should be between 3 and 40 characters long: 'id' (identifier_name)
-/Users/habib/iOS/task/task/model/Repository.swift:18:14: warning: Identifier Name Violation: Enum element name should be between 3 and 40 characters long: 'id' (identifier_name)
-/Users/habib/iOS/task/task/model/Repository.swift:10:8: warning: Colon Violation: Colons should be next to the identifier when specifying a type and next to the key in dictionary literals. (colon)
-/Users/habib/iOS/task/task/model/Repository.swift:15:9: warning: Colon Violation: Colons should be next to the identifier when specifying a type and next to the key in dictionary literals. (colon)
-/Users/habib/iOS/task/task/model/Owner.swift:11:8: warning: Colon Violation: Colons should be next to the identifier when specifying a type and next to the key in dictionary literals. (colon)
-/Users/habib/iOS/task/task/model/Owner.swift:12:9: warning: Colon Violation: Colons should be next to the identifier when specifying a type and next to the key in dictionary literals. (colon)
-/Users/habib/iOS/task/task/model/Owner.swift:13:9: warning: Colon Violation: Colons should be next to the identifier when specifying a type and next to the key in dictionary literals. (colon)
-/Users/habib/iOS/task/task/model/Note.swift:12:19: warning: Opening Brace Spacing Violation: Opening braces should be preceded by a single space and on the same line as the declaration. (opening_brace)
-/Users/habib/iOS/task/task/view/HomeViewController.swift:44:1: warning: Vertical Whitespace Violation: Limit vertical whitespace to a single empty line. Currently 2. (vertical_whitespace)
-/Users/habib/iOS/task/task/view/HomeViewController.swift:162:1: warning: Vertical Whitespace Violation: Limit vertical whitespace to a single empty line. Currently 2. (vertical_whitespace)
-/Users/habib/iOS/task/task/view/HomeViewController.swift:128:5: warning: Mark Violation: MARK comment should be in valid format. e.g. '// MARK: ...' or '// MARK: - ...' (mark)
-/Users/habib/iOS/task/task/view/HomeViewController.swift:163:1: warning: Mark Violation: MARK comment should be in valid format. e.g. '// MARK: ...' or '// MARK: - ...' (mark)
-/Users/habib/iOS/task/task/view/NoteViewController.swift:91:16: warning: Identifier Name Violation: Variable name should be between 3 and 40 characters long: 'id' (identifier_name)
-/Users/habib/iOS/task/task/view/NoteViewController.swift:97:16: warning: Identifier Name Violation: Variable name should be between 3 and 40 characters long: 'id' (identifier_name)
-/Users/habib/iOS/task/task/view/NoteViewController.swift:103:16: warning: Identifier Name Violation: Variable name should be between 3 and 40 characters long: 'id' (identifier_name)
-/Users/habib/iOS/task/task/view/NoteViewController.swift:18:9: warning: Statement Position Violation: Else and catch should be on the same line, one space after the previous declaration. (statement_position)
-/Users/habib/iOS/task/task/view/NoteViewController.swift:138:9: warning: Statement Position Violation: Else and catch should be on the same line, one space after the previous declaration. (statement_position)
-/Users/habib/iOS/task/task/view/NoteViewController.swift:15:55: warning: Comma Spacing Violation: There should be no space before and one after any comma. (comma)
-/Users/habib/iOS/task/task/view/NoteViewController.swift:13:45: warning: Opening Brace Spacing Violation: Opening braces should be preceded by a single space and on the same line as the declaration. (opening_brace)
-/Users/habib/iOS/task/task/view/NoteViewController.swift:15:81: warning: Opening Brace Spacing Violation: Opening braces should be preceded by a single space and on the same line as the declaration. (opening_brace)
-/Users/habib/iOS/task/task/view/NoteViewController.swift:97:27: warning: Opening Brace Spacing Violation: Opening braces should be preceded by a single space and on the same line as the declaration. (opening_brace)
-/Users/habib/iOS/task/task/view/NoteViewController.swift:114:39: warning: Opening Brace Spacing Violation: Opening braces should be preceded by a single space and on the same line as the declaration. (opening_brace)
-/Users/habib/iOS/task/task/view/NoteViewController.swift:136:99: warning: Opening Brace Spacing Violation: Opening braces should be preceded by a single space and on the same line as the declaration. (opening_brace)
-/Users/habib/iOS/task/task/view/NoteViewController.swift:31:5: warning: Mark Violation: MARK comment should be in valid format. e.g. '// MARK: ...' or '// MARK: - ...' (mark)
-/Users/habib/iOS/task/task/view/NoteViewController.swift:36:5: warning: Mark Violation: MARK comment should be in valid format. e.g. '// MARK: ...' or '// MARK: - ...' (mark)
-/Users/habib/iOS/task/task/view/NoteViewController.swift:131:5: warning: Mark Violation: MARK comment should be in valid format. e.g. '// MARK: ...' or '// MARK: - ...' (mark)
-/Users/habib/iOS/task/task/view/DescriptionView.swift:82:1: warning: Vertical Whitespace Violation: Limit vertical whitespace to a single empty line. Currently 2. (vertical_whitespace)
-/Users/habib/iOS/task/task/view/DescriptionView.swift:10:30: warning: Opening Brace Spacing Violation: Opening braces should be preceded by a single space and on the same line as the declaration. (opening_brace)
-/Users/habib/iOS/task/task/view/DescriptionView.swift:35:5: warning: Mark Violation: MARK comment should be in valid format. e.g. '// MARK: ...' or '// MARK: - ...' (mark)
-/Users/habib/iOS/task/task/AppDelegate.swift:33:1: warning: Trailing Newline Violation: Files should have a single trailing newline. (trailing_newline)
-/Users/habib/iOS/task/task/AppDelegate.swift:16:1: warning: Vertical Whitespace Violation: Limit vertical whitespace to a single empty line. Currently 2. (vertical_whitespace)
-/Users/habib/iOS/task/task/AppDelegate.swift:31:1: warning: Vertical Whitespace Violation: Limit vertical whitespace to a single empty line. Currently 2. (vertical_whitespace)
-/Users/habib/iOS/task/task/AppDelegate.swift:21:99: warning: Colon Violation: Colons should be next to the identifier when specifying a type and next to the key in dictionary literals. (colon)
-/Users/habib/iOS/task/task/service/Networking.swift:12:15: error: Type Name Violation: Type name should start with an uppercase character: 'completionHandler' (type_name)
-/Users/habib/iOS/task/task/service/Networking.swift:19:52: warning: Opening Brace Spacing Violation: Opening braces should be preceded by a single space and on the same line as the declaration. (opening_brace)
-/Users/habib/iOS/task/task/service/Networking.swift:26:60: warning: Opening Brace Spacing Violation: Opening braces should be preceded by a single space and on the same line as the declaration. (opening_brace)
-/Users/habib/iOS/task/task/service/Networking.swift:32:123: warning: Opening Brace Spacing Violation: Opening braces should be preceded by a single space and on the same line as the declaration. (opening_brace)
-/Users/habib/iOS/task/task/service/Networking.swift:33:61: warning: Opening Brace Spacing Violation: Opening braces should be preceded by a single space and on the same line as the declaration. (opening_brace)
-/Users/habib/iOS/task/task/service/Networking.swift:39:39: warning: Opening Brace Spacing Violation: Opening braces should be preceded by a single space and on the same line as the declaration. (opening_brace)
-/Users/habib/iOS/task/task/main.swift:14:1: warning: Trailing Newline Violation: Files should have a single trailing newline. (trailing_newline)
-/Users/habib/iOS/task/task/helper/UIViewConstraintsExtension.swift:12:5: error: Function Parameter Count Violation: Function should have 5 parameters or less: it currently has 11 (function_parameter_count)
-/Users/habib/iOS/task/task/helper/UIViewConstraintsExtension.swift:12:1: warning: Line Length Violation: Line should be 250 characters or less: currently 275 characters (line_length)
-/Users/habib/iOS/task/task/view/RepoCell.swift:99:1: warning: Trailing Newline Violation: Files should have a single trailing newline. (trailing_newline)
-/Users/habib/iOS/task/task/view/RepoCell.swift:83:1: warning: Vertical Whitespace Violation: Limit vertical whitespace to a single empty line. Currently 2. (vertical_whitespace)
-/Users/habib/iOS/task/task/view/RepoCell.swift:1:1: warning: Leading Whitespace Violation: File shouldn't start with whitespace: currently starts with 1 whitespace characters (leading_whitespace)
-/Users/habib/iOS/task/task/view/RepoCell.swift:84:52: warning: Opening Brace Spacing Violation: Opening braces should be preceded by a single space and on the same line as the declaration. (opening_brace)
-/Users/habib/iOS/task/task/view/RepoCell.swift:40:5: warning: Mark Violation: MARK comment should be in valid format. e.g. '// MARK: ...' or '// MARK: - ...' (mark)
+<?xml version="1.0" encoding="utf-8"?>
+<checkstyle version="4.3">
+	<file name="/Users/habib/iOS/task/task/AppDelegate.swift">
+		<error line="33" column="0" severity="warning" message="Files should have a single trailing newline." source="swiftlint.rules.trailing_newline"/>
+		<error line="16" column="0" severity="warning" message="Limit vertical whitespace to a single empty line. Currently 2." source="swiftlint.rules.vertical_whitespace"/>
+		<error line="31" column="0" severity="warning" message="Limit vertical whitespace to a single empty line. Currently 2." source="swiftlint.rules.vertical_whitespace"/>
+		<error line="21" column="99" severity="warning" message="Colons should be next to the identifier when specifying a type and next to the key in dictionary literals." source="swiftlint.rules.colon"/>
+	</file>
+	<file name="/Users/habib/iOS/task/task/common/WatchSessionManager.swift">
+		<error line="14" column="1" severity="warning" message="MARK comment should be in valid format. e.g. &apos;// MARK: ...&apos; or &apos;// MARK: - ...&apos;" source="swiftlint.rules.mark"/>
+		<error line="19" column="1" severity="warning" message="MARK comment should be in valid format. e.g. &apos;// MARK: ...&apos; or &apos;// MARK: - ...&apos;" source="swiftlint.rules.mark"/>
+		<error line="28" column="5" severity="warning" message="MARK comment should be in valid format. e.g. &apos;// MARK: ...&apos; or &apos;// MARK: - ...&apos;" source="swiftlint.rules.mark"/>
+		<error line="55" column="1" severity="warning" message="MARK comment should be in valid format. e.g. &apos;// MARK: ...&apos; or &apos;// MARK: - ...&apos;" source="swiftlint.rules.mark"/>
+		<error line="80" column="1" severity="warning" message="MARK comment should be in valid format. e.g. &apos;// MARK: ...&apos; or &apos;// MARK: - ...&apos;" source="swiftlint.rules.mark"/>
+		<error line="100" column="68" severity="warning" message="Colons should be next to the identifier when specifying a type and next to the key in dictionary literals." source="swiftlint.rules.colon"/>
+		<error line="105" column="68" severity="warning" message="Colons should be next to the identifier when specifying a type and next to the key in dictionary literals." source="swiftlint.rules.colon"/>
+		<error line="105" column="109" severity="warning" message="Colons should be next to the identifier when specifying a type and next to the key in dictionary literals." source="swiftlint.rules.colon"/>
+	</file>
+	<file name="/Users/habib/iOS/task/task/helper/UIViewConstraintsExtension.swift">
+		<error line="12" column="0" severity="warning" message="Line should be 250 characters or less: currently 275 characters" source="swiftlint.rules.line_length"/>
+		<error line="12" column="5" severity="warning" message="Function should have 5 parameters or less: it currently has 11" source="swiftlint.rules.function_parameter_count"/>
+	</file>
+	<file name="/Users/habib/iOS/task/task/main.swift">
+		<error line="14" column="0" severity="warning" message="Files should have a single trailing newline." source="swiftlint.rules.trailing_newline"/>
+	</file>
+	<file name="/Users/habib/iOS/task/task/model/Note.swift">
+		<error line="12" column="19" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
+	</file>
+	<file name="/Users/habib/iOS/task/task/model/Owner.swift">
+		<error line="11" column="8" severity="warning" message="Colons should be next to the identifier when specifying a type and next to the key in dictionary literals." source="swiftlint.rules.colon"/>
+		<error line="12" column="9" severity="warning" message="Colons should be next to the identifier when specifying a type and next to the key in dictionary literals." source="swiftlint.rules.colon"/>
+		<error line="13" column="9" severity="warning" message="Colons should be next to the identifier when specifying a type and next to the key in dictionary literals." source="swiftlint.rules.colon"/>
+	</file>
+	<file name="/Users/habib/iOS/task/task/model/Repo.swift">
+		<error line="11" column="5" severity="warning" message="Variable name should be between 3 and 40 characters long: &apos;id&apos;" source="swiftlint.rules.identifier_name"/>
+		<error line="18" column="14" severity="warning" message="Enum element name should be between 3 and 40 characters long: &apos;id&apos;" source="swiftlint.rules.identifier_name"/>
+		<error line="10" column="8" severity="warning" message="Colons should be next to the identifier when specifying a type and next to the key in dictionary literals." source="swiftlint.rules.colon"/>
+		<error line="15" column="9" severity="warning" message="Colons should be next to the identifier when specifying a type and next to the key in dictionary literals." source="swiftlint.rules.colon"/>
+	</file>
+	<file name="/Users/habib/iOS/task/task/model/Repository.swift">
+		<error line="11" column="5" severity="warning" message="Variable name should be between 3 and 40 characters long: &apos;id&apos;" source="swiftlint.rules.identifier_name"/>
+		<error line="18" column="14" severity="warning" message="Enum element name should be between 3 and 40 characters long: &apos;id&apos;" source="swiftlint.rules.identifier_name"/>
+		<error line="10" column="8" severity="warning" message="Colons should be next to the identifier when specifying a type and next to the key in dictionary literals." source="swiftlint.rules.colon"/>
+	</file>
+	<file name="/Users/habib/iOS/task/task/presenter/HomePresenter.swift">
+		<error line="73" column="111" severity="warning" message="Return arrow and return type should be separated by a single space or on a separate line." source="swiftlint.rules.return_arrow_whitespace"/>
+		<error line="46" column="18" severity="warning" message="`if`, `for`, `guard`, `switch`, `while`, and `catch` statements shouldn&apos;t unnecessarily wrap their conditionals or arguments in parentheses." source="swiftlint.rules.control_statement"/>
+		<error line="78" column="14" severity="warning" message="`if`, `for`, `guard`, `switch`, `while`, and `catch` statements shouldn&apos;t unnecessarily wrap their conditionals or arguments in parentheses." source="swiftlint.rules.control_statement"/>
+		<error line="90" column="11" severity="warning" message="`if`, `for`, `guard`, `switch`, `while`, and `catch` statements shouldn&apos;t unnecessarily wrap their conditionals or arguments in parentheses." source="swiftlint.rules.control_statement"/>
+		<error line="36" column="40" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
+		<error line="42" column="19" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
+		<error line="55" column="52" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
+		<error line="75" column="15" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
+		<error line="86" column="11" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
+		<error line="90" column="28" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
+		<error line="46" column="17" severity="warning" message="Else and catch should be on the same line, one space after the previous declaration." source="swiftlint.rules.statement_position"/>
+		<error line="78" column="13" severity="warning" message="Else and catch should be on the same line, one space after the previous declaration." source="swiftlint.rules.statement_position"/>
+		<error line="84" column="5" severity="warning" message="MARK comment should be in valid format. e.g. &apos;// MARK: ...&apos; or &apos;// MARK: - ...&apos;" source="swiftlint.rules.mark"/>
+	</file>
+	<file name="/Users/habib/iOS/task/task/presenter/NotePresenter.swift">
+		<error line="50" column="10" severity="warning" message="`if`, `for`, `guard`, `switch`, `while`, and `catch` statements shouldn&apos;t unnecessarily wrap their conditionals or arguments in parentheses." source="swiftlint.rules.control_statement"/>
+		<error line="62" column="10" severity="warning" message="`if`, `for`, `guard`, `switch`, `while`, and `catch` statements shouldn&apos;t unnecessarily wrap their conditionals or arguments in parentheses." source="swiftlint.rules.control_statement"/>
+		<error line="79" column="11" severity="warning" message="`if`, `for`, `guard`, `switch`, `while`, and `catch` statements shouldn&apos;t unnecessarily wrap their conditionals or arguments in parentheses." source="swiftlint.rules.control_statement"/>
+		<error line="57" column="60" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
+		<error line="84" column="56" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
+		<error line="102" column="0" severity="warning" message="Files should have a single trailing newline." source="swiftlint.rules.trailing_newline"/>
+		<error line="50" column="9" severity="warning" message="Else and catch should be on the same line, one space after the previous declaration." source="swiftlint.rules.statement_position"/>
+		<error line="62" column="9" severity="warning" message="Else and catch should be on the same line, one space after the previous declaration." source="swiftlint.rules.statement_position"/>
+		<error line="93" column="0" severity="warning" message="Limit vertical whitespace to a single empty line. Currently 2." source="swiftlint.rules.vertical_whitespace"/>
+		<error line="20" column="22" severity="warning" message="Variable name should be between 3 and 40 characters long: &apos;id&apos;" source="swiftlint.rules.identifier_name"/>
+		<error line="24" column="24" severity="warning" message="Variable name should be between 3 and 40 characters long: &apos;id&apos;" source="swiftlint.rules.identifier_name"/>
+		<error line="38" column="22" severity="warning" message="Variable name should be between 3 and 40 characters long: &apos;id&apos;" source="swiftlint.rules.identifier_name"/>
+		<error line="55" column="24" severity="warning" message="Variable name should be between 3 and 40 characters long: &apos;id&apos;" source="swiftlint.rules.identifier_name"/>
+	</file>
+	<file name="/Users/habib/iOS/task/task/service/Networking.swift">
+		<error line="19" column="52" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
+		<error line="26" column="60" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
+		<error line="32" column="123" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
+		<error line="33" column="61" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
+		<error line="39" column="39" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
+	</file>
+	<file name="/Users/habib/iOS/task/task/supporting files/Constants.swift">
+		<error line="16" column="0" severity="warning" message="Files should have a single trailing newline." source="swiftlint.rules.trailing_newline"/>
+		<error line="16" column="0" severity="warning" message="Limit vertical whitespace to a single empty line. Currently 3." source="swiftlint.rules.vertical_whitespace"/>
+	</file>
+	<file name="/Users/habib/iOS/task/task/view/DescriptionView.swift">
+		<error line="10" column="30" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
+		<error line="35" column="5" severity="warning" message="MARK comment should be in valid format. e.g. &apos;// MARK: ...&apos; or &apos;// MARK: - ...&apos;" source="swiftlint.rules.mark"/>
+		<error line="82" column="0" severity="warning" message="Limit vertical whitespace to a single empty line. Currently 2." source="swiftlint.rules.vertical_whitespace"/>
+	</file>
+	<file name="/Users/habib/iOS/task/task/view/HomeViewController.swift">
+		<error line="128" column="5" severity="warning" message="MARK comment should be in valid format. e.g. &apos;// MARK: ...&apos; or &apos;// MARK: - ...&apos;" source="swiftlint.rules.mark"/>
+		<error line="163" column="1" severity="warning" message="MARK comment should be in valid format. e.g. &apos;// MARK: ...&apos; or &apos;// MARK: - ...&apos;" source="swiftlint.rules.mark"/>
+		<error line="44" column="0" severity="warning" message="Limit vertical whitespace to a single empty line. Currently 2." source="swiftlint.rules.vertical_whitespace"/>
+		<error line="162" column="0" severity="warning" message="Limit vertical whitespace to a single empty line. Currently 2." source="swiftlint.rules.vertical_whitespace"/>
+	</file>
+	<file name="/Users/habib/iOS/task/task/view/NoteViewController.swift">
+		<error line="15" column="55" severity="warning" message="There should be no space before and one after any comma." source="swiftlint.rules.comma"/>
+		<error line="13" column="45" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
+		<error line="15" column="81" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
+		<error line="97" column="27" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
+		<error line="114" column="39" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
+		<error line="136" column="99" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
+		<error line="18" column="9" severity="warning" message="Else and catch should be on the same line, one space after the previous declaration." source="swiftlint.rules.statement_position"/>
+		<error line="138" column="9" severity="warning" message="Else and catch should be on the same line, one space after the previous declaration." source="swiftlint.rules.statement_position"/>
+		<error line="31" column="5" severity="warning" message="MARK comment should be in valid format. e.g. &apos;// MARK: ...&apos; or &apos;// MARK: - ...&apos;" source="swiftlint.rules.mark"/>
+		<error line="36" column="5" severity="warning" message="MARK comment should be in valid format. e.g. &apos;// MARK: ...&apos; or &apos;// MARK: - ...&apos;" source="swiftlint.rules.mark"/>
+		<error line="131" column="5" severity="warning" message="MARK comment should be in valid format. e.g. &apos;// MARK: ...&apos; or &apos;// MARK: - ...&apos;" source="swiftlint.rules.mark"/>
+		<error line="91" column="16" severity="warning" message="Variable name should be between 3 and 40 characters long: &apos;id&apos;" source="swiftlint.rules.identifier_name"/>
+		<error line="97" column="16" severity="warning" message="Variable name should be between 3 and 40 characters long: &apos;id&apos;" source="swiftlint.rules.identifier_name"/>
+		<error line="103" column="16" severity="warning" message="Variable name should be between 3 and 40 characters long: &apos;id&apos;" source="swiftlint.rules.identifier_name"/>
+	</file>
+	<file name="/Users/habib/iOS/task/task/view/RepoCell.swift">
+		<error line="1" column="0" severity="warning" message="File shouldn&apos;t start with whitespace: currently starts with 1 whitespace characters" source="swiftlint.rules.leading_whitespace"/>
+		<error line="84" column="52" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
+		<error line="99" column="0" severity="warning" message="Files should have a single trailing newline." source="swiftlint.rules.trailing_newline"/>
+		<error line="40" column="5" severity="warning" message="MARK comment should be in valid format. e.g. &apos;// MARK: ...&apos; or &apos;// MARK: - ...&apos;" source="swiftlint.rules.mark"/>
+		<error line="83" column="0" severity="warning" message="Limit vertical whitespace to a single empty line. Currently 2." source="swiftlint.rules.vertical_whitespace"/>
+	</file>
+</checkstyle>
