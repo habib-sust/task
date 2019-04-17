@@ -12,7 +12,7 @@ struct Repository : Codable {
     let repoName: String?
     let owner: Owner?
     let description: String?
-    let fork:Bool?
+    let fork: Bool?
     
     enum CodingKeys: String, CodingKey {
         case id
