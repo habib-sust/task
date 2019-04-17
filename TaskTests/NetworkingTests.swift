@@ -52,7 +52,7 @@ struct MockNetworking: Networking {
         self.error = error
     }
     
-    func get(from stringURL: String, onCompletion: @escaping completionHandler) {
+    func get(from stringURL: String, onCompletion: @escaping CompletionHandler) {
         if let error = error {
             onCompletion(.onFailure(error))
             return
