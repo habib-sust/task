@@ -9,7 +9,8 @@ target 'Task' do
    pod 'Kingfisher', '~> 5.0'
    pod 'RealmSwift'
    pod 'SwiftLint'
-
+   pod 'OpenSSL-Static', '1.0.2.c1'
+   
   target 'TaskTests' do
     inherit! :search_paths
     # Pods for testing
