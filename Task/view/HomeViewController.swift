@@ -9,7 +9,7 @@
 import UIKit
 final class HomeViewController: UIViewController {
    private struct ViewMetrics {
-        static let tableViewPaddingTop: CGFloat = 100
+        static let tableViewPaddingTop: CGFloat = 10
         static let tableViewPaddingBottom: CGFloat = 10
     }
 

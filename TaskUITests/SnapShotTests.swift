@@ -16,36 +16,6 @@ class SnapShotTests: FBSnapshotTestCase {
         self.recordMode = false
     }
     
-//    override func recordFailure(withDescription description: String, inFile filePath: String, atLine lineNumber: Int, expected: Bool) {
-//        let imageData = app.screenshot().image.pngData()
-//
-//        if let path = failureImageDirectoryPath?
-//            .appendingPathComponent("/")
-//            .appendingPathComponent("\(self)_\(lineNumber)") {
-//
-//            try? imageData?.write(to: path)
-//        }
-//
-//        super.recordFailure(withDescription: description, inFile: filePath, atLine: lineNumber, expected: expected)
-//    }
-//
-//    private var failureImageDirectoryPath: URL? {
-//        let fileManager = FileManager.default
-//        guard let pathString = ProcessInfo.processInfo.environment["FAILED_UI_TEST_DIR"] else {
-//            return nil
-//        }
-//
-//        let path = URL(fileURLWithPath: pathString)
-//        if !fileManager.fileExists(atPath: path.absoluteString) {
-//            try? fileManager.createDirectory(
-//                at: path,
-//                withIntermediateDirectories: true,
-//                attributes: nil
-//            )
-//        }
-//        return path
-//    }
-    
     func testExample() {
         
         let homeController = HomeViewController()
