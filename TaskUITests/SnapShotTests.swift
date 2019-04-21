@@ -50,7 +50,7 @@ class SnapShotTests: FBSnapshotTestCase {
         
         let homeController = HomeViewController()
         _ = homeController.view
-//        sleep(2)
+        sleep(6)
         
         FBSnapshotVerifyView(homeController.view)
         
