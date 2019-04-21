@@ -58,7 +58,7 @@ class SnapShotTests: FBSnapshotTestCase {
     
     func testNoteView() {
         let noteController = NoteViewController()
-//        noteController.userId = 455600
+        noteController.userId = 455600
         _ = noteController.view
         FBSnapshotVerifyView(noteController.view)
     }
