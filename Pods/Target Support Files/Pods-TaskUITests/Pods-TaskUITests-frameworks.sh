@@ -153,17 +153,9 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Quick/Quick.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/SwinjectAutoregistration/SwinjectAutoregistration.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/iOSSnapshotTestCase/FBSnapshotTestCase.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Quick/Quick.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/SwinjectAutoregistration/SwinjectAutoregistration.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/iOSSnapshotTestCase/FBSnapshotTestCase.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

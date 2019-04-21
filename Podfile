@@ -9,7 +9,7 @@ target 'Task' do
    pod 'Kingfisher', '~> 5.0'
    pod 'RealmSwift'
    pod 'SwiftLint'
-   pod 'OpenSSL-Static', '1.0.2.c1'
+
    
   target 'TaskTests' do
     inherit! :search_paths
@@ -19,6 +19,13 @@ target 'Task' do
     pod 'Quick'
     pod 'Nimble'
     pod 'SwiftLint'
+    pod 'iOSSnapshotTestCase'
+  end
+  
+  target 'TaskUITests' do
+    use_frameworks!
+    inherit! :search_paths
+    pod 'iOSSnapshotTestCase'
   end
 
   target 'WatchDemo Extension' do 

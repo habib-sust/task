@@ -1,7 +1,11 @@
 PODS:
+  - iOSSnapshotTestCase (6.0.3):
+    - iOSSnapshotTestCase/SwiftSupport (= 6.0.3)
+  - iOSSnapshotTestCase/Core (6.0.3)
+  - iOSSnapshotTestCase/SwiftSupport (6.0.3):
+    - iOSSnapshotTestCase/Core
   - Kingfisher (5.2.0)
   - Nimble (8.0.1)
-  - OpenSSL-Static (1.0.2.c1)
   - Quick (2.0.0)
   - Realm (3.14.0):
     - Realm/Headers (= 3.14.0)
@@ -14,9 +18,9 @@ PODS:
     - Swinject (~> 2.5)
 
 DEPENDENCIES:
+  - iOSSnapshotTestCase
   - Kingfisher (~> 5.0)
   - Nimble
-  - OpenSSL-Static (= 1.0.2.c1)
   - Quick
   - RealmSwift
   - SwiftLint
@@ -25,9 +29,9 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - iOSSnapshotTestCase
     - Kingfisher
     - Nimble
-    - OpenSSL-Static
     - Quick
     - Realm
     - RealmSwift
@@ -36,9 +40,9 @@ SPEC REPOS:
     - SwinjectAutoregistration
 
 SPEC CHECKSUMS:
+  iOSSnapshotTestCase: 944a73f6d9676302811a86c0cf35f0e6ef5ab2a0
   Kingfisher: 07067cfacf371117330dceb4b4b8f5c4b691ab42
   Nimble: 45f786ae66faa9a709624227fae502db55a8bdd0
-  OpenSSL-Static: bd17e34564a8591ad76b740318683a6caa19a13e
   Quick: ce1276c7c27ba2da3cb2fd0cde053c3648b3b22d
   Realm: 221b25919bb5a010a3c597d707f8df3492dcd93a
   RealmSwift: 28f22dfa6a27b9a778cfb09471558b6afcf1022c
@@ -46,6 +50,6 @@ SPEC CHECKSUMS:
   Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
   SwinjectAutoregistration: f72bf894cbd2ee4a9153e00fa5208e93fb44d283
 
-PODFILE CHECKSUM: 12dab78dc88dc0adef41c0228ddfbcf7eba6ff9b
+PODFILE CHECKSUM: 6035414dbf2aaab25dc668c4379976473504539e
 
 COCOAPODS: 1.6.1
