@@ -6,27 +6,10 @@ default_platform(:ios)
 
 platform :ios do
 
-project = "Task.xcodeproj"
-workspace = "Task.workspace"
-test_target = "UnitTests"
-derived_data_path = "fastlane/derived_data-path"
-test_devices = ["iPhone X"]
-
   lane :test do
     run_tests( scheme: "Task", code_coverage: true)
   end
 
-  lane :unit_test do
-    scan(
-        project: project,
-        derived_data_path: derived_data_path,
-        build_for_testing: true,
-        devices = test_devices
-    )
-  end
-
-lane : take_snaps do |options|
-end
   lane :lint do
     swiftlint(
 	  mode: :lint,
@@ -34,7 +17,7 @@ end
 	  output_file: "./test-reports/checkstyle-reports.xml",
 	  config_file: "fastlane/.swiftlint.yml",
 	  executable: "./Pods/SwiftLint/swiftlint"
-    )
+       )
   end
 
 
