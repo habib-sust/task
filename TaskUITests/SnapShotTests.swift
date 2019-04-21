@@ -13,7 +13,7 @@ class SnapShotTests: FBSnapshotTestCase {
     
     override func setUp() {
         super.setUp()
-        self.recordMode = false
+        self.recordMode = true
     }
     
 //    override func recordFailure(withDescription description: String, inFile filePath: String, atLine lineNumber: Int, expected: Bool) {
