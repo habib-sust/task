@@ -11,26 +11,26 @@ import FBSnapshotTestCase
 
 class SnapShotTests: FBSnapshotTestCase {
     
-    override func setUp() {
-        super.setUp()
-        self.recordMode = false
-    }
-    
-    func testExample() {
-        
-        let homeController = HomeViewController()
-        _ = homeController.view
-        sleep(6)
-        
-        FBSnapshotVerifyView(homeController.view)
-        
-    }
-    
-    func testNoteView() {
-        let noteController = NoteViewController()
-        noteController.userId = 455600
-        _ = noteController.view
-        FBSnapshotVerifyView(noteController.view)
-    }
+//    override func setUp() {
+//        super.setUp()
+//        self.recordMode = false
+//    }
+//    
+//    func testExample() {
+//        
+//        let homeController = HomeViewController()
+//        _ = homeController.view
+//        sleep(6)
+//        
+//        FBSnapshotVerifyView(homeController.view)
+//        
+//    }
+//    
+//    func testNoteView() {
+//        let noteController = NoteViewController()
+//        noteController.userId = 455600
+//        _ = noteController.view
+//        FBSnapshotVerifyView(noteController.view)
+//    }
 
 }
