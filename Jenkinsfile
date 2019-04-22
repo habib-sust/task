@@ -17,8 +17,8 @@ node {
 	//Publish test results
 	step([
 	  $class: 'JUnitResultArchiver', 
-	  allowEmptyResults: false, 
-	  testResults: 'test-output/report.junit'
+	  allowEmptyResults: true, 
+	  testResults: '../test-reports/report.junit'
 	])
 
   }
