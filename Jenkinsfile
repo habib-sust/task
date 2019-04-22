@@ -27,8 +27,8 @@ node {
 	parallel Coverage: {
 	  //Generate Code Coverage Report
 	  sh 'slather coverage --scheme Task --workspace ./Task.xcworkspace ./Task.xcodeproj'
-
-	 publishXML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'test-reports', reportFiles: 'cobertura.xml', reportName: 'Coverage Report'])
+	  //Publish Coverage Report
+	  cobertura coberturaReportFile: 'test-reports/cobertura.xml'
 	}
   }
 }
