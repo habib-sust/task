@@ -25,10 +25,16 @@ node {
 
   stage('Analytics') {
 	parallel Coverage: {
+
 	  //Generate Code Coverage Report
 	  sh 'slather coverage --scheme Task --workspace ./Task.xcworkspace ./Task.xcodeproj'
+
 	  //Publish Coverage Report
 	  cobertura coberturaReportFile: 'test-reports/cobertura.xml'
+	}, Checkstyle: {
+	   sh 'bundle exec fastlane lint'
+
+	  recordIssues enabledForFailure: true, aggregatingResults: true, tool: checkStyle(pattern: 'test-reports/checkstyle-reports.xml')
 	}
   }
 }
