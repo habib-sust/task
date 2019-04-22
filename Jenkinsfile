@@ -34,7 +34,7 @@ node {
 	}, Checkstyle: {
 	   sh 'bundle exec fastlane lint'
 
-	  recordIssues enabledForFailure: true, aggregatingResults: true, tool: checkStyle(pattern: 'test-reports/checkstyle-reports.xml')
+	  recordIssues enabledForFailure: true, aggregatingResults: true, tool: swiftLint(pattern: 'test-reports/checkstyle-reports.xml')
 	}
   }
 }
