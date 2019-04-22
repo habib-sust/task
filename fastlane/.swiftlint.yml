@@ -35,4 +35,4 @@ function_parameter_count:
   error: 15
 
 # reporter type (xcode, json, csv, checkstyle)
-reporter: "xcode"
+reporter: "checkstyle"

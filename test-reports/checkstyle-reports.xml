@@ -89,26 +89,26 @@
 		<error line="82" column="0" severity="warning" message="Limit vertical whitespace to a single empty line. Currently 2." source="swiftlint.rules.vertical_whitespace"/>
 	</file>
 	<file name="/Users/habib/iOS/task/task/view/HomeViewController.swift">
-		<error line="128" column="5" severity="warning" message="MARK comment should be in valid format. e.g. &apos;// MARK: ...&apos; or &apos;// MARK: - ...&apos;" source="swiftlint.rules.mark"/>
-		<error line="163" column="1" severity="warning" message="MARK comment should be in valid format. e.g. &apos;// MARK: ...&apos; or &apos;// MARK: - ...&apos;" source="swiftlint.rules.mark"/>
 		<error line="44" column="0" severity="warning" message="Limit vertical whitespace to a single empty line. Currently 2." source="swiftlint.rules.vertical_whitespace"/>
 		<error line="162" column="0" severity="warning" message="Limit vertical whitespace to a single empty line. Currently 2." source="swiftlint.rules.vertical_whitespace"/>
+		<error line="128" column="5" severity="warning" message="MARK comment should be in valid format. e.g. &apos;// MARK: ...&apos; or &apos;// MARK: - ...&apos;" source="swiftlint.rules.mark"/>
+		<error line="163" column="1" severity="warning" message="MARK comment should be in valid format. e.g. &apos;// MARK: ...&apos; or &apos;// MARK: - ...&apos;" source="swiftlint.rules.mark"/>
 	</file>
 	<file name="/Users/habib/iOS/task/task/view/NoteViewController.swift">
-		<error line="15" column="55" severity="warning" message="There should be no space before and one after any comma." source="swiftlint.rules.comma"/>
 		<error line="13" column="45" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
 		<error line="15" column="81" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
 		<error line="97" column="27" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
 		<error line="114" column="39" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
 		<error line="136" column="99" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
-		<error line="18" column="9" severity="warning" message="Else and catch should be on the same line, one space after the previous declaration." source="swiftlint.rules.statement_position"/>
-		<error line="138" column="9" severity="warning" message="Else and catch should be on the same line, one space after the previous declaration." source="swiftlint.rules.statement_position"/>
-		<error line="31" column="5" severity="warning" message="MARK comment should be in valid format. e.g. &apos;// MARK: ...&apos; or &apos;// MARK: - ...&apos;" source="swiftlint.rules.mark"/>
-		<error line="36" column="5" severity="warning" message="MARK comment should be in valid format. e.g. &apos;// MARK: ...&apos; or &apos;// MARK: - ...&apos;" source="swiftlint.rules.mark"/>
-		<error line="131" column="5" severity="warning" message="MARK comment should be in valid format. e.g. &apos;// MARK: ...&apos; or &apos;// MARK: - ...&apos;" source="swiftlint.rules.mark"/>
 		<error line="91" column="16" severity="warning" message="Variable name should be between 3 and 40 characters long: &apos;id&apos;" source="swiftlint.rules.identifier_name"/>
 		<error line="97" column="16" severity="warning" message="Variable name should be between 3 and 40 characters long: &apos;id&apos;" source="swiftlint.rules.identifier_name"/>
 		<error line="103" column="16" severity="warning" message="Variable name should be between 3 and 40 characters long: &apos;id&apos;" source="swiftlint.rules.identifier_name"/>
+		<error line="15" column="55" severity="warning" message="There should be no space before and one after any comma." source="swiftlint.rules.comma"/>
+		<error line="31" column="5" severity="warning" message="MARK comment should be in valid format. e.g. &apos;// MARK: ...&apos; or &apos;// MARK: - ...&apos;" source="swiftlint.rules.mark"/>
+		<error line="36" column="5" severity="warning" message="MARK comment should be in valid format. e.g. &apos;// MARK: ...&apos; or &apos;// MARK: - ...&apos;" source="swiftlint.rules.mark"/>
+		<error line="131" column="5" severity="warning" message="MARK comment should be in valid format. e.g. &apos;// MARK: ...&apos; or &apos;// MARK: - ...&apos;" source="swiftlint.rules.mark"/>
+		<error line="18" column="9" severity="warning" message="Else and catch should be on the same line, one space after the previous declaration." source="swiftlint.rules.statement_position"/>
+		<error line="138" column="9" severity="warning" message="Else and catch should be on the same line, one space after the previous declaration." source="swiftlint.rules.statement_position"/>
 	</file>
 	<file name="/Users/habib/iOS/task/task/view/RepoCell.swift">
 		<error line="1" column="0" severity="warning" message="File shouldn&apos;t start with whitespace: currently starts with 1 whitespace characters" source="swiftlint.rules.leading_whitespace"/>
@@ -116,5 +116,9 @@
 		<error line="99" column="0" severity="warning" message="Files should have a single trailing newline." source="swiftlint.rules.trailing_newline"/>
 		<error line="40" column="5" severity="warning" message="MARK comment should be in valid format. e.g. &apos;// MARK: ...&apos; or &apos;// MARK: - ...&apos;" source="swiftlint.rules.mark"/>
 		<error line="83" column="0" severity="warning" message="Limit vertical whitespace to a single empty line. Currently 2." source="swiftlint.rules.vertical_whitespace"/>
+	</file>
+	<file name="/Users/habib/iOS/task/task/view/SwiftLintTestFile.swift">
+		<error line="12" column="17" severity="warning" message="Opening braces should be preceded by a single space and on the same line as the declaration." source="swiftlint.rules.opening_brace"/>
+		<error line="17" column="0" severity="warning" message="Limit vertical whitespace to a single empty line. Currently 4." source="swiftlint.rules.vertical_whitespace"/>
 	</file>
 </checkstyle>

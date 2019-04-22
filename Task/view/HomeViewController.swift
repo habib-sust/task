@@ -21,7 +21,7 @@ final class HomeViewController: UIViewController {
     }()
     private var tableView = UITableView()
     
-    //***** MARK: - Properties *****
+//    ***** MARK: - Properties *****
     private var repositories = [Repository]() {
         didSet {
             updateUI()

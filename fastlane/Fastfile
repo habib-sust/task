@@ -1,13 +1,20 @@
 default_platform(:ios)
 
-  before_all do
-	sh 'mkdir ../reports || true'
-  end
-
 platform :ios do
 
+  ############## PRE ###################
+  before_all do
+	#ensure_git_status_clean(show_uncommitted_changes: true)
+	sh 'mkdir ../test-reports || true'
+  end
+
+
+  ############# PUBLIC LANES ################
   lane :test do
-    run_tests( scheme: "Task", code_coverage: true)
+    run_tests(
+      scheme: "Task",
+      code_coverage: true
+    )
   end
 
   lane :lint do
@@ -20,14 +27,12 @@ platform :ios do
        )
   end
 
-
   lane :coverage do
     slather(
-	  html: true,
-	  show: true,
 	  scheme: "Task",
 	  proj: "Task.xcodeproj",
 	  workspace: "Task.workspace"
 	)
   end 
+
 end

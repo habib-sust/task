@@ -7,3 +7,14 @@
 //
 
 import Foundation
+class SwiftLintTestFile {
+    
+    func hello(){
+        print("Hell0 WOrld")
+    
+    
+    
+    
+    print("SWIFFFFFFT")
+    }
+}

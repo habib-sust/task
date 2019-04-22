@@ -53,6 +53,7 @@
 		17D76CF3223A5D8B00D41AA0 /* NotePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D76CF2223A5D8B00D41AA0 /* NotePresenter.swift */; };
 		17F7A578226C3DEE00FAF1D3 /* SnapShotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F7A577226C3DEE00FAF1D3 /* SnapShotTests.swift */; };
 		17F7A579226C3DEE00FAF1D3 /* SnapShotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F7A577226C3DEE00FAF1D3 /* SnapShotTests.swift */; };
+		17F7A57B226C82D600FAF1D3 /* SwiftLintTestFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F7A57A226C82D600FAF1D3 /* SwiftLintTestFile.swift */; };
 		17FB633E2240AD190052A280 /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB633D2240AD190052A280 /* HomePresenterTests.swift */; };
 		5435FCF43DAA408141CE94A8 /* Pods_TaskTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A226C1634BCC745E8AC37682 /* Pods_TaskTests.framework */; };
 		7B5BF11B22429A9B00DA0DF3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5BF11A22429A9B00DA0DF3 /* main.swift */; };
@@ -162,6 +163,7 @@
 		17D76CF0223A5C7B00D41AA0 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		17D76CF2223A5D8B00D41AA0 /* NotePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePresenter.swift; sourceTree = "<group>"; };
 		17F7A577226C3DEE00FAF1D3 /* SnapShotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapShotTests.swift; sourceTree = "<group>"; };
+		17F7A57A226C82D600FAF1D3 /* SwiftLintTestFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLintTestFile.swift; sourceTree = "<group>"; };
 		17FB633D2240AD190052A280 /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
 		17FB63452240FB3F0052A280 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3322CF69D2CF7A117CC68618 /* Pods-Task.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task.debug.xcconfig"; path = "Target Support Files/Pods-Task/Pods-Task.debug.xcconfig"; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				17D76CEE223A4E0D00D41AA0 /* NoteViewController.swift */,
 				17B40FBD2238F61700C8882D /* RepoCell.swift */,
 				17B40FBF2239036A00C8882D /* DescriptionView.swift */,
+				17F7A57A226C82D600FAF1D3 /* SwiftLintTestFile.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -868,6 +871,7 @@
 				17B40FB52238DB3000C8882D /* Networking.swift in Sources */,
 				17D76CEF223A4E0D00D41AA0 /* NoteViewController.swift in Sources */,
 				17B40FC02239036A00C8882D /* DescriptionView.swift in Sources */,
+				17F7A57B226C82D600FAF1D3 /* SwiftLintTestFile.swift in Sources */,
 				17B69CF422521E5200E47A97 /* StringTrailingTrimmedExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
