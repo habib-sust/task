@@ -18,7 +18,7 @@ node {
 	step([
 	  $class: 'JUnitResultArchiver', 
 	  allowEmptyResults: true, 
-	  testResults: 'build/reports/junit.xml'
+	  testResults: 'fastlane/test_output/report.junit'
 	])
 
   }
