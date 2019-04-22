@@ -18,7 +18,7 @@ node {
 	step([
 	  $class: 'JUnitResultArchiver', 
 	  allowEmptyResults: true, 
-	  testResults: '../test-reports/report.junit'
+	  testResults: 'build/reports/junit.xml''
 	])
 
   }
