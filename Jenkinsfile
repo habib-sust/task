@@ -26,7 +26,7 @@ node {
   stage('Analytics') {
 	parallel Coverage: {
 	  //Generate Code Coverage Report
-	  sh 'slather coverage --jenkins --cobertura --scheme Task --workspace ./Task.xcworkspace ./Task.xcodeproj'
+	  sh 'slather coverage --scheme Task --workspace ./Task.xcworkspace ./Task.xcodeproj'
 
 	 publishXML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'test-reports', reportFiles: 'cobertura.xml', reportName: 'Coverage Report'])
 	}
