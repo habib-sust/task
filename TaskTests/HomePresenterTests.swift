@@ -129,7 +129,7 @@ class HomePresenterTests: XCTestCase {
 //    }
 }
 
-class MockHomeViewController: HomeViewable {
+class MockHomeViewController: UIViewController, HomeViewable {
     var testFetchRepositoriesDidCalledWithError = false
     var testFetchRepositoriesDidCalledWithFormatData = false
     var testStartProgressDidCalled = false

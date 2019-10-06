@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Owner : Codable {
+struct Owner : Codable, Equatable {
     let ownerName : String?
     let avatarURL : String?
     
@@ -22,5 +22,4 @@ struct Owner : Codable {
         ownerName = try values.decodeIfPresent(String.self, forKey: .ownerName)
         avatarURL = try values.decodeIfPresent(String.self, forKey: .avatarURL)
     }
-    
 }

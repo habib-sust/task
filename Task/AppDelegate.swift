@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         UINavigationBar.appearance().barTintColor = .customBlue
@@ -25,6 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = UINavigationController(rootViewController: HomeViewController())
         window?.rootViewController = navigationController
         WatchSessionManger.shared.startSession()
+        
+//        DispatchQueue.main.async {
+//            DispatchQueue.global().sync {
+//                print(#function)
+//            }
+//        }
         return true
     }
 

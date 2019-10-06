@@ -10,7 +10,7 @@
 import UIKit
 import Kingfisher
 
-class RepoCell: UITableViewCell, ReusableView {
+class RepoCell: UITableViewCell, Reusable {
     private struct ViewMetrics {
         static let avatarImageViewWidth: CGFloat = 50
         static let avatarImageViewHeight: CGFloat = 50

@@ -24,7 +24,6 @@ class TaskUITests: FBSnapshotTestCase {
     func testExample() {
         let homeController = HomeViewController()
         FBSnapshotVerifyView(homeController.view)
-        print("Hello")
     }
 
 

@@ -22,7 +22,7 @@ struct HTTPNetworking: Networking {
         task.resume()
     }
     
-    //******* MARK: - Private Methods *******
+    // MARK: - Private Methods
     private func createRequest(from url: URL) -> URLRequest{
         var request = URLRequest(url: url)
         request.cachePolicy = .useProtocolCachePolicy

@@ -30,7 +30,7 @@ protocol NoteEditable {
 
 struct NotePresenter: NoteAddable, NoteFetchable, NoteEditable {
     private weak var delegate: NoteViewable?
-    
+
     init(delegate: NoteViewable) {
         self.delegate = delegate
     }
@@ -70,12 +70,12 @@ struct NotePresenter: NoteAddable, NoteFetchable, NoteEditable {
                 delegate?.addOrEditNoteDidFailedWith("There is no note with this User ID: \(userId)")
                 return
             }
-            
+
             try Realm().write {
                 note.note = newNote
             }
             delegate?.addOrEditNoteSucceed()
-            
+
         } catch (let error) {
             delegate?.addOrEditNoteDidFailedWith(error.localizedDescription)
         }
@@ -86,10 +86,9 @@ struct NotePresenter: NoteAddable, NoteFetchable, NoteEditable {
         .objects(Note.self)
         .filter("userId == %d", userID)
         .first
-        
+
         return note
     }
-    
     
     func didChangeNote(saveNote: String, currentNote: String) -> Bool {
         if currentNote.trailingTrimmed() == saveNote.trailingTrimmed() {
@@ -97,6 +96,5 @@ struct NotePresenter: NoteAddable, NoteFetchable, NoteEditable {
         }
         return true
     }
-    
 }
 

@@ -11,6 +11,8 @@
 		1703BC742255C65400E491A3 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D76CF0223A5C7B00D41AA0 /* Note.swift */; };
 		1703BC762255C68200E491A3 /* NotePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D76CF2223A5D8B00D41AA0 /* NotePresenter.swift */; };
 		1703BC772255C69700E491A3 /* StringTrailingTrimmedExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B69CF322521E5200E47A97 /* StringTrailingTrimmedExtension.swift */; };
+		1707B6BD230BECB6000FFA01 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1707B6BB230BECB6000FFA01 /* DemoViewController.swift */; };
+		1707B6BE230BECB6000FFA01 /* DemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1707B6BC230BECB6000FFA01 /* DemoViewController.xib */; };
 		1725410F22546C8A00CC8CC2 /* NoteInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1725410E22546C8A00CC8CC2 /* NoteInterfaceController.swift */; };
 		175B3703226C355100E0926A /* TaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175B3702226C355100E0926A /* TaskUITests.swift */; };
 		17605BAA22533A2B00C02B9D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B40FB62238DB9000C8882D /* Result.swift */; };
@@ -121,6 +123,8 @@
 
 /* Begin PBXFileReference section */
 		0D4CF627C132BBD9C8EAE132 /* Pods-TaskUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskUITests.release.xcconfig"; path = "Target Support Files/Pods-TaskUITests/Pods-TaskUITests.release.xcconfig"; sourceTree = "<group>"; };
+		1707B6BB230BECB6000FFA01 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
+		1707B6BC230BECB6000FFA01 /* DemoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DemoViewController.xib; sourceTree = "<group>"; };
 		1725410E22546C8A00CC8CC2 /* NoteInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteInterfaceController.swift; sourceTree = "<group>"; };
 		175B3700226C355100E0926A /* TaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		175B3702226C355100E0926A /* TaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskUITests.swift; sourceTree = "<group>"; };
@@ -343,6 +347,8 @@
 				17B40FBD2238F61700C8882D /* RepoCell.swift */,
 				17B40FBF2239036A00C8882D /* DescriptionView.swift */,
 				17F7A57A226C82D600FAF1D3 /* SwiftLintTestFile.swift */,
+				1707B6BB230BECB6000FFA01 /* DemoViewController.swift */,
+				1707B6BC230BECB6000FFA01 /* DemoViewController.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -613,6 +619,7 @@
 				17B40F8A2238D60800C8882D /* LaunchScreen.storyboard in Resources */,
 				17B40F872238D60800C8882D /* Assets.xcassets in Resources */,
 				17B40F852238D60700C8882D /* Main.storyboard in Resources */,
+				1707B6BE230BECB6000FFA01 /* DemoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -871,6 +878,7 @@
 				17B40FB52238DB3000C8882D /* Networking.swift in Sources */,
 				17D76CEF223A4E0D00D41AA0 /* NoteViewController.swift in Sources */,
 				17B40FC02239036A00C8882D /* DescriptionView.swift in Sources */,
+				1707B6BD230BECB6000FFA01 /* DemoViewController.swift in Sources */,
 				17F7A57B226C82D600FAF1D3 /* SwiftLintTestFile.swift in Sources */,
 				17B69CF422521E5200E47A97 /* StringTrailingTrimmedExtension.swift in Sources */,
 			);

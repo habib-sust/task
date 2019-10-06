@@ -9,7 +9,7 @@
 import UIKit
 final class NoteViewController: UIViewController {
     
-    //***** MARK: - Views *****
+    //MARK: - Views
     private var noteTextView: UITextView =  {
         let textView = UITextView()
         if let font = UIFont(name: "Avenir", size: 17),  #available(iOS 11.0, *){
@@ -28,12 +28,12 @@ final class NoteViewController: UIViewController {
     private var presenter: NotePresenter?
     private let connectivityHandler = WatchSessionManger.shared
     
-    //***** MARK:- Properties *****
+    // MARK:- Properties
     var userId: Int?
     private var isSave = true
     private var savedNote = ""
     
-    //***** MARK:- View LifeCycle *****
+    // MARK:- View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = NotePresenter(delegate: self)
@@ -44,7 +44,7 @@ final class NoteViewController: UIViewController {
         fetchNote()
     }
 
-    //***** MARK: - Private Methods *****
+    // MARK: - Private Methods
     private func backgroundSetup() {
         view.backgroundColor = .white
     }
@@ -128,7 +128,7 @@ final class NoteViewController: UIViewController {
         }
     }
     
-    //***** MARK:- IBActions ***** 
+    // MARK:- IBActions
     @objc private func didTapSaveNoteButton(sender: Any) {
         if noteIsEmpty() {
             return
@@ -152,7 +152,7 @@ final class NoteViewController: UIViewController {
     }
 }
 
-//***** MARK: - NoteViewable Delegate *****
+// MARK: - NoteViewable Delegate
 extension NoteViewController: NoteViewable {
     func addOrEditNoteSucceed() {
         sendNoteInfoToWatchOS(note: noteTextView.text)

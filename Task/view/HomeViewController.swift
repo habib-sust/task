@@ -13,7 +13,7 @@ final class HomeViewController: UIViewController {
         static let tableViewPaddingBottom: CGFloat = 10
     }
 
-    //***** MARK: - Views *****
+    // MARK: - Views
     private var progressHud: UIActivityIndicatorView = {
         let progressHud = UIActivityIndicatorView(style: .gray)
         progressHud.hidesWhenStopped = true
@@ -21,7 +21,7 @@ final class HomeViewController: UIViewController {
     }()
     private var tableView = UITableView()
     
-//    ***** MARK: - Properties *****
+//  MARK: - Properties
     private var repositories = [Repository]() {
         didSet {
             updateUI()
@@ -42,7 +42,7 @@ final class HomeViewController: UIViewController {
     }
     
     
-    //***** MARK: - Private Methods *****
+    // MARK: - Private Methods
     private func setupBackground() {
         view.backgroundColor = .white
     }
@@ -51,7 +51,7 @@ final class HomeViewController: UIViewController {
         tableView.accessibilityIdentifier = "tableView"
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = UITableView.automaticDimension
-        tableView.register(RepoCell.self, forCellReuseIdentifier: RepoCell.reuseIdentifier)
+        tableView.register(RepoCell.self)
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
@@ -131,7 +131,7 @@ final class HomeViewController: UIViewController {
     }
 }
 
-//***** Mark: HomeDelegate
+// Mark: HomeDelegate
 extension HomeViewController: HomeViewable {
     func fetchRepositoriesFromCacheSucceedWith(_ repositories: [Repository]) {
         self.repositories = repositories
@@ -163,7 +163,7 @@ extension HomeViewController: HomeViewable {
 //MARK: - TableView Delegate & DataSource
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(forIndexPath: indexPath, withType: RepoCell.self)
+        let cell: RepoCell = tableView.dequeueCell(for: indexPath)
         cell.configureCell(with: repositories[indexPath.row])
         cell.layoutIfNeeded()
         return cell
